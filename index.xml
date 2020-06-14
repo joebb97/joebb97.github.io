@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Joseph Buiteweg</title>
+    <link>https://josephbuiteweg.com/</link>
+    <description>Joseph Buiteweg</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+    <atom:link href="https://josephbuiteweg.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Contact Joey</title>
+      <link>https://josephbuiteweg.com/contact/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://josephbuiteweg.com/contact/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;If you&amp;rsquo;re a peer or fellow engineer here to compare yourself to me by looking at my resume,
+I&amp;rsquo;d encourage you to read this: &lt;!-- raw HTML omitted --&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Email: joebb &amp;lt;at&amp;gt; umich &amp;lt;dot&amp;gt; edu&lt;/p&gt;
+&lt;p&gt;Otherwise if you&amp;rsquo;re a recruiter, feel free to click the link to my resume below&lt;/p&gt;
+&lt;p&gt;Resume: &lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;GitHub:&lt;/p&gt;
+&lt;p&gt;Gitlab:&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Even More About Me</title>
+      <link>https://josephbuiteweg.com/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://josephbuiteweg.com/about/</guid>
+      <description>&lt;p&gt;I am joey. Nuff said&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
