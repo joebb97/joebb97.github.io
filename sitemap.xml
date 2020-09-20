@@ -3,7 +3,13 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://www.josephbuiteweg.com/about/faq/</loc>
+    <loc>https://www.josephbuiteweg.com/extra/</loc>
+    <lastmod>2020-06-17T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.josephbuiteweg.com/extra/faq/</loc>
     <lastmod>2020-06-17T00:00:00+00:00</lastmod>
   </url>
   
@@ -14,11 +20,6 @@
   
   <url>
     <loc>https://www.josephbuiteweg.com/about/</loc>
-    <lastmod>2020-06-15T18:37:51-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.josephbuiteweg.com/projects/</loc>
     <lastmod>2020-06-15T18:37:51-04:00</lastmod>
   </url>
   
@@ -43,28 +44,7 @@
   </url>
   
   <url>
-    <loc>https://www.josephbuiteweg.com/tags/abeltaere/</loc>
-    <lastmod>2017-03-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.josephbuiteweg.com/music/things/</loc>
-    <lastmod>2017-03-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.josephbuiteweg.com/categories/music/</loc>
-    <lastmod>2017-03-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.josephbuiteweg.com/music/</loc>
-    <lastmod>2017-03-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.josephbuiteweg.com/tags/</loc>
-    <lastmod>2017-03-23T00:00:00+00:00</lastmod>
+    <loc>https://www.josephbuiteweg.com/projects/otamatone/</loc>
   </url>
   
   <url>
@@ -76,7 +56,11 @@
   </url>
   
   <url>
-    <loc>https://www.josephbuiteweg.com/blog/key-review/</loc>
+    <loc>https://www.josephbuiteweg.com/music/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.josephbuiteweg.com/extra/key-review/</loc>
   </url>
   
   <url>
@@ -84,11 +68,23 @@
   </url>
   
   <url>
+    <loc>https://www.josephbuiteweg.com/projects/</loc>
+  </url>
+  
+  <url>
     <loc>https://www.josephbuiteweg.com/series/</loc>
   </url>
   
   <url>
-    <loc>https://www.josephbuiteweg.com/about/can-you-not/</loc>
+    <loc>https://www.josephbuiteweg.com/projects/smartrooms/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.josephbuiteweg.com/extra/can-you-not/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.josephbuiteweg.com/tags/</loc>
   </url>
   
 </urlset>

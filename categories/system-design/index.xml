@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>system-design on Joseph Buiteweg</title>
+    <title>system-design on Joey Buiteweg</title>
     <link>https://www.josephbuiteweg.com/categories/system-design/</link>
-    <description>Joseph Buiteweg (system-design)</description>
+    <description>Joey Buiteweg (system-design)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 07 Jun 2020 00:00:00 +0000</lastBuildDate>
@@ -17,7 +17,9 @@
       <pubDate>Sun, 07 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://www.josephbuiteweg.com/blog/design-hints/</guid>
-      <description>&lt;p&gt;System design hints&lt;/p&gt;
+      <description>&lt;p&gt;A summary of &lt;a href=&#34;https://en.wikipedia.org/wiki/Butler_Lampson&#34; target=&#34;_blank&#34;&gt;Butler Lampson&lt;/a&gt;
+&amp;rsquo;s original &lt;a href=&#34;https://bwlampson.site/33-Hints/Acrobat.pdf&#34; target=&#34;_blank&#34;&gt;paper&lt;/a&gt;
+&lt;/p&gt;
 &lt;p&gt;2 Functionality:&lt;/p&gt;
 &lt;p&gt;2.1: Keep it simple
 - Do one thing at a time, do it well. Small, working, effective interfaces, they are contracts, shouldn’t try to do too much, don’t generalize

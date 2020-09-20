@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Even More About Me on Joseph Buiteweg</title>
-    <link>https://www.josephbuiteweg.com/about/</link>
-    <description>Joseph Buiteweg (Even More About Me)</description>
+    <title>Joey Buiteweg</title>
+    <link>https://www.josephbuiteweg.com/extra/</link>
+    <description>Joey Buiteweg</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 15 Jun 2020 18:37:51 -0400</lastBuildDate>
+    <lastBuildDate>Wed, 17 Jun 2020 00:00:00 +0000</lastBuildDate>
     
-    <atom:link href="https://www.josephbuiteweg.com/about/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://www.josephbuiteweg.com/extra/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>FAQ</title>
-      <link>https://www.josephbuiteweg.com/about/faq/</link>
+      <link>https://www.josephbuiteweg.com/extra/faq/</link>
       <pubDate>Wed, 17 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.josephbuiteweg.com/about/faq/</guid>
+      <guid>https://www.josephbuiteweg.com/extra/faq/</guid>
       <description>&lt;h2 id=&#34;why-is-your-website-pink&#34;&gt;Why is your website pink?&lt;/h2&gt;
 &lt;p&gt;My website is pink because I enjoy pink and pastel colors. I appreciate their friendly and comforting qualities, both of which I try my best to bring to my interactions with others.&lt;/p&gt;
 &lt;h2 id=&#34;thoughts-on-workplace-discrimination-of-all-shapes-and-sizes&#34;&gt;Thoughts on workplace discrimination of all shapes and sizes?&lt;/h2&gt;
@@ -37,6 +37,28 @@
 &lt;p&gt;Yes everything on this site is my own personal opinion and doesn&amp;rsquo;t necessarily reflect that of whoever employs me at any given time. Some might even call what I write here &lt;strong&gt;jokes&lt;/strong&gt; and &lt;strong&gt;satire&lt;/strong&gt;, but sadly words will only get us so far.&lt;/p&gt;
 &lt;p&gt;Much of programming and tech is quite subjective with only some absolutes. The above disclaimer is quite important.&lt;/p&gt;
 &lt;p&gt;If you disagree with the content you see here, don&amp;rsquo;t hesitate to reach out. I love discussing most all topics related to tech, even the most subjective ones.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>My First Review</title>
+      <link>https://www.josephbuiteweg.com/extra/key-review/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.josephbuiteweg.com/extra/key-review/</guid>
+      <description>&lt;p&gt;Following is a review of my favorite mechanical keyboard.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>STOP</title>
+      <link>https://www.josephbuiteweg.com/extra/can-you-not/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.josephbuiteweg.com/extra/can-you-not/</guid>
+      <description>&lt;p&gt;CAN YOU MAYBE NOT ??????&lt;/p&gt;
+&lt;p&gt;You and I both know this isn&amp;rsquo;t healthy for either of us, so let&amp;rsquo;s not.&lt;/p&gt;
+&lt;p&gt;Competition is fierce enough as it is in higher-education and the engineering world, so let&amp;rsquo;s not subject ourselves with nuance comparisons of resumes or LinkedINs, please and thank you.&lt;/p&gt;
 </description>
     </item>
     

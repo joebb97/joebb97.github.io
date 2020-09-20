@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Joseph Buiteweg</title>
+    <title>Joseph Buiteweg on Joey Buiteweg</title>
     <link>https://www.josephbuiteweg.com/</link>
-    <description>Joseph Buiteweg</description>
+    <description>Joey Buiteweg (Joseph Buiteweg)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 17 Jun 2020 00:00:00 +0000</lastBuildDate>
@@ -13,10 +13,10 @@
     
     <item>
       <title>FAQ</title>
-      <link>https://www.josephbuiteweg.com/about/faq/</link>
+      <link>https://www.josephbuiteweg.com/extra/faq/</link>
       <pubDate>Wed, 17 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.josephbuiteweg.com/about/faq/</guid>
+      <guid>https://www.josephbuiteweg.com/extra/faq/</guid>
       <description>&lt;h2 id=&#34;why-is-your-website-pink&#34;&gt;Why is your website pink?&lt;/h2&gt;
 &lt;p&gt;My website is pink because I enjoy pink and pastel colors. I appreciate their friendly and comforting qualities, both of which I try my best to bring to my interactions with others.&lt;/p&gt;
 &lt;h2 id=&#34;thoughts-on-workplace-discrimination-of-all-shapes-and-sizes&#34;&gt;Thoughts on workplace discrimination of all shapes and sizes?&lt;/h2&gt;
@@ -41,12 +41,18 @@
     </item>
     
     <item>
-      <title>Projects</title>
-      <link>https://www.josephbuiteweg.com/projects/</link>
+      <title>Even More About Me</title>
+      <link>https://www.josephbuiteweg.com/about/</link>
       <pubDate>Mon, 15 Jun 2020 18:37:51 -0400</pubDate>
       
-      <guid>https://www.josephbuiteweg.com/projects/</guid>
-      <description></description>
+      <guid>https://www.josephbuiteweg.com/about/</guid>
+      <description>&lt;h1 id=&#34;my-personal-blessings&#34;&gt;My Personal Blessings&lt;/h1&gt;
+&lt;p&gt;First, I&amp;rsquo;d like to acknowledge that as a cis-gendered, straight, white man, I am incredibly blessed and privileged to have lived the life I have.&lt;/p&gt;
+&lt;p&gt;I am fortunate to have grown up in Ann Arbor, MI and attended public schools that are well funded and have a decently diverse student body.&lt;/p&gt;
+&lt;p&gt;I attribute any success I have to that fact that I had a stable upbringing, two wonderful and successful parents who I look up to as role-models,
+and a strong network of people supporting me along my journey in life.&lt;/p&gt;
+&lt;p&gt;It makes very happy to see the progress that society is making towards both equality and equity.&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -55,7 +61,9 @@
       <pubDate>Sun, 07 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://www.josephbuiteweg.com/blog/design-hints/</guid>
-      <description>&lt;p&gt;System design hints&lt;/p&gt;
+      <description>&lt;p&gt;A summary of &lt;a href=&#34;https://en.wikipedia.org/wiki/Butler_Lampson&#34; target=&#34;_blank&#34;&gt;Butler Lampson&lt;/a&gt;
+&amp;rsquo;s original &lt;a href=&#34;https://bwlampson.site/33-Hints/Acrobat.pdf&#34; target=&#34;_blank&#34;&gt;paper&lt;/a&gt;
+&lt;/p&gt;
 &lt;p&gt;2 Functionality:&lt;/p&gt;
 &lt;p&gt;2.1: Keep it simple
 - Do one thing at a time, do it well. Small, working, effective interfaces, they are contracts, shouldn’t try to do too much, don’t generalize
@@ -99,13 +107,12 @@
     </item>
     
     <item>
-      <title>About Me</title>
-      <link>https://www.josephbuiteweg.com/music/things/</link>
-      <pubDate>Thu, 23 Mar 2017 00:00:00 +0000</pubDate>
+      <title>Auto-Otamatone</title>
+      <link>https://www.josephbuiteweg.com/projects/otamatone/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.josephbuiteweg.com/music/things/</guid>
-      <description>&lt;p&gt;I am music. Nuff said&lt;/p&gt;
-</description>
+      <guid>https://www.josephbuiteweg.com/projects/otamatone/</guid>
+      <description></description>
     </item>
     
     <item>
@@ -115,7 +122,7 @@
       
       <guid>https://www.josephbuiteweg.com/contact/</guid>
       <description>&lt;p&gt;If you&amp;rsquo;re a peer, student, or fellow engineer here to &lt;strong&gt;compare&lt;/strong&gt; yourself to me by looking at my resume,
-I&amp;rsquo;d encourage you to read &lt;a href=&#34;https://www.josephbuiteweg.com/about/can-you-not/&#34;&gt;this&lt;/a&gt;
+I&amp;rsquo;d encourage you to read &lt;a href=&#34;https://www.josephbuiteweg.com/extra/can-you-not/&#34;&gt;this&lt;/a&gt;
 &lt;/p&gt;
 &lt;p&gt;Otherwise, if you&amp;rsquo;re here as part of the hiring process, you probably already have my resume and phone number in some shape or form.&lt;/p&gt;
 &lt;p&gt;Email: joebb &amp;lt;at&amp;gt; umich &amp;lt;dot&amp;gt; edu&lt;/p&gt;
@@ -128,20 +135,29 @@ I&amp;rsquo;d encourage you to read &lt;a href=&#34;https://www.josephbuiteweg.c
     
     <item>
       <title>My First Review</title>
-      <link>https://www.josephbuiteweg.com/blog/key-review/</link>
+      <link>https://www.josephbuiteweg.com/extra/key-review/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.josephbuiteweg.com/blog/key-review/</guid>
+      <guid>https://www.josephbuiteweg.com/extra/key-review/</guid>
       <description>&lt;p&gt;Following is a review of my favorite mechanical keyboard.&lt;/p&gt;
 </description>
     </item>
     
     <item>
-      <title>STOP</title>
-      <link>https://www.josephbuiteweg.com/about/can-you-not/</link>
+      <title>Smart Rooms</title>
+      <link>https://www.josephbuiteweg.com/projects/smartrooms/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.josephbuiteweg.com/about/can-you-not/</guid>
+      <guid>https://www.josephbuiteweg.com/projects/smartrooms/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>STOP</title>
+      <link>https://www.josephbuiteweg.com/extra/can-you-not/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.josephbuiteweg.com/extra/can-you-not/</guid>
       <description>&lt;p&gt;CAN YOU MAYBE NOT ??????&lt;/p&gt;
 &lt;p&gt;You and I both know this isn&amp;rsquo;t healthy for either of us, so let&amp;rsquo;s not.&lt;/p&gt;
 &lt;p&gt;Competition is fierce enough as it is in higher-education and the engineering world, so let&amp;rsquo;s not subject ourselves with nuance comparisons of resumes or LinkedINs, please and thank you.&lt;/p&gt;
