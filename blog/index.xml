@@ -17,8 +17,8 @@
       <pubDate>Sun, 07 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://www.josephbuiteweg.com/blog/design-hints/</guid>
-      <description>&lt;p&gt;A summary of &lt;a href=&#34;https://en.wikipedia.org/wiki/Butler_Lampson&#34; target=&#34;_blank&#34;&gt;Butler Lampson&lt;/a&gt;
-&amp;rsquo;s original &lt;a href=&#34;https://bwlampson.site/33-Hints/Acrobat.pdf&#34; target=&#34;_blank&#34;&gt;paper&lt;/a&gt;
+      <description>&lt;p&gt;A summary of &lt;a href=&#34;https://en.wikipedia.org/wiki/Butler_Lampson&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;Butler Lampson&lt;/a&gt;
+&amp;rsquo;s original &lt;a href=&#34;https://bwlampson.site/33-Hints/Acrobat.pdf&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;paper&lt;/a&gt;
 &lt;/p&gt;
 &lt;p&gt;2 Functionality:&lt;/p&gt;
 &lt;p&gt;2.1: Keep it simple
