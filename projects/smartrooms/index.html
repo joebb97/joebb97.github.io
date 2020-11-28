@@ -17,7 +17,7 @@
 <link rel="apple-touch-icon-precomposed" href="https://www.josephbuiteweg.com/favicon.png">
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<link rel="stylesheet" href="https://www.josephbuiteweg.com/css/style.css?rnd=1600735253" />
+<link rel="stylesheet" href="https://www.josephbuiteweg.com/css/style.css?rnd=1606524761" />
 <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
 
 
@@ -75,7 +75,125 @@
             <hr>
         </header>
         <div class="content">
-            
+            <h2 id="demonstration">Demonstration</h2>
+<p>In this demo, I have the room&rsquo;s light set to be red. This is why the light changes when I enter the room.</p>
+<p>My project partner Sharang has it set to be orange, and since he has higher priority than me, the light changes to orange.</p>
+<p>After Sharang leaves, however, they change back to red.</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube-nocookie.com/embed/bgIFu333o0k" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<h2 id="quick-bullets">Quick Bullets</h2>
+<p>In this project my teammates and I:</p>
+<ul>
+<li>
+<p>Conceptualized a project to apply a user&rsquo;s settings for a specific rooms in their home automatically when the users presence in a room is detected. User settings included the music playing in a room and the brightness and color of the room&rsquo;s lights.</p>
+</li>
+<li>
+<p>Wrote and debugged firmware for the ESP32 SoC to gather Bluetooth Low Energy RSSI measurements, detect the presence of users carrying an Eddystone beacon, and to communicate with user peripherals like smart lightbulbs and speakers.</p>
+</li>
+<li>
+<p>Architected a web application for users to edit their settings, establish user priority, register devices and rooms, and communicate with measurement devices to update room settings using Flask, Python, Heroku, Jinja templates, and Postgres.</p>
+</li>
+<li>
+<p>Coordinated with teammates to enable successful communication between measurement devices, room peripherals, and the web application.</p>
+</li>
+<li>
+<p>Collaborated with other teammates confirm the requirements for our PCB and keep the project on schedule.</p>
+</li>
+<li>
+<p>Enforced access restrictions between user accounts to ensure safety, security, and integrity of sensitive user data.</p>
+</li>
+</ul>
+<h2 id="project-poster">Project Poster</h2>
+<p><figure class="md-image text-center">
+    <img src="/473poster.jpg" alt="The poster" class="figure-img img-fluid"/>
+    <figcaption></figcaption>
+</figure>
+</p>
+<h2 id="web-ui-screenshot">Web UI Screenshot</h2>
+<p><figure class="md-image text-center">
+    <img src="/473web-ui.png" alt="The UI" class="figure-img img-fluid"/>
+    <figcaption></figcaption>
+</figure>
+</p>
+<h2 id="system-architecture-flowchart">System Architecture Flowchart</h2>
+<p><figure class="md-image text-center">
+    <img src="/473flowchart.png" alt="The flowchart" class="figure-img img-fluid"/>
+    <figcaption></figcaption>
+</figure>
+</p>
+<h2 id="database-schema">Database Schema</h2>
+<p><figure class="md-image text-center">
+    <img src="/473db.png" alt="the schema" class="figure-img img-fluid"/>
+    <figcaption></figcaption>
+</figure>
+</p>
+<h2 id="hardware-utilized">Hardware Utilized</h2>
+<ul>
+<li>Raspberry Pi 3 running as an ethernet bridge and music speaker.</li>
+<li><a href="https://www.lifx.com/pages/lightbulbs" rel="noopener" target="_blank">LIFX Smart Lightbulb</a>
+</li>
+<li><a href="https://www.espressif.com/en/products/socs/esp32/overview" rel="noopener" target="_blank">ESP32 Wireless Soc</a>
+</li>
+<li><a href="https://store.radiusnetworks.com/collections/hardware/products/radbeacon-01-dot" rel="noopener" target="_blank">Radbeacon Eddystone Beacon</a>
+</li>
+<li><a href="https://www.amazon.com/gp/product/B001FWYGJS/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&amp;psc=1" rel="noopener" target="_blank">TP-Link N300 Router</a>
+</li>
+</ul>
+<h2 id="reflections">Reflections</h2>
+<p>This project could&rsquo;ve been improved in a couple of ways:</p>
+<ul>
+<li>
+<p>It was <strong>incredibly</strong> insecure and very much a <strong>privacy hazard</strong>. The webserver was never configured to use HTTPS, meaning an attacker could freely spy on a user&rsquo;s network to see which rooms they&rsquo;re in, modify their devices, etc. We literally sent unencrypted measurements of bluetooth RSSI from the ESP32 out through the internet to our webserver.</p>
+<ul>
+<li>
+<p>Despite this, if our novel prototype were a real product I&rsquo;m sure someone would&rsquo;ve bought or funded it though.</p>
+</li>
+<li>
+<p>🤔🤔🤔</p>
+</li>
+</ul>
+</li>
+<li>
+<p>The peripheral control and measurement devices connected to a user&rsquo;s home network using WPS, which is <a href="https://en.wikipedia.org/wiki/Wi-Fi_Protected_Setup#Vulnerabilities" rel="noopener" target="_blank">not secure</a>
+.</p>
+</li>
+<li>
+<p>No cryptography was used to verify that updates to a room&rsquo;s settings came from the Smart Rooms webserver. This means anyone who intercepted and sent the right HTTP replies to the right places could definitely change a user&rsquo;s settings without them asking, even with a home network&rsquo;s NAT firewall enabled.</p>
+<ul>
+<li>
+<p>The settings stored on the webserver weren&rsquo;t at risk here, but anyone could reply to the peripheral controlling devices that were polling for the room&rsquo;s settings with made up answers.</p>
+</li>
+<li>
+<p>Measurements from the ESP32 could be spoofed by anybody, anywhere, since they weren&rsquo;t authenticated. The ESP32 was simply identified by User-Agent, which anybody can lie about. This also means other users could lie about their ESP32&rsquo;s provided ID to read (but not modify) the settings of other users.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>In addition to almost nonexistent network security, we didn&rsquo;t really exercise any defensive programming practices for our C firmware running FreeRTOS.</p>
+<ul>
+<li>Our code had plenty of calls to <code>strcpy</code>, <code>sscanf</code>, <code>sprintf</code>, all of which are vulnerable to buffer overflow.</li>
+</ul>
+</li>
+</ul>
+<p>Overall, security wasn&rsquo;t considered for the project since it was simply a prototype and our biggest priority was just to get something working.</p>
+<ul>
+<li>
+<p>On the server side, we handled a fair amount of timestamped RSSI measurements. These measurements are really time-series data, which are well suited to be stored in a time-series database like <a href="https://www.influxdata.com/" rel="noopener" target="_blank">InfluxDB</a>
+. This is especially useful when deciding whether measurements indicate a user is in a room. This decision process could consider the average of the last N measurements from a device or use other algorithms. Regardless of the decision algorithm, a time-series database can greatly facilitiate querying timestamped data.</p>
+<ul>
+<li>
+<p>We used a relational database for our application, which was the right choice for the rest of our data since it had lots of structure. Homes have rooms, rooms have devices, so on and so on. But the RSSI measurements probably could&rsquo;ve been shoved into InfluxDB. The tradeoff here is added complexity and maintenance though, since two databases is more than one.</p>
+</li>
+<li>
+<p>Us being Computer Engineering and Electrical Engineering students, I think it&rsquo;s reasonable that none of us had ever heard of a time-series database when doing our project (the CS curriculum never talks about them either as far as I know). Knowing this family of databases exists will definitely be helpful in future IoT projects though.</p>
+</li>
+</ul>
+</li>
+</ul>
+
         </div>
     </article>
     
