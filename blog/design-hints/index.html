@@ -17,7 +17,7 @@
 <link rel="apple-touch-icon-precomposed" href="https://www.josephbuiteweg.com/favicon.png">
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<link rel="stylesheet" href="https://www.josephbuiteweg.com/css/style.css?rnd=1606524761" />
+<link rel="stylesheet" href="https://www.josephbuiteweg.com/css/style.css?rnd=1606538352" />
 <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
 
 
@@ -90,45 +90,148 @@
             <p>A summary of <a href="https://en.wikipedia.org/wiki/Butler_Lampson" rel="noopener" target="_blank">Butler Lampson</a>
 &rsquo;s original <a href="https://bwlampson.site/33-Hints/Acrobat.pdf" rel="noopener" target="_blank">paper</a>
 </p>
-<p>2 Functionality:</p>
-<p>2.1: Keep it simple
-- Do one thing at a time, do it well. Small, working, effective interfaces, they are contracts, shouldn’t try to do too much, don’t generalize
-- Get it right
-- Write specifications (then implement), document the abstract functionality provided by your application and its interfaces</p>
-<p>2.2: Corollaries
-- Make it fast rather than general or powerful.
-- Don’t hide the power of the interface, clients should know what it does well.
-- Sometimes provide flexibility (allow the client to provide what they want to make it both general and powerful)
-- Leave it to the client as long as it is cheap to pass control back and forth</p>
-<p>2.3: Continuity
-- Keep basic interfaces stable, they are contracts. Legacy is sometimes unavoidable, but you can spoof it when needed.
-- If you have to change interfaces, keep a place to stand, make sure stuff built on your old interface can still benefit from the new changes or even just work at all.
-- Sometimes need to put old interface on top of a new system (easier than rewriting the whole thing, this is how VMs work)</p>
-<p>2.4: Making implementations work
-- Plan to throw one away. Fail faster, you’re almost never going to get it right the first time (doesn’t mean you shouldn’t try).
-- Keep secrets of the implementation (but don’t hide power), don’t allow clients to assume things they shouldn’t. The fewer assumptions the better when needing to port things, hard to design/re-design interfaces.
-- Sometimes can benefit from adding more assumptions, but a balance is needed
-- Divide and conquer functionality. Reduce a hard problem into several smaller ones. Solve those smaller problems with effective interfaces and abstractions. Divide resources or limit them depending on what gives better output. Defer and avoid work or just substitute work for other things.
-- Use a good idea again instead of generalizing. Sometimes the specific implementation is better than trying to make that implementation work everywhere.</p>
-<p>2.5: Handling all the cases
-- Handle the normal and worst cases separately, the requirements are very different. Optimizing the tail is different from optimizing normal execution. The normal case must be fast, the worst case must make some progress.</p>
-<p>3 Speed
-- Split resources in a fixed way if in doubt, rather than sharing them. Allocator can be predictable, use registers instead of memory
-- Use static analysis if you can, don’t delude with bad one
-- Dynamic translation (Do expensive translation to faster context once, benefit overall).
-- Cache answers to expensive computations rather than doing them over. Don’t want to thrash though, need to be able to fit all active values.
-- Use hints to speed up normal execution. Hints can be wrong and might not result from an associated lookup. Need to be able to check its correctness. Check it against truth, supposed to make things run fast (must be correct nearly all the time). Routing sometimes uses this (BGP does)
-- When in doubt, use brute force, straightforward easily analyzed solution w/ special purpose computing is better than complex, poorly characterized one that only works well if some assumptions are satisfied.
-- ^Asymptotically faster algorithm is not necessarily better. Sometimes the dumb brute force thing just works better and is easier to deal with
-- Compute in the background when possible (defer work or do it when nobody is looking). Use the time allotted to you (consolidate things overnight).
-- Use batch processing. Do jobs in groups, normally the cost of starting each job individually plus doing the job outweighs the cost of doing them all at once. (Bank does all their computation jobs at once overnight).
-- Safety first, avoid disaster when allocating resources, don’t try to always try to be optimal. Overloading a system can drastically degrade its service. Leave head room for things if you can, don’t cause thrashing. Cleverness only really works if you know the load. CPU scheduling example, be lazy and safe some times
-- Shed load to control demand, rather than allowing the system to become overloaded. Like how MAC’s intentionally run a process that does empty CPU operations to cool it down. Drop packets as a router if it’s flooded, memory manager limits jobs. Worst case the system crashes and can start over with less load. Arpanet tried to always deliver a packet, but this lead to deadlocks a lot if a link goes down.</p>
-<p>4 Fault-tolerance
-- End-to-end, Error recovery at application level is required for reliable system (HANDLE YOUR EXCEPTIONS CORRECTLY! Idempotency matters here. Check the end-to-end errors, add intermediate checks if errors are super frequent. Routers again drop packets if something went wrong or notify the sender. Need cheap test for success, also might not see issues until heavy load
-- Log updates to record the truth about the state of an object. Log based file system is an example. Similar to record and replay. HAS TO BE IDEMPOTENT THOUGH in case you end up applying the same operation twice. Store versions of an object and make those versions immutable
-- Make actions atomic or restartable (transactions that complete or do nothing). Commit records in databases, an operation should either happen or it shouldn’t on a database. Again need a restartable operation (idempotent)
-- Replicate state across nodes (distributed systems).</p>
+<h1 id="2-functionality">2 Functionality</h1>
+<h2 id="21-keep-it-simple">2.1: Keep it simple</h2>
+<ul>
+<li>
+<p>Do one thing at a time, do it well. Make small, working, effective interfaces, they are contracts, don&rsquo;t try to do too much, don’t generalize.</p>
+</li>
+<li>
+<p>Get it right.</p>
+</li>
+<li>
+<p>Write specifications (then implement), document the abstract functionality provided by your application and its interfaces.</p>
+</li>
+</ul>
+<h2 id="22-corollaries">2.2: Corollaries</h2>
+<ul>
+<li>
+<p>Make it fast rather than general or powerful.</p>
+</li>
+<li>
+<p>Don’t hide the power of the interface, clients should know what it does well.</p>
+</li>
+<li>
+<p>Sometimes provide flexibility (allow the client to provide what they want to make it both general and powerful).</p>
+</li>
+<li>
+<p>Leave it to the client as long as it is cheap to pass control back and forth.</p>
+</li>
+</ul>
+<h2 id="23-continuity">2.3: Continuity</h2>
+<ul>
+<li>
+<p>Keep basic interfaces stable, they are contracts. Legacy is sometimes unavoidable, but you can spoof it when needed.</p>
+</li>
+<li>
+<p>If you have to change interfaces, keep a place to stand, make sure stuff built on your old interface can still benefit from the new changes or even just work at all.</p>
+</li>
+<li>
+<p>Sometimes need to put old interface on top of a new system (easier than rewriting the whole thing, this is where VMs come in handy).</p>
+</li>
+</ul>
+<h2 id="24-making-implementations-work">2.4: Making implementations work</h2>
+<ul>
+<li>
+<p>Plan to throw one away. Fail faster, you’re almost never going to get it right the first time (doesn’t mean you shouldn’t try).</p>
+</li>
+<li>
+<p>Keep secrets of the implementation (but don’t hide power), don’t allow clients to assume things they shouldn’t. The fewer assumptions the better when needing to port things, hard to design/re-design interfaces.</p>
+</li>
+<li>
+<p>Sometimes can benefit from adding more assumptions, but a balance is needed</p>
+</li>
+<li>
+<p>Divide and conquer functionality.</p>
+<ul>
+<li>Reduce a hard problem into several smaller ones.</li>
+<li>Solve those smaller problems with effective interfaces and abstractions.</li>
+<li>Divide resources or limit them depending on what gives better output.</li>
+<li>Defer and avoid work or just substitute work for other things.</li>
+</ul>
+</li>
+<li>
+<p>Use a good idea again instead of generalizing. Sometimes the specific implementation is better than trying to make that implementation work everywhere.</p>
+</li>
+</ul>
+<h2 id="25-handling-all-the-cases">2.5: Handling all the cases</h2>
+<ul>
+<li>Handle the normal and worst cases separately, the requirements are very different.
+<ul>
+<li>Optimizing the tail is different from optimizing normal execution.</li>
+<li>The normal case must be fast, the worst case must make some progress.</li>
+</ul>
+</li>
+</ul>
+<h1 id="3-speed">3 Speed</h1>
+<ul>
+<li>
+<p>Split resources in a fixed way if in doubt, rather than sharing them. Allocator can be predictable, use registers instead of memory.</p>
+</li>
+<li>
+<p>Use static analysis if you can, don’t delude with bad one.</p>
+</li>
+<li>
+<p>Dynamic translation (Do expensive translation to faster context once, benefit overall).</p>
+</li>
+<li>
+<p>Cache answers to expensive computations rather than doing them over. Don’t want to thrash though, need to be able to fit all active values.</p>
+</li>
+<li>
+<p>Use hints to speed up normal execution. Hints can be wrong and might not result from an associated lookup. Need to be able to check its correctness. Check it against truth, supposed to make things run fast (must be correct nearly all the time). Routing sometimes uses this (BGP does)</p>
+</li>
+<li>
+<p>When in doubt, use brute force, straightforward easily analyzed solution w/ special purpose computing is better than complex, poorly characterized one that only works well if some assumptions are satisfied.</p>
+</li>
+<li>
+<p>Asymptotically faster algorithm is not necessarily better. Sometimes the dumb brute force thing just works better and is easier to deal with.</p>
+</li>
+<li>
+<p>Compute in the background when possible (defer work or do it when nobody is looking). Use the time allotted to you (consolidate things overnight).</p>
+</li>
+<li>
+<p>Use batch processing. Do jobs in groups, normally the cost of starting each job individually plus doing the job outweighs the cost of doing them all at once. (Bank does all their computation jobs at once overnight).</p>
+</li>
+<li>
+<p>Safety first, avoid disaster when allocating resources, don’t try to always try to be optimal.</p>
+<ul>
+<li>Overloading a system can drastically degrade its service. Leave head room for things if you can, don’t cause thrashing.</li>
+<li>Cleverness only really works if you know the load. CPU scheduling example, be lazy and safe some times</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Shed load to control demand, rather than allowing the system to become overloaded. Like how MAC’s intentionally run a process that does empty CPU operations to cool it down. Drop packets as a router if it’s flooded, memory manager limits jobs. Worst case the system crashes and can start over with less load. Arpanet tried to always deliver a packet, but this lead to deadlocks a lot if a link goes down.</li>
+</ul>
+<h1 id="4-fault-tolerance">4 Fault-tolerance</h1>
+<ul>
+<li>
+<p>End-to-end, Error recovery at application level is required for reliable system (HANDLE YOUR EXCEPTIONS CORRECTLY! Idempotency matters here.</p>
+<ul>
+<li>Check the end-to-end errors, add intermediate checks if errors are super frequent.</li>
+<li>Routers again drop packets if something went wrong or notify the sender.</li>
+<li>Need cheap test for success, also might not see issues until heavy load</li>
+</ul>
+</li>
+<li>
+<p>Log updates to record the truth about the state of an object.</p>
+<ul>
+<li>Log based file system is an example. Similar to record and replay debugging.</li>
+<li>HAS TO BE IDEMPOTENT THOUGH in case you end up applying the same operation twice.</li>
+<li>Store versions of an object and make those versions immutable (like in Clojure and other functional programming languages).</li>
+</ul>
+</li>
+<li>
+<p>Make actions atomic or restartable (transactions that complete or do nothing).</p>
+<ul>
+<li>Commit records in databases, an operation should either happen in its entirety or not at all.</li>
+<li>Again need a restartable operation (idempotent)</li>
+</ul>
+</li>
+<li>
+<p>Replicate state across nodes (distributed systems).</p>
+</li>
+</ul>
 
         </div>
     </article>

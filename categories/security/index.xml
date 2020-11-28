@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>security on Joey Buiteweg</title>
+    <link>https://www.josephbuiteweg.com/categories/security/</link>
+    <description>Joey Buiteweg (security)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 28 Sep 2020 00:00:00 +0000</lastBuildDate>
+    
+    <atom:link href="https://www.josephbuiteweg.com/categories/security/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>A Consolidated List of Bad Computer Security Things</title>
+      <link>https://www.josephbuiteweg.com/blog/security-bad-things-list/</link>
+      <pubDate>Mon, 28 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.josephbuiteweg.com/blog/security-bad-things-list/</guid>
+      <description>&lt;p&gt;Things that are bad, dumb, or broken (security checklist), in a few categories.
+If you see one of these acronyms or ideas somewhere in your code or product then that&amp;rsquo;s no good.&lt;/p&gt;
+&lt;h2 id=&#34;in-cryptography&#34;&gt;In Cryptography&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;MD5&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;SHA1&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Mac then Encrypt (should be Encrypt then Mac), or really should just be GCM / AEAD&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;AES-*-EBC, AES-*-CBC or anything that isn&amp;rsquo;t GCM or AEAD&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Snake oil crypto&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Padding oracles&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Adaptive_chosen-ciphertext_attack#Practical_attacks&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;Bleinchenbacher attack&lt;/a&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Reusing symmetric keys (block or stream ciphers)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;DES, RC4&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Hashing is not encryption&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Hashing without a shared secret for MAC (length extension attacks)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;PGP ecosystem and the web of trust&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Based on &lt;a href=&#34;https://latacora.micro.blog/2019/07/16/the-pgp-problem.html&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;opinions&lt;/a&gt;
+ from
+&lt;a href=&#34;https://blog.filippo.io/giving-up-on-long-term-pgp/&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;people&lt;/a&gt;
+ much &lt;a href=&#34;https://blog.cryptographyengineering.com/2014/08/13/whats-matter-with-pgp/&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;smarter&lt;/a&gt;
+ than me&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Wired_Equivalent_Privacy#Weak_security&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;WEP&lt;/a&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;in-tls&#34;&gt;In TLS&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;DHE_EXPORT and other export grade crypto&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;DH-512, RSA-512 or anything lower than 3072 bit asymmetric keys&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Things that aren&amp;rsquo;t ECDHE w/Ed25519&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Reusing primes for DH key exchange&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Using weak primes for DH key exchange&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;NIST CURVES from the NSA or curves that aren&amp;rsquo;t Ed25519&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Bad entropy sources for generating primes and keys&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;SSL (not TLS)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Dumb Certificate Authorities (Equifax, Verisign) that get breached&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Packet replay attacks&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;in-the-web&#34;&gt;In the Web&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Plain HTTP (no encryption)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Code-injection attacks (SQL injection, XSS, buffer overflows and exploits)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Remote code execution (RCE) attacks (malformed packets, and co.)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Session / cookie stealing&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;CSRF&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Other things on the &lt;a href=&#34;https://owasp.org/www-project-top-ten/&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;OWASP Top 10&lt;/a&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Plaintext passwords and passwords that aren&amp;rsquo;t hashed using a slow cryptographic hash (bcrypt) &amp;gt; 512 bits&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Reused passwords&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Weak password&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Default passwords&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;in-sidechannels&#34;&gt;In sidechannels&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;clflush + rdtsc for all privilege levels on x86 and x86-64&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Branching on secret and sensitive data&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Speculating past faults (&lt;a href=&#34;https://meltdownattack.com/&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;meltdown&lt;/a&gt;
+)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Speculating past bounds and security checks (&lt;a href=&#34;https://meltdownattack.com/&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;spectre&lt;/a&gt;
+)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Unrestricted access to microarchitecture (cache, TLB, store buffers, etc.)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Side channels in general (especially the cache sidechannel)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;in-general&#34;&gt;In general&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&amp;ldquo;Security by obscurity&amp;rdquo; relying on secrets in your code that people won’t find&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Assuming your code is private and storing secrets in your code&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;IoT security and non-existent cryptography&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Blind trust of sensor data without accounting for noise contributed by an attacker&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Windows security&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Bad endpoint and user security practices&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Code that is susceptible to reverse-engineering, i.e no obfuscation is employed&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Assuming the user doesn’t want to ruin your life, either intentionally or unintentionally&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;in-programs-cc-ones-mostly&#34;&gt;In programs (C/C++ ones, mostly)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Buffer overread&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Buffer overflow&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Integer overflow&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Not sanitizing user inputs and queries&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;strcpy, sprintf, gets, getpw, scanf and fscanf on strings without length checks&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;User-inputted format strings&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;C being dumb&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Control flow integrity compromises&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Return to libc&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Gadgets of all kind&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;in-contrast-the-things-we-need&#34;&gt;In contrast, the things we need:&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Secure keys and key distribution&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;TLS, mTLS&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Certs and automated cert management and renewal&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Confidentiality, Authenticity, Non-Repudiation, Integrity, and Privacy&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

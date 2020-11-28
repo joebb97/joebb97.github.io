@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+        
+<meta charset="utf-8">
+<meta name="HandheldFriendly" content="True">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer-when-downgrade">
+
+<title>A Consolidated List of Bad Computer Security Things</title>
+<meta name="description" content="Joey&#39;s Personal Website/Blog">
+
+<link rel="alternate" type="application/rss+xml" title="RSS" href="https://www.josephbuiteweg.com/rss/">
+
+<link rel="icon" type="image/x-icon" href="https://www.josephbuiteweg.com/favicon.ico">
+<link rel="apple-touch-icon-precomposed" href="https://www.josephbuiteweg.com/favicon.png">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://www.josephbuiteweg.com/css/style.css?rnd=1606538352" />
+<link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
+
+
+
+
+
+
+
+    
+</head>
+<body>
+    <div class="container">
+        <header class="site-header">
+            
+                <nav class="navbar navbar-expand">
+    <a class="navbar-brand" href="https://www.josephbuiteweg.com/">Joey Buiteweg</a>
+    <div class="navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+            
+            
+            <li class="nav-item"><a class="nav-link" href="/about/" title="">About</a></li>
+            
+            <li class="nav-item"><a class="nav-link" href="/blog/" title="">Blog</a></li>
+            
+            <li class="nav-item"><a class="nav-link" href="/projects/" title="">Projects</a></li>
+            
+            <li class="nav-item"><a class="nav-link" href="/music/" title="">Music</a></li>
+            
+            <li class="nav-item"><a class="nav-link" href="/contact/" title="">Contact</a></li>
+            
+        </ul>
+    </div>
+</nav>
+
+            
+        </header>
+        <main>
+            
+
+    <article class="post">
+        <header class="mt-4 text-center" >
+            <h1 class="post-title">A Consolidated List of Bad Computer Security Things</h1>
+            <div class="article-info">
+    
+    by Joey Buiteweg
+    
+        <div class="article-date">
+            Last updated
+            2020-09-28
+        </div>
+    
+    
+    
+    <div class="article-taxonomies">
+        
+            <span class="article-categories">
+                Categories: 
+                
+                    <a href="https://www.josephbuiteweg.com/categories/security">security</a>
+                
+            </span>
+            
+            
+    </div>
+</div>
+
+            <hr>
+        </header>
+        <div class="content">
+            <p>Things that are bad, dumb, or broken (security checklist), in a few categories.
+If you see one of these acronyms or ideas somewhere in your code or product then that&rsquo;s no good.</p>
+<h2 id="in-cryptography">In Cryptography</h2>
+<ul>
+<li>
+<p>MD5</p>
+</li>
+<li>
+<p>SHA1</p>
+</li>
+<li>
+<p>Mac then Encrypt (should be Encrypt then Mac), or really should just be GCM / AEAD</p>
+</li>
+<li>
+<p>AES-*-EBC, AES-*-CBC or anything that isn&rsquo;t GCM or AEAD</p>
+</li>
+<li>
+<p>Snake oil crypto</p>
+</li>
+<li>
+<p>Padding oracles</p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Adaptive_chosen-ciphertext_attack#Practical_attacks" rel="noopener" target="_blank">Bleinchenbacher attack</a>
+</p>
+</li>
+<li>
+<p>Reusing symmetric keys (block or stream ciphers)</p>
+</li>
+<li>
+<p>DES, RC4</p>
+</li>
+<li>
+<p>Hashing is not encryption</p>
+</li>
+<li>
+<p>Hashing without a shared secret for MAC (length extension attacks)</p>
+</li>
+<li>
+<p>PGP ecosystem and the web of trust</p>
+<ul>
+<li>Based on <a href="https://latacora.micro.blog/2019/07/16/the-pgp-problem.html" rel="noopener" target="_blank">opinions</a>
+ from
+<a href="https://blog.filippo.io/giving-up-on-long-term-pgp/" rel="noopener" target="_blank">people</a>
+ much <a href="https://blog.cryptographyengineering.com/2014/08/13/whats-matter-with-pgp/" rel="noopener" target="_blank">smarter</a>
+ than me</li>
+</ul>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Wired_Equivalent_Privacy#Weak_security" rel="noopener" target="_blank">WEP</a>
+</p>
+</li>
+</ul>
+<h2 id="in-tls">In TLS</h2>
+<ul>
+<li>
+<p>DHE_EXPORT and other export grade crypto</p>
+</li>
+<li>
+<p>DH-512, RSA-512 or anything lower than 3072 bit asymmetric keys</p>
+</li>
+<li>
+<p>Things that aren&rsquo;t ECDHE w/Ed25519</p>
+</li>
+<li>
+<p>Reusing primes for DH key exchange</p>
+</li>
+<li>
+<p>Using weak primes for DH key exchange</p>
+</li>
+<li>
+<p>NIST CURVES from the NSA or curves that aren&rsquo;t Ed25519</p>
+</li>
+<li>
+<p>Bad entropy sources for generating primes and keys</p>
+</li>
+<li>
+<p>SSL (not TLS)</p>
+</li>
+<li>
+<p>Dumb Certificate Authorities (Equifax, Verisign) that get breached</p>
+</li>
+<li>
+<p>Packet replay attacks</p>
+</li>
+</ul>
+<h2 id="in-the-web">In the Web</h2>
+<ul>
+<li>
+<p>Plain HTTP (no encryption)</p>
+</li>
+<li>
+<p>Code-injection attacks (SQL injection, XSS, buffer overflows and exploits)</p>
+</li>
+<li>
+<p>Remote code execution (RCE) attacks (malformed packets, and co.)</p>
+</li>
+<li>
+<p>Session / cookie stealing</p>
+</li>
+<li>
+<p>CSRF</p>
+</li>
+<li>
+<p>Other things on the <a href="https://owasp.org/www-project-top-ten/" rel="noopener" target="_blank">OWASP Top 10</a>
+</p>
+</li>
+<li>
+<p>Plaintext passwords and passwords that aren&rsquo;t hashed using a slow cryptographic hash (bcrypt) &gt; 512 bits</p>
+</li>
+<li>
+<p>Reused passwords</p>
+</li>
+<li>
+<p>Weak password</p>
+</li>
+<li>
+<p>Default passwords</p>
+</li>
+</ul>
+<h2 id="in-sidechannels">In sidechannels</h2>
+<ul>
+<li>
+<p>clflush + rdtsc for all privilege levels on x86 and x86-64</p>
+</li>
+<li>
+<p>Branching on secret and sensitive data</p>
+</li>
+<li>
+<p>Speculating past faults (<a href="https://meltdownattack.com/" rel="noopener" target="_blank">meltdown</a>
+)</p>
+</li>
+<li>
+<p>Speculating past bounds and security checks (<a href="https://meltdownattack.com/" rel="noopener" target="_blank">spectre</a>
+)</p>
+</li>
+<li>
+<p>Unrestricted access to microarchitecture (cache, TLB, store buffers, etc.)</p>
+</li>
+<li>
+<p>Side channels in general (especially the cache sidechannel)</p>
+</li>
+</ul>
+<h2 id="in-general">In general</h2>
+<ul>
+<li>
+<p>&ldquo;Security by obscurity&rdquo; relying on secrets in your code that people won’t find</p>
+<ul>
+<li>Assuming your code is private and storing secrets in your code</li>
+</ul>
+</li>
+<li>
+<p>IoT security and non-existent cryptography</p>
+<ul>
+<li>Blind trust of sensor data without accounting for noise contributed by an attacker</li>
+</ul>
+</li>
+<li>
+<p>Windows security</p>
+</li>
+<li>
+<p>Bad endpoint and user security practices</p>
+</li>
+<li>
+<p>Code that is susceptible to reverse-engineering, i.e no obfuscation is employed</p>
+</li>
+<li>
+<p>Assuming the user doesn’t want to ruin your life, either intentionally or unintentionally</p>
+</li>
+</ul>
+<h2 id="in-programs-cc-ones-mostly">In programs (C/C++ ones, mostly)</h2>
+<ul>
+<li>
+<p>Buffer overread</p>
+</li>
+<li>
+<p>Buffer overflow</p>
+</li>
+<li>
+<p>Integer overflow</p>
+</li>
+<li>
+<p>Not sanitizing user inputs and queries</p>
+</li>
+<li>
+<p>strcpy, sprintf, gets, getpw, scanf and fscanf on strings without length checks</p>
+</li>
+<li>
+<p>User-inputted format strings</p>
+</li>
+<li>
+<p>C being dumb</p>
+</li>
+<li>
+<p>Control flow integrity compromises</p>
+</li>
+<li>
+<p>Return to libc</p>
+</li>
+<li>
+<p>Gadgets of all kind</p>
+</li>
+</ul>
+<h2 id="in-contrast-the-things-we-need">In contrast, the things we need:</h2>
+<ul>
+<li>
+<p>Secure keys and key distribution</p>
+</li>
+<li>
+<p>TLS, mTLS</p>
+</li>
+<li>
+<p>Certs and automated cert management and renewal</p>
+</li>
+<li>
+<p>Confidentiality, Authenticity, Non-Repudiation, Integrity, and Privacy</p>
+</li>
+</ul>
+
+        </div>
+    </article>
+    
+
+
+        </main>
+        <footer>
+            
+                <hr></hr>
+<div class="container mb-4">
+    <div class="row">
+        <div class="col pl-0">
+            © Joey Buiteweg, 2020
+            <br>
+            <span>
+            Powered by <a target="_blank" rel="noopener" href="https://gohugo.io/">Hugo</a>
+            </span>
+        </div>
+        <div class="col text-right pr-0">
+                <a href="https://www.josephbuiteweg.com/contact/">Contact</a>
+                <br>
+                <a href="https://www.josephbuiteweg.com/extra/faq/">FAQ</a>
+        </div>
+    </div>
+</div>
+
+            
+        </footer>
+    </div>
+</body>
+</html>
