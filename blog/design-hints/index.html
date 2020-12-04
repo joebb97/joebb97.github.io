@@ -17,7 +17,7 @@
 <link rel="apple-touch-icon-precomposed" href="https://www.josephbuiteweg.com/favicon.png">
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<link rel="stylesheet" href="https://www.josephbuiteweg.com/css/style.css?rnd=1606538352" />
+<link rel="stylesheet" href="https://www.josephbuiteweg.com/css/style.css?rnd=1607103497" />
 <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
 
 
@@ -193,20 +193,26 @@
 <p>Use batch processing. Do jobs in groups, normally the cost of starting each job individually plus doing the job outweighs the cost of doing them all at once. (Bank does all their computation jobs at once overnight).</p>
 </li>
 <li>
-<p>Safety first, avoid disaster when allocating resources, don’t try to always try to be optimal.</p>
+<p>Safety first, avoid disaster when allocating resources, don’t try to always be optimal.</p>
 <ul>
 <li>Overloading a system can drastically degrade its service. Leave head room for things if you can, don’t cause thrashing.</li>
 <li>Cleverness only really works if you know the load. CPU scheduling example, be lazy and safe some times</li>
 </ul>
 </li>
-</ul>
+<li>
+<p>Shed load to control demand, rather than allowing the system to become overloaded.</p>
 <ul>
-<li>Shed load to control demand, rather than allowing the system to become overloaded. Like how MAC’s intentionally run a process that does empty CPU operations to cool it down. Drop packets as a router if it’s flooded, memory manager limits jobs. Worst case the system crashes and can start over with less load. Arpanet tried to always deliver a packet, but this lead to deadlocks a lot if a link goes down.</li>
+<li>Like how mac’s intentionally run a process that does empty CPU operations to cool it down.</li>
+<li>Drop packets as a router if it’s flooded, memory manager limits jobs.</li>
+<li>Worst case the system crashes and can start over with less load.</li>
+<li>Arpanet tried to always deliver a packet, but this lead to deadlocks a lot if a link goes down.</li>
+</ul>
+</li>
 </ul>
 <h1 id="4-fault-tolerance">4 Fault-tolerance</h1>
 <ul>
 <li>
-<p>End-to-end, Error recovery at application level is required for reliable system (HANDLE YOUR EXCEPTIONS CORRECTLY! Idempotency matters here.</p>
+<p>End-to-end, Error recovery at application level is required for reliable system. HANDLE YOUR EXCEPTIONS CORRECTLY! Idempotency matters here.</p>
 <ul>
 <li>Check the end-to-end errors, add intermediate checks if errors are super frequent.</li>
 <li>Routers again drop packets if something went wrong or notify the sender.</li>

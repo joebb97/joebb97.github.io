@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+        
+<meta charset="utf-8">
+<meta name="HandheldFriendly" content="True">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer-when-downgrade">
+
+<title>The Curious Case of Dividing Numbers in Python</title>
+<meta name="description" content="Joey&#39;s Personal Website/Blog">
+
+<link rel="alternate" type="application/rss+xml" title="RSS" href="https://www.josephbuiteweg.com/rss/">
+
+<link rel="icon" type="image/x-icon" href="https://www.josephbuiteweg.com/favicon.ico">
+<link rel="apple-touch-icon-precomposed" href="https://www.josephbuiteweg.com/favicon.png">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://www.josephbuiteweg.com/css/style.css?rnd=1607103497" />
+<link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
+
+
+
+
+
+
+
+    
+</head>
+<body>
+    <div class="container">
+        <header class="site-header">
+            
+                <nav class="navbar navbar-expand">
+    <a class="navbar-brand" href="https://www.josephbuiteweg.com/">Joey Buiteweg</a>
+    <div class="navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+            
+            
+            <li class="nav-item"><a class="nav-link" href="/about/" title="">About</a></li>
+            
+            <li class="nav-item"><a class="nav-link" href="/blog/" title="">Blog</a></li>
+            
+            <li class="nav-item"><a class="nav-link" href="/projects/" title="">Projects</a></li>
+            
+            <li class="nav-item"><a class="nav-link" href="/music/" title="">Music</a></li>
+            
+            <li class="nav-item"><a class="nav-link" href="/contact/" title="">Contact</a></li>
+            
+        </ul>
+    </div>
+</nav>
+
+            
+        </header>
+        <main>
+            
+
+    <article class="post">
+        <header class="mt-4 text-center" >
+            <h1 class="post-title">The Curious Case of Dividing Numbers in Python</h1>
+            <div class="article-info">
+    
+    by Joey Buiteweg
+    
+        <div class="article-date">
+            Last updated
+            2020-11-27
+        </div>
+    
+    
+    
+    <div class="article-taxonomies">
+        
+            <span class="article-categories">
+                Categories: 
+                
+                    <a href="https://www.josephbuiteweg.com/categories/python">python</a>
+                
+            </span>
+            
+            
+    </div>
+</div>
+
+            <hr>
+        </header>
+        <div class="content">
+            <h2 id="positive-numbers">Positive Numbers</h2>
+<p>If you&rsquo;re in the market for converting form python2 to python3, be aware that there&rsquo;s some fundamental differences in default division of integers. Also beware that these differences won&rsquo;t be automagically resolved by the tool <a href="https://docs.python.org/3/library/2to3.html" rel="noopener" target="_blank">2to3</a>
+.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3">$ python3
+Python <span style="color:#bd93f9">3.8</span><span style="color:#ff79c6">.</span><span style="color:#bd93f9">5</span> (default, Jul <span style="color:#bd93f9">21</span> <span style="color:#bd93f9">2020</span>, <span style="color:#bd93f9">10</span>:<span style="color:#bd93f9">42</span>:<span style="color:#bd93f9">08</span>)
+[Clang <span style="color:#bd93f9">11.0</span><span style="color:#ff79c6">.</span><span style="color:#bd93f9">0</span> (clang<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1100.0</span><span style="color:#ff79c6">.</span><span style="color:#bd93f9">33.17</span>)] on darwin
+Type <span style="color:#f1fa8c">&#34;help&#34;</span>, <span style="color:#f1fa8c">&#34;copyright&#34;</span>, <span style="color:#f1fa8c">&#34;credits&#34;</span> <span style="color:#ff79c6">or</span> <span style="color:#f1fa8c">&#34;license&#34;</span> <span style="color:#ff79c6">for</span> more information<span style="color:#ff79c6">.</span>
+<span style="color:#ff79c6">&gt;&gt;&gt;</span> <span style="color:#bd93f9">5</span> <span style="color:#ff79c6">/</span> <span style="color:#bd93f9">3</span>
+<span style="color:#bd93f9">1.6666666666666667</span>
+<span style="color:#ff79c6">&gt;&gt;&gt;</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">$ python
+Python <span style="color:#bd93f9">2.7</span><span style="color:#ff79c6">.</span><span style="color:#bd93f9">16</span> (default, Jan <span style="color:#bd93f9">27</span> <span style="color:#bd93f9">2020</span>, <span style="color:#bd93f9">04</span>:<span style="color:#bd93f9">46</span>:<span style="color:#bd93f9">15</span>)
+[GCC <span style="color:#bd93f9">4.2</span><span style="color:#ff79c6">.</span><span style="color:#bd93f9">1</span> Compatible Apple LLVM <span style="color:#bd93f9">10.0</span><span style="color:#ff79c6">.</span><span style="color:#bd93f9">1</span> (clang<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1001.0</span><span style="color:#ff79c6">.</span><span style="color:#bd93f9">37.14</span>)] on darwin
+Type <span style="color:#f1fa8c">&#34;help&#34;</span>, <span style="color:#f1fa8c">&#34;copyright&#34;</span>, <span style="color:#f1fa8c">&#34;credits&#34;</span> <span style="color:#ff79c6">or</span> <span style="color:#f1fa8c">&#34;license&#34;</span> <span style="color:#ff79c6">for</span> more information<span style="color:#ff79c6">.</span>
+<span style="color:#ff79c6">&gt;&gt;&gt;</span> <span style="color:#bd93f9">5</span> <span style="color:#ff79c6">/</span> <span style="color:#bd93f9">3</span>
+<span style="color:#bd93f9">1</span>
+<span style="color:#ff79c6">&gt;&gt;&gt;</span>
+</code></pre></div><p>As you can see, the <code>/</code> operator in python3 leads to floating point divison by default, which can lead to problems if you&rsquo;re doing something like calculating memory page indices!</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">index <span style="color:#ff79c6">=</span> addr <span style="color:#ff79c6">/</span> self<span style="color:#ff79c6">.</span>PAGE_SIZE
+</code></pre></div><p>To access the integer division behavior in python3, you&rsquo;ll need to use the <code>//</code> operator. The code above becomes</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">index <span style="color:#ff79c6">=</span> addr <span style="color:#ff79c6">//</span> self<span style="color:#ff79c6">.</span>PAGE_SIZE
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3">$ python3
+Python <span style="color:#bd93f9">3.8</span><span style="color:#ff79c6">.</span><span style="color:#bd93f9">5</span> (default, Jul <span style="color:#bd93f9">21</span> <span style="color:#bd93f9">2020</span>, <span style="color:#bd93f9">10</span>:<span style="color:#bd93f9">42</span>:<span style="color:#bd93f9">08</span>)
+[Clang <span style="color:#bd93f9">11.0</span><span style="color:#ff79c6">.</span><span style="color:#bd93f9">0</span> (clang<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1100.0</span><span style="color:#ff79c6">.</span><span style="color:#bd93f9">33.17</span>)] on darwin
+Type <span style="color:#f1fa8c">&#34;help&#34;</span>, <span style="color:#f1fa8c">&#34;copyright&#34;</span>, <span style="color:#f1fa8c">&#34;credits&#34;</span> <span style="color:#ff79c6">or</span> <span style="color:#f1fa8c">&#34;license&#34;</span> <span style="color:#ff79c6">for</span> more information<span style="color:#ff79c6">.</span>
+<span style="color:#ff79c6">&gt;&gt;&gt;</span> <span style="color:#bd93f9">5</span> <span style="color:#ff79c6">//</span> <span style="color:#bd93f9">3</span>
+<span style="color:#bd93f9">1</span>
+<span style="color:#ff79c6">&gt;&gt;&gt;</span>
+</code></pre></div><h2 id="negative-numbers">Negative Numbers</h2>
+<p>Things get even more interesting when dealing with negative numbers and rounding.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">$ python
+Python <span style="color:#bd93f9">2.7</span><span style="color:#ff79c6">.</span><span style="color:#bd93f9">16</span> (default, Jan <span style="color:#bd93f9">27</span> <span style="color:#bd93f9">2020</span>, <span style="color:#bd93f9">04</span>:<span style="color:#bd93f9">46</span>:<span style="color:#bd93f9">15</span>)
+[GCC <span style="color:#bd93f9">4.2</span><span style="color:#ff79c6">.</span><span style="color:#bd93f9">1</span> Compatible Apple LLVM <span style="color:#bd93f9">10.0</span><span style="color:#ff79c6">.</span><span style="color:#bd93f9">1</span> (clang<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1001.0</span><span style="color:#ff79c6">.</span><span style="color:#bd93f9">37.14</span>)] on darwin
+Type <span style="color:#f1fa8c">&#34;help&#34;</span>, <span style="color:#f1fa8c">&#34;copyright&#34;</span>, <span style="color:#f1fa8c">&#34;credits&#34;</span> <span style="color:#ff79c6">or</span> <span style="color:#f1fa8c">&#34;license&#34;</span> <span style="color:#ff79c6">for</span> more information<span style="color:#ff79c6">.</span>
+<span style="color:#ff79c6">&gt;&gt;&gt;</span> <span style="color:#bd93f9">5</span> <span style="color:#ff79c6">/</span> <span style="color:#ff79c6">-</span><span style="color:#bd93f9">3</span>
+<span style="color:#ff79c6">-</span><span style="color:#bd93f9">2</span>
+<span style="color:#ff79c6">&gt;&gt;&gt;</span> <span style="color:#8be9fd;font-style:italic">int</span>(<span style="color:#bd93f9">5</span> <span style="color:#ff79c6">/</span> <span style="color:#ff79c6">-</span><span style="color:#bd93f9">3</span>)
+<span style="color:#ff79c6">-</span><span style="color:#bd93f9">2</span>
+<span style="color:#ff79c6">&gt;&gt;&gt;</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3">$ python3
+Python <span style="color:#bd93f9">3.8</span><span style="color:#ff79c6">.</span><span style="color:#bd93f9">5</span> (default, Jul <span style="color:#bd93f9">21</span> <span style="color:#bd93f9">2020</span>, <span style="color:#bd93f9">10</span>:<span style="color:#bd93f9">42</span>:<span style="color:#bd93f9">08</span>)
+[Clang <span style="color:#bd93f9">11.0</span><span style="color:#ff79c6">.</span><span style="color:#bd93f9">0</span> (clang<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1100.0</span><span style="color:#ff79c6">.</span><span style="color:#bd93f9">33.17</span>)] on darwin
+Type <span style="color:#f1fa8c">&#34;help&#34;</span>, <span style="color:#f1fa8c">&#34;copyright&#34;</span>, <span style="color:#f1fa8c">&#34;credits&#34;</span> <span style="color:#ff79c6">or</span> <span style="color:#f1fa8c">&#34;license&#34;</span> <span style="color:#ff79c6">for</span> more information<span style="color:#ff79c6">.</span>
+<span style="color:#ff79c6">&gt;&gt;&gt;</span> <span style="color:#bd93f9">5</span> <span style="color:#ff79c6">/</span> <span style="color:#ff79c6">-</span><span style="color:#bd93f9">3</span>
+<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1.6666666666666667</span>
+<span style="color:#ff79c6">&gt;&gt;&gt;</span> <span style="color:#bd93f9">5</span> <span style="color:#ff79c6">//</span> <span style="color:#ff79c6">-</span><span style="color:#bd93f9">3</span>
+<span style="color:#ff79c6">-</span><span style="color:#bd93f9">2</span>
+<span style="color:#ff79c6">&gt;&gt;&gt;</span> <span style="color:#8be9fd;font-style:italic">int</span>(<span style="color:#bd93f9">5</span> <span style="color:#ff79c6">/</span> <span style="color:#ff79c6">-</span><span style="color:#bd93f9">3</span>)
+<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>
+<span style="color:#ff79c6">&gt;&gt;&gt;</span>
+</code></pre></div><p>From what I can tell, both python2 and python3 round towards negative infinity when doing integer division (<code>/</code> in python2 with integer divider and dividend, <code>//</code> in python3 with integer divider and dividend). They also do the same thing when converting a negative floating point number to an integer, which is to round towards zero.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">$ python
+Python <span style="color:#bd93f9">2.7</span><span style="color:#ff79c6">.</span><span style="color:#bd93f9">16</span> (default, Jan <span style="color:#bd93f9">27</span> <span style="color:#bd93f9">2020</span>, <span style="color:#bd93f9">04</span>:<span style="color:#bd93f9">46</span>:<span style="color:#bd93f9">15</span>)
+[GCC <span style="color:#bd93f9">4.2</span><span style="color:#ff79c6">.</span><span style="color:#bd93f9">1</span> Compatible Apple LLVM <span style="color:#bd93f9">10.0</span><span style="color:#ff79c6">.</span><span style="color:#bd93f9">1</span> (clang<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1001.0</span><span style="color:#ff79c6">.</span><span style="color:#bd93f9">37.14</span>)] on darwin
+Type <span style="color:#f1fa8c">&#34;help&#34;</span>, <span style="color:#f1fa8c">&#34;copyright&#34;</span>, <span style="color:#f1fa8c">&#34;credits&#34;</span> <span style="color:#ff79c6">or</span> <span style="color:#f1fa8c">&#34;license&#34;</span> <span style="color:#ff79c6">for</span> more information<span style="color:#ff79c6">.</span>
+<span style="color:#ff79c6">&gt;&gt;&gt;</span> <span style="color:#8be9fd;font-style:italic">int</span>(<span style="color:#bd93f9">5.0</span> <span style="color:#ff79c6">/</span> <span style="color:#ff79c6">-</span><span style="color:#bd93f9">3</span>)
+<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>
+<span style="color:#ff79c6">&gt;&gt;&gt;</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3">$ python3
+Python <span style="color:#bd93f9">3.8</span><span style="color:#ff79c6">.</span><span style="color:#bd93f9">5</span> (default, Jul <span style="color:#bd93f9">21</span> <span style="color:#bd93f9">2020</span>, <span style="color:#bd93f9">10</span>:<span style="color:#bd93f9">42</span>:<span style="color:#bd93f9">08</span>)
+[Clang <span style="color:#bd93f9">11.0</span><span style="color:#ff79c6">.</span><span style="color:#bd93f9">0</span> (clang<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1100.0</span><span style="color:#ff79c6">.</span><span style="color:#bd93f9">33.17</span>)] on darwin
+Type <span style="color:#f1fa8c">&#34;help&#34;</span>, <span style="color:#f1fa8c">&#34;copyright&#34;</span>, <span style="color:#f1fa8c">&#34;credits&#34;</span> <span style="color:#ff79c6">or</span> <span style="color:#f1fa8c">&#34;license&#34;</span> <span style="color:#ff79c6">for</span> more information<span style="color:#ff79c6">.</span>
+<span style="color:#ff79c6">&gt;&gt;&gt;</span> <span style="color:#8be9fd;font-style:italic">int</span>(<span style="color:#bd93f9">5.0</span> <span style="color:#ff79c6">/</span> <span style="color:#ff79c6">-</span><span style="color:#bd93f9">3</span>)
+<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>
+<span style="color:#ff79c6">&gt;&gt;&gt;</span>
+</code></pre></div><h2 id="compared-to-c">Compared to C++</h2>
+<p>Integer division truncation with negative numbers is different in C++, unfortunately.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">$ python
+Python <span style="color:#bd93f9">2.7</span><span style="color:#ff79c6">.</span><span style="color:#bd93f9">16</span> (default, Jan <span style="color:#bd93f9">27</span> <span style="color:#bd93f9">2020</span>, <span style="color:#bd93f9">04</span>:<span style="color:#bd93f9">46</span>:<span style="color:#bd93f9">15</span>)
+[GCC <span style="color:#bd93f9">4.2</span><span style="color:#ff79c6">.</span><span style="color:#bd93f9">1</span> Compatible Apple LLVM <span style="color:#bd93f9">10.0</span><span style="color:#ff79c6">.</span><span style="color:#bd93f9">1</span> (clang<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1001.0</span><span style="color:#ff79c6">.</span><span style="color:#bd93f9">37.14</span>)] on darwin
+Type <span style="color:#f1fa8c">&#34;help&#34;</span>, <span style="color:#f1fa8c">&#34;copyright&#34;</span>, <span style="color:#f1fa8c">&#34;credits&#34;</span> <span style="color:#ff79c6">or</span> <span style="color:#f1fa8c">&#34;license&#34;</span> <span style="color:#ff79c6">for</span> more information<span style="color:#ff79c6">.</span>
+<span style="color:#ff79c6">&gt;&gt;&gt;</span> <span style="color:#bd93f9">5</span> <span style="color:#ff79c6">/</span> <span style="color:#ff79c6">-</span><span style="color:#bd93f9">3</span>
+<span style="color:#ff79c6">-</span><span style="color:#bd93f9">2</span>
+<span style="color:#ff79c6">&gt;&gt;&gt;</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3">$ python3
+Python <span style="color:#bd93f9">3.8</span><span style="color:#ff79c6">.</span><span style="color:#bd93f9">5</span> (default, Jul <span style="color:#bd93f9">21</span> <span style="color:#bd93f9">2020</span>, <span style="color:#bd93f9">10</span>:<span style="color:#bd93f9">42</span>:<span style="color:#bd93f9">08</span>)
+[Clang <span style="color:#bd93f9">11.0</span><span style="color:#ff79c6">.</span><span style="color:#bd93f9">0</span> (clang<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1100.0</span><span style="color:#ff79c6">.</span><span style="color:#bd93f9">33.17</span>)] on darwin
+Type <span style="color:#f1fa8c">&#34;help&#34;</span>, <span style="color:#f1fa8c">&#34;copyright&#34;</span>, <span style="color:#f1fa8c">&#34;credits&#34;</span> <span style="color:#ff79c6">or</span> <span style="color:#f1fa8c">&#34;license&#34;</span> <span style="color:#ff79c6">for</span> more information<span style="color:#ff79c6">.</span>
+<span style="color:#ff79c6">&gt;&gt;&gt;</span> <span style="color:#bd93f9">5</span> <span style="color:#ff79c6">//</span> <span style="color:#ff79c6">-</span><span style="color:#bd93f9">3</span>
+<span style="color:#ff79c6">-</span><span style="color:#bd93f9">2</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;iostream&gt;</span><span style="color:#ff79c6">
+</span><span style="color:#ff79c6"></span><span style="color:#6272a4">// a.cpp
+</span><span style="color:#6272a4"></span>
+<span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>(){
+    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#8be9fd">int</span>(<span style="color:#bd93f9">5</span> <span style="color:#ff79c6">/</span> <span style="color:#ff79c6">-</span><span style="color:#bd93f9">3</span>) <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
+    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#8be9fd">int</span>(<span style="color:#bd93f9">5.0</span> <span style="color:#ff79c6">/</span> <span style="color:#ff79c6">-</span><span style="color:#bd93f9">3</span>) <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
+
+}
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ g++ a.cpp ; ./a.out
+-1
+-1
+</code></pre></div><p>Thankfully the behavior for converting a negative floating point number to an <code>int</code> has the same behavior between the three languages (as shown by the output of <code>int(5.0 / -3)</code> in C++).</p>
+<p>Subtle differences in basic behavior of programming languages are always a joy to stumble across at the most inopportune times.</p>
+
+        </div>
+    </article>
+    
+
+
+        </main>
+        <footer>
+            
+                <hr></hr>
+<div class="container mb-4">
+    <div class="row">
+        <div class="col pl-0">
+            © Joey Buiteweg, 2020
+            <br>
+            <span>
+            Powered by <a target="_blank" rel="noopener" href="https://gohugo.io/">Hugo</a>
+            </span>
+        </div>
+        <div class="col text-right pr-0">
+                <a href="https://www.josephbuiteweg.com/contact/">Contact</a>
+                <br>
+                <a href="https://www.josephbuiteweg.com/extra/faq/">FAQ</a>
+        </div>
+    </div>
+</div>
+
+            
+        </footer>
+    </div>
+</body>
+</html>

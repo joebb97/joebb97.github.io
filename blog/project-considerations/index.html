@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+        
+<meta charset="utf-8">
+<meta name="HandheldFriendly" content="True">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer-when-downgrade">
+
+<title>A Curated List of Project Considerations</title>
+<meta name="description" content="Joey&#39;s Personal Website/Blog">
+
+<link rel="alternate" type="application/rss+xml" title="RSS" href="https://www.josephbuiteweg.com/rss/">
+
+<link rel="icon" type="image/x-icon" href="https://www.josephbuiteweg.com/favicon.ico">
+<link rel="apple-touch-icon-precomposed" href="https://www.josephbuiteweg.com/favicon.png">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://www.josephbuiteweg.com/css/style.css?rnd=1607103497" />
+<link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
+
+
+
+
+
+
+
+    
+</head>
+<body>
+    <div class="container">
+        <header class="site-header">
+            
+                <nav class="navbar navbar-expand">
+    <a class="navbar-brand" href="https://www.josephbuiteweg.com/">Joey Buiteweg</a>
+    <div class="navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+            
+            
+            <li class="nav-item"><a class="nav-link" href="/about/" title="">About</a></li>
+            
+            <li class="nav-item"><a class="nav-link" href="/blog/" title="">Blog</a></li>
+            
+            <li class="nav-item"><a class="nav-link" href="/projects/" title="">Projects</a></li>
+            
+            <li class="nav-item"><a class="nav-link" href="/music/" title="">Music</a></li>
+            
+            <li class="nav-item"><a class="nav-link" href="/contact/" title="">Contact</a></li>
+            
+        </ul>
+    </div>
+</nav>
+
+            
+        </header>
+        <main>
+            
+
+    <article class="post">
+        <header class="mt-4 text-center" >
+            <h1 class="post-title">A Curated List of Project Considerations</h1>
+            <div class="article-info">
+    
+    by Joey Buiteweg
+    
+        <div class="article-date">
+            Last updated
+            2020-11-28
+        </div>
+    
+    
+    
+    <div class="article-taxonomies">
+        
+            <span class="article-categories">
+                Categories: 
+                
+                    <a href="https://www.josephbuiteweg.com/categories/system-design">system-design</a>
+                
+            </span>
+            
+            
+    </div>
+</div>
+
+            <hr>
+        </header>
+        <div class="content">
+            <h1 id="project-considerations">Project considerations</h1>
+<p>Above all else, it has to work.</p>
+<p>System design hints.  Elegant and simple design.</p>
+<ul>
+<li>
+<p>Keep it <a href="https://en.wikipedia.org/wiki/Occam%27s_razor" rel="noopener" target="_blank">simple</a>
+ (<a href="https://en.wikipedia.org/wiki/KISS_principle" rel="noopener" target="_blank">stupid</a>
+), don’t be Richard Hendricks from Silicon Valley. Sometimes the strawman or brute force solution is good enough.</p>
+</li>
+<li>
+<p>Fail faster, build one design to throw it away, you arent going to get it right the first time. Google spends years getting things wrong too (it took them ~seven years to make <a href="https://www.youtube.com/watch?v=nvlt0dA7rsQ" rel="noopener" target="_blank">Google Spanner</a>
+).</p>
+</li>
+<li>
+<p>Avoid the <a href="https://en.wikipedia.org/wiki/Anti-pattern#Software_engineering" rel="noopener" target="_blank">anti-patterns</a>
+.</p>
+</li>
+<li>
+<p>Narrow the waistband when many components connect to all other components. Create a common ground (e.g LLVM, Kafka, <a href="https://en.wikipedia.org/wiki/Language_Server_Protocol" rel="noopener" target="_blank">LSP</a>
+, FIRRTL).</p>
+</li>
+</ul>
+<p><strong>Choose <a href="http://boringtechnology.club/" rel="noopener" target="_blank">boring technology</a>
+ and choose fewer and simpler technologies with better known failure models</strong></p>
+<p>Research what the right tools (and protocols) are for the job.</p>
+<ul>
+<li>
+<p>Research what&rsquo;s been done and what solutions have been made.</p>
+</li>
+<li>
+<p>Study what has worked and what hasn&rsquo;t worked.</p>
+</li>
+<li>
+<p>DON&rsquo;T REINVENT THE <a href="https://en.wikipedia.org/wiki/Reinventing_the_wheel#Related_phrases" rel="noopener" target="_blank">SQUARE WHEEL</a>
+. Avoid <a href="https://en.wikipedia.org/wiki/Not_invented_here" rel="noopener" target="_blank">NIH</a>
+ syndrome.</p>
+</li>
+<li>
+<p>DON&rsquo;T be an <a href="https://www.joelonsoftware.com/2001/04/21/dont-let-architecture-astronauts-scare-you/" rel="noopener" target="_blank">architecture astronaut</a>
+, pick the proper technology to solve a problem, don&rsquo;t make up a problem just to use some technology.</p>
+</li>
+</ul>
+<p>Code style, quality and readability.</p>
+<ul>
+<li>
+<p>Write good specifications and documentation (both for internal and external usage).</p>
+</li>
+<li>
+<p>Write good comments that describe WHY, not WHAT, you&rsquo;re doing. Imagine the person knows where you live that has to read it</p>
+</li>
+<li>
+<p>Use style guides and linters.</p>
+</li>
+<li>
+<p>Good abstractions and separation of implementation</p>
+</li>
+<li>
+<p>Maintainability and Serviceability. How easy is it to ship new features? What bogs you down?</p>
+</li>
+<li>
+<p>Keep it <a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself" rel="noopener" target="_blank">DRY</a>
+</p>
+</li>
+</ul>
+<p>Scalability.</p>
+<p>Advocate for Devs and Customers, not one or the other. Helping improve one leads to helping the other.</p>
+<ul>
+<li>Explanation in <a href="https://www.youtube.com/watch?v=i69U0lvi89c" rel="noopener" target="_blank">this video</a>
+</li>
+</ul>
+<p>UI/UX are  very important, which i18n is a part of
+<a href="https://www.youtube.com/watch?v=o9pEzgHorH0" rel="noopener" target="_blank">Ship features</a>
+, not code.</p>
+<p>Exercise <a href="https://www.ted.com/talks/linus_torvalds_the_mind_behind_linux" rel="noopener" target="_blank">good programming taste</a>
+.</p>
+<p>Good, quality automated tests.</p>
+<ul>
+<li>
+<p>Write tests while developing (TDD).</p>
+</li>
+<li>
+<p>Keep it <a href="https://testing.googleblog.com/2019/12/testing-on-toilet-tests-too-dry-make.html" rel="noopener" target="_blank">DAMP</a>
+ (descriptive and meaningful phrases)</p>
+</li>
+<li>
+<p>CI/CD</p>
+</li>
+</ul>
+<p>Automation.</p>
+<ul>
+<li>Spend time automating what is worth automating, not something you&rsquo;ll do once.</li>
+</ul>
+<p>Instrumentation, logging, and monitoring are all crucial. Insight into what your system is doing is key, don’t fly blind.</p>
+<p>Easy, testable, reproducible, quick builds.</p>
+<p>Choose <a href="https://microservices.io/patterns/microservices.html" rel="noopener" target="_blank">micro services</a>
+ (<a href="https://pythonspeed.com/articles/dont-need-kubernetes/" rel="noopener" target="_blank">if you need it</a>
+) and reasonable number of smaller implementations as opposed to one <a href="https://microservices.io/patterns/monolithic.html" rel="noopener" target="_blank">monolith</a>
+.</p>
+<p>Performance.</p>
+<p>Correctness.</p>
+<p>Fault-Tolerance and error handling, do the <a href="https://web.mit.edu/Saltzer/www/publications/endtoend/endtoend.pdf" rel="noopener" target="_blank">end-to-end principle</a>
+ where appropriate.</p>
+<p>Software development methods (choose <a href="https://www.atlassian.com/agile/manifesto" rel="noopener" target="_blank">agile</a>
+)</p>
+<p>Keeping track of bugs in a database</p>
+<p>SECURITY</p>
+<ul>
+<li>
+<p>It’s a <a href="https://www.sentinelone.com/blog/having-trouble-getting-senior-management-to-buy-in-to-your-security-recommendations-try-these-essential-tips/" rel="noopener" target="_blank">mindset</a>
+ not a feature. It’s not a destination that is ever reached unfortunately, it’s a journey that always has to be followed. Adopt the <a href="https://www.coursera.org/lecture/digital-democracy/the-security-mindset-sLtQu" rel="noopener" target="_blank">security mindset</a>
+</p>
+</li>
+<li>
+<p>Rational paranoia vs analysis paralysis</p>
+</li>
+</ul>
+<p>You have to be <a href="https://www.acm.org/code-of-ethics" rel="noopener" target="_blank">ethical</a>
+, professional, and excellent.</p>
+<ul>
+<li>Acknowledge the <a href="https://en.wikipedia.org/wiki/Dunning%E2%80%93Kruger_effect" rel="noopener" target="_blank">Dunning-Kruger effect</a>
+ and <a href="https://en.wikipedia.org/wiki/Four_stages_of_competence" rel="noopener" target="_blank">four stages of competence</a>
+, <a href="https://en.wikipedia.org/wiki/Paul_Graham_%28programmer%29#Blub" rel="noopener" target="_blank">Blub programmers</a>
+</li>
+</ul>
+<p>Database for your equipment</p>
+<p>Licensing (gpl, mit, bsd, Creative Commons)</p>
+<p>From <a href="https://www.youtube.com/watch?v=30jNsCVLpAE" rel="noopener" target="_blank">Bryan Cantrill</a>
+, we should have a Bias towards observation, not rash actions</p>
+<ul>
+<li>To debug, ask questions, <strong>then</strong> form a hypothesis</li>
+</ul>
+<p>Any of Joel Sposky&rsquo;s <a href="https://www.joelonsoftware.com/2000/08/09/the-joel-test-12-steps-to-better-code/" rel="noopener" target="_blank">various</a>
+ <a href="https://www.joelonsoftware.com/2000/04/06/things-you-should-never-do-part-i/" rel="noopener" target="_blank">tips</a>
+</p>
+
+        </div>
+    </article>
+    
+
+
+        </main>
+        <footer>
+            
+                <hr></hr>
+<div class="container mb-4">
+    <div class="row">
+        <div class="col pl-0">
+            © Joey Buiteweg, 2020
+            <br>
+            <span>
+            Powered by <a target="_blank" rel="noopener" href="https://gohugo.io/">Hugo</a>
+            </span>
+        </div>
+        <div class="col text-right pr-0">
+                <a href="https://www.josephbuiteweg.com/contact/">Contact</a>
+                <br>
+                <a href="https://www.josephbuiteweg.com/extra/faq/">FAQ</a>
+        </div>
+    </div>
+</div>
+
+            
+        </footer>
+    </div>
+</body>
+</html>

@@ -6,7 +6,7 @@
     <description>Joey Buiteweg (security)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 28 Sep 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 27 Nov 2020 00:00:00 +0000</lastBuildDate>
     
     <atom:link href="https://www.josephbuiteweg.com/categories/security/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>A Consolidated List of Bad Computer Security Things</title>
       <link>https://www.josephbuiteweg.com/blog/security-bad-things-list/</link>
-      <pubDate>Mon, 28 Sep 2020 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 27 Nov 2020 00:00:00 +0000</pubDate>
       
       <guid>https://www.josephbuiteweg.com/blog/security-bad-things-list/</guid>
       <description>&lt;p&gt;Things that are bad, dumb, or broken (security checklist), in a few categories.
