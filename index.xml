@@ -24,7 +24,7 @@
 &lt;li&gt;
 &lt;p&gt;Keep it &lt;a href=&#34;https://en.wikipedia.org/wiki/Occam%27s_razor&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;simple&lt;/a&gt;
  (&lt;a href=&#34;https://en.wikipedia.org/wiki/KISS_principle&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;stupid&lt;/a&gt;
-), don’t be Richard Hendricks from Silicon Valley. Sometimes the strawman or brute force solution is good enough.&lt;/p&gt;
+), don’t be Richard Hendricks from Silicon Valley trying to explain electrons to a user. Sometimes the strawman or brute force solution is good enough.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Fail faster, build one design to throw it away, you arent going to get it right the first time. Google spends years getting things wrong too (it took them ~seven years to make &lt;a href=&#34;https://www.youtube.com/watch?v=nvlt0dA7rsQ&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;Google Spanner&lt;/a&gt;
@@ -137,8 +137,8 @@
 , professional, and excellent.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Acknowledge the &lt;a href=&#34;https://en.wikipedia.org/wiki/Dunning%E2%80%93Kruger_effect&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;Dunning-Kruger effect&lt;/a&gt;
- and &lt;a href=&#34;https://en.wikipedia.org/wiki/Four_stages_of_competence&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;four stages of competence&lt;/a&gt;
-, &lt;a href=&#34;https://en.wikipedia.org/wiki/Paul_Graham_%28programmer%29#Blub&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;Blub programmers&lt;/a&gt;
+, &lt;a href=&#34;https://en.wikipedia.org/wiki/Four_stages_of_competence&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;four stages of competence&lt;/a&gt;
+, and &lt;a href=&#34;https://en.wikipedia.org/wiki/Paul_Graham_%28programmer%29#Blub&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;Blub programmers&lt;/a&gt;
 .&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Database for your equipment.&lt;/p&gt;
@@ -388,7 +388,7 @@ If you see one of these acronyms or ideas somewhere in your code or product then
       
       <guid>https://www.josephbuiteweg.com/blog/python-divison/</guid>
       <description>&lt;h2 id=&#34;positive-numbers&#34;&gt;Positive Numbers&lt;/h2&gt;
-&lt;p&gt;If you&amp;rsquo;re in the market for converting form python2 to python3, be aware that there&amp;rsquo;s some fundamental differences in default division of integers. Also beware that these differences won&amp;rsquo;t be automagically resolved by the tool &lt;a href=&#34;https://docs.python.org/3/library/2to3.html&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;2to3&lt;/a&gt;
+&lt;p&gt;If you&amp;rsquo;re in the market for converting from python2 to python3, be aware that there&amp;rsquo;s some fundamental differences in default division of integers. Also beware that these differences won&amp;rsquo;t be automagically resolved by the tool &lt;a href=&#34;https://docs.python.org/3/library/2to3.html&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;2to3&lt;/a&gt;
 .&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;$ python3
 Python &lt;span style=&#34;color:#bd93f9&#34;&gt;3.8&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;5&lt;/span&gt; (default, Jul &lt;span style=&#34;color:#bd93f9&#34;&gt;21&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;2020&lt;/span&gt;, &lt;span style=&#34;color:#bd93f9&#34;&gt;10&lt;/span&gt;:&lt;span style=&#34;color:#bd93f9&#34;&gt;42&lt;/span&gt;:&lt;span style=&#34;color:#bd93f9&#34;&gt;08&lt;/span&gt;)
