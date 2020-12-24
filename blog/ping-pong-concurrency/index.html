@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+        
+<meta charset="utf-8">
+<meta name="HandheldFriendly" content="True">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer-when-downgrade">
+
+<title>A Small Concurrency Example in Various Languages</title>
+<meta name="description" content="Joey&#39;s Personal Website/Blog">
+
+<link rel="alternate" type="application/rss+xml" title="RSS" href="https://www.josephbuiteweg.com/rss/">
+
+<link rel="icon" type="image/x-icon" href="https://www.josephbuiteweg.com/favicon.ico">
+<link rel="apple-touch-icon-precomposed" href="https://www.josephbuiteweg.com/favicon.png">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://www.josephbuiteweg.com/css/style.css?rnd=1608774550" />
+<link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
+
+
+
+
+
+
+
+    
+</head>
+<body>
+    <div class="container">
+        <header class="site-header">
+            
+                <nav class="navbar navbar-expand">
+    <a class="navbar-brand" href="https://www.josephbuiteweg.com/">Joey Buiteweg</a>
+    <div class="navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+            
+            
+            <li class="nav-item"><a class="nav-link" href="/about/" title="">About</a></li>
+            
+            <li class="nav-item"><a class="nav-link" href="/blog/" title="">Blog</a></li>
+            
+            <li class="nav-item"><a class="nav-link" href="/projects/" title="">Projects</a></li>
+            
+            <li class="nav-item"><a class="nav-link" href="/music/" title="">Music</a></li>
+            
+            <li class="nav-item"><a class="nav-link" href="/contact/" title="">Contact</a></li>
+            
+        </ul>
+    </div>
+</nav>
+
+            
+        </header>
+        <main>
+            
+
+    <article class="post">
+        <header class="mt-4 text-center" >
+            <h1 class="post-title">A Small Concurrency Example in Various Languages</h1>
+            <div class="article-info">
+    
+    by Joey Buiteweg
+    
+        <div class="article-date">
+            Last updated
+            2020-12-22
+        </div>
+    
+    
+    
+    <div class="article-taxonomies">
+        
+            <span class="article-categories">
+                Categories: 
+                
+                    <a href="https://www.josephbuiteweg.com/categories/python">python</a>
+                
+                    <a href="https://www.josephbuiteweg.com/categories/rust">rust</a>
+                
+                    <a href="https://www.josephbuiteweg.com/categories/golang">golang</a>
+                
+                    <a href="https://www.josephbuiteweg.com/categories/cpp">cpp</a>
+                
+            </span>
+            
+            
+    </div>
+</div>
+
+            <hr>
+        </header>
+        <div class="content">
+            <h2 id="the-premise">The Premise</h2>
+<p>A common introduction to concurrency is the simple task of spawning two threads, then printing &ldquo;ping&rdquo; and &ldquo;pong&rdquo; in order N (N = 5 in the following examples) times.</p>
+<p>This task is a light intoduction to synchronization primitives like mutexes and condition variables, or in more modern-concurrency models, channels / thread-safe queues.</p>
+<p>I figured it&rsquo;d be interesting to see what this task looks like in different programming languages, so I decided to code it in my four favorite programming languages (python, rust, golang, c++, in that order) to get a sense of their concurrency libraries.</p>
+<p>My methodology was to only use native concurrency primitives supported by the languages. Additionally, if a language supported message-passing concurrency via channels as well as traditional Hoare monitors, I wrote an implementation with both models.</p>
+<p>Let&rsquo;s now take a look at the examples. The source code is available in my <a href="https://github.com/joebb97/sandbox" rel="noopener" target="_blank">sandbox monorepo</a>
+(just run <code>$ find . -name ping_pong -type d</code> to locate the specific directories).</p>
+<h2 id="golang">Golang</h2>
+<p>One of Go&rsquo;s best features is its beautiful and simple message-passing concurrency via channels. The message-passing code looks like this:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#6272a4">// main.go
+</span><span style="color:#6272a4"></span><span style="color:#ff79c6">package</span> main
+
+<span style="color:#ff79c6">import</span> (
+	<span style="color:#f1fa8c">&#34;fmt&#34;</span>
+	<span style="color:#f1fa8c">&#34;sync&#34;</span>
+)
+
+<span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">mainChannels</span>() {
+	numTimes <span style="color:#ff79c6">:=</span> <span style="color:#bd93f9">5</span>
+	<span style="color:#8be9fd;font-style:italic">var</span> wg sync.WaitGroup
+	theChannel <span style="color:#ff79c6">:=</span> <span style="color:#8be9fd;font-style:italic">make</span>(<span style="color:#8be9fd;font-style:italic">chan</span> <span style="color:#8be9fd">string</span>)
+
+	<span style="color:#6272a4">// Ping thread
+</span><span style="color:#6272a4"></span>	wg.<span style="color:#50fa7b">Add</span>(<span style="color:#bd93f9">2</span>)
+	<span style="color:#ff79c6">go</span> <span style="color:#8be9fd;font-style:italic">func</span>(n <span style="color:#8be9fd">int</span>) {
+		<span style="color:#ff79c6">defer</span> wg.<span style="color:#50fa7b">Done</span>()
+		<span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">:=</span> <span style="color:#bd93f9">0</span>; i &lt; n; i<span style="color:#ff79c6">++</span> {
+			fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#ff79c6">&lt;-</span>theChannel)
+			theChannel <span style="color:#ff79c6">&lt;-</span> <span style="color:#f1fa8c">&#34;pong&#34;</span>
+		}
+	}(numTimes)
+
+	<span style="color:#6272a4">// Pong thread
+</span><span style="color:#6272a4"></span>	<span style="color:#ff79c6">go</span> <span style="color:#8be9fd;font-style:italic">func</span>(n <span style="color:#8be9fd">int</span>) {
+		<span style="color:#ff79c6">defer</span> wg.<span style="color:#50fa7b">Done</span>()
+		<span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">:=</span> <span style="color:#bd93f9">0</span>; i &lt; n; i<span style="color:#ff79c6">++</span> {
+			theChannel <span style="color:#ff79c6">&lt;-</span> <span style="color:#f1fa8c">&#34;ping&#34;</span>
+			fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#ff79c6">&lt;-</span>theChannel)
+		}
+	}(numTimes)
+
+	wg.<span style="color:#50fa7b">Wait</span>()
+}
+
+<span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">main</span>() {
+	<span style="color:#50fa7b">mainMutex</span>()
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>We use a <code>sync.waitGroup</code> as an elegant way to wait for both of the goroutines to finish executing, since goroutines don&rsquo;t have the traditional <code>.join()</code> facility available. I find this solution easier to read than using a separate &ldquo;done&rdquo; channel to coordinate termination of the main thread.</p>
+<p>Golang&rsquo;s unbuffered channels, <code>theChannel</code> in this example, are perfect for this situation since both producers and consumers block until a value is put into or removed from the channel, respectively. This is why the for-loops on lines 17 and 27 don&rsquo;t immediately keep executing.</p>
+<p>If <code>theChannel</code> was buffered with a size of one, the call to put a value into the channel wouldn&rsquo;t block on lines 20 and 28. This would cause the ping thread to potentially print &ldquo;pong&rdquo;, which isn&rsquo;t what we want!</p>
+<p>Running the example we see the desired output.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ go run main.go
+ping
+pong
+ping
+pong
+ping
+pong
+ping
+pong
+ping
+pong
+</code></pre></div><p>Golang also supports the traditional monitor-style synchronization primitives of mutexes and condition variables. Here&rsquo;s what the ping-pong problem looks like using that style of concurrency.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#6272a4">// main.go
+</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">mainMutex</span>() {
+	numTimes <span style="color:#ff79c6">:=</span> <span style="color:#bd93f9">5</span>
+	<span style="color:#8be9fd;font-style:italic">var</span> wg sync.WaitGroup
+	m <span style="color:#ff79c6">:=</span> sync.Mutex{}
+	cv, printStr <span style="color:#ff79c6">:=</span> sync.<span style="color:#50fa7b">NewCond</span>(<span style="color:#ff79c6">&amp;</span>m), <span style="color:#f1fa8c">&#34;ping&#34;</span>
+
+	<span style="color:#6272a4">// Ping thread
+</span><span style="color:#6272a4"></span>	wg.<span style="color:#50fa7b">Add</span>(<span style="color:#bd93f9">1</span>)
+	<span style="color:#ff79c6">go</span> <span style="color:#8be9fd;font-style:italic">func</span>(n <span style="color:#8be9fd">int</span>) {
+		<span style="color:#ff79c6">defer</span> wg.<span style="color:#50fa7b">Done</span>()
+		<span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">:=</span> <span style="color:#bd93f9">0</span>; i &lt; n; i<span style="color:#ff79c6">++</span> {
+			cv.L.<span style="color:#50fa7b">Lock</span>()
+			<span style="color:#ff79c6">for</span> printStr <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#34;pong&#34;</span> {
+				cv.<span style="color:#50fa7b">Wait</span>()
+			}
+			fmt.<span style="color:#50fa7b">Println</span>(printStr)
+			printStr = <span style="color:#f1fa8c">&#34;pong&#34;</span>
+			cv.<span style="color:#50fa7b">Signal</span>()
+			cv.L.<span style="color:#50fa7b">Unlock</span>()
+		}
+	}(numTimes)
+
+	<span style="color:#6272a4">// Pong thread
+</span><span style="color:#6272a4"></span>	wg.<span style="color:#50fa7b">Add</span>(<span style="color:#bd93f9">1</span>)
+	<span style="color:#ff79c6">go</span> <span style="color:#8be9fd;font-style:italic">func</span>(n <span style="color:#8be9fd">int</span>) {
+		<span style="color:#ff79c6">defer</span> wg.<span style="color:#50fa7b">Done</span>()
+		<span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">:=</span> <span style="color:#bd93f9">0</span>; i &lt; n; i<span style="color:#ff79c6">++</span> {
+			cv.L.<span style="color:#50fa7b">Lock</span>()
+			<span style="color:#ff79c6">for</span> printStr <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#34;ping&#34;</span> {
+				cv.<span style="color:#50fa7b">Wait</span>()
+			}
+			fmt.<span style="color:#50fa7b">Println</span>(printStr)
+			printStr = <span style="color:#f1fa8c">&#34;ping&#34;</span>
+			cv.<span style="color:#50fa7b">Signal</span>()
+			cv.L.<span style="color:#50fa7b">Unlock</span>()
+		}
+	}(numTimes)
+
+	wg.<span style="color:#50fa7b">Wait</span>()
+}
+
+<span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">main</span>() {
+	<span style="color:#50fa7b">mainMutex</span>()
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>Each thread waits its turn to print its designated <code>printStr</code>. They wait until the other thread signals that it&rsquo;s done with its turn by changing the <code>printStr</code> and by calling <code>cv.Signal()</code>. It&rsquo;s probably more correct to swap line 36 with 35 and line 20 with 19, but both orders work.</p>
+<p><strong>Remember to always wrap your calls to <code>cv.Wait()</code> in a loop to handle spurious wakeups!</strong></p>
+<p>Personally, I feel this style is less intuitive, but it&rsquo;s good to know it&rsquo;s still supported.</p>
+<p>Running this example gives the same result.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ go run main.go
+ping
+pong
+ping
+pong
+ping
+pong
+ping
+pong
+ping
+pong
+</code></pre></div><p>Now let&rsquo;s take a look at the python implementation.</p>
+<h2 id="python">Python</h2>
+<p>Python3 has a thread-safe queue <a href="https://docs.python.org/3/library/queue.html" rel="noopener" target="_blank">implementation</a>
+, so we&rsquo;ll first look at an example that uses that. Python&rsquo;s queue differs slightly from an unbuffered Golang channel because producers do not block when enqueueing items, even if the queue has a max size of one (the default). This makes the default queue more like a buffered channel of size one in Golang.</p>
+<p>This caveat forces us to use two separate queues so that one thread doesn&rsquo;t just print over and over, as was the case in the scenario we talked about with a buffered channel of size one in Golang.</p>
+<p>Here is the code.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3"><span style="color:#6272a4"># ping_pong.py</span>
+<span style="color:#ff79c6">import</span> queue
+<span style="color:#ff79c6">import</span> threading
+
+
+<span style="color:#ff79c6">def</span> <span style="color:#50fa7b">ping</span>(ping_queue, pong_queue, num_times):
+    <span style="color:#ff79c6">for</span> _ <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(num_times):
+        <span style="color:#8be9fd;font-style:italic">print</span>(ping_queue<span style="color:#ff79c6">.</span>get())
+        pong_queue<span style="color:#ff79c6">.</span>put(<span style="color:#f1fa8c">&#34;pong&#34;</span>)
+
+
+<span style="color:#ff79c6">def</span> <span style="color:#50fa7b">pong</span>(ping_queue, pong_queue, num_times):
+    <span style="color:#ff79c6">for</span> _ <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(num_times):
+        ping_queue<span style="color:#ff79c6">.</span>put(<span style="color:#f1fa8c">&#34;ping&#34;</span>)
+        <span style="color:#8be9fd;font-style:italic">print</span>(pong_queue<span style="color:#ff79c6">.</span>get())
+
+
+<span style="color:#ff79c6">if</span> __name__ <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#39;__main__&#39;</span>:
+    ping_queue <span style="color:#ff79c6">=</span> queue<span style="color:#ff79c6">.</span>Queue()
+    pong_queue <span style="color:#ff79c6">=</span> queue<span style="color:#ff79c6">.</span>Queue()
+    num_times <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">5</span>
+    threads <span style="color:#ff79c6">=</span> [threading<span style="color:#ff79c6">.</span>Thread(target<span style="color:#ff79c6">=</span>ping, args<span style="color:#ff79c6">=</span>(ping_queue, pong_queue, num_times)),
+               threading<span style="color:#ff79c6">.</span>Thread(target<span style="color:#ff79c6">=</span>pong, args<span style="color:#ff79c6">=</span>(ping_queue, pong_queue, num_times))]
+    <span style="color:#ff79c6">for</span> thread <span style="color:#ff79c6">in</span> threads:
+        thread<span style="color:#ff79c6">.</span>start()
+
+    <span style="color:#ff79c6">for</span> thread <span style="color:#ff79c6">in</span> threads:
+        thread<span style="color:#ff79c6">.</span>join()
+</code></pre></td></tr></table>
+</div>
+</div><p>By deafult, calls to <code>queue.get</code> will block until a value is availble, which is why lines 8 and 15 won&rsquo;t print until a value is enqueued.</p>
+<p>This code produces the desired output.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ python3 ping_pong.py
+ping
+pong
+ping
+pong
+ping
+pong
+ping
+pong
+ping
+pong
+</code></pre></div><p>Python also supports monitor-style concurrency, but I figured it&rsquo;d be more interesting to take a look at examples that use <code>asyncio</code> instead.</p>
+<p>For a fantastic overview of the different concurrency options available in Python, as well as when to use each, check out <a href="https://realpython.com/python-concurrency/" rel="noopener" target="_blank">this article</a>
+ from Real Python. Krondo&rsquo;s <a href="http://krondo.com/in-which-we-begin-at-the-beginning/" rel="noopener" target="_blank">article</a>
+ on the different paradigms is also worth a read.</p>
+<p>This problem isn&rsquo;t the most appropriate place to use <code>asyncio</code>, but life is short and can always use more asynchronous programming.</p>
+<p>Here is the code.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3"><span style="color:#6272a4"># ping_pong_aio.py</span>
+<span style="color:#ff79c6">import</span> asyncio
+
+<span style="color:#ff79c6">async</span> <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">ping</span>(ping_event, pong_event, num_times):
+    <span style="color:#ff79c6">for</span> _ <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(num_times):
+        <span style="color:#ff79c6">await</span> ping_event<span style="color:#ff79c6">.</span>wait()
+        <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#34;ping&#34;</span>)
+        ping_event<span style="color:#ff79c6">.</span>clear()
+        pong_event<span style="color:#ff79c6">.</span>set()
+
+<span style="color:#ff79c6">async</span> <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">pong</span>(ping_event, pong_event, num_times):
+    <span style="color:#ff79c6">for</span> _ <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(num_times):
+        ping_event<span style="color:#ff79c6">.</span>set()
+        <span style="color:#ff79c6">await</span> pong_event<span style="color:#ff79c6">.</span>wait()
+        <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#34;pong&#34;</span>)
+        pong_event<span style="color:#ff79c6">.</span>clear()
+
+<span style="color:#ff79c6">async</span> <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">main</span>():
+    ping_event, pong_event <span style="color:#ff79c6">=</span> asyncio<span style="color:#ff79c6">.</span>Event(), asyncio<span style="color:#ff79c6">.</span>Event()
+    num_times <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">5</span>
+    ping_task <span style="color:#ff79c6">=</span> asyncio<span style="color:#ff79c6">.</span>create_task(
+        ping(ping_event, pong_event, num_times)
+    )
+    pong_task <span style="color:#ff79c6">=</span> asyncio<span style="color:#ff79c6">.</span>create_task(
+        pong(ping_event, pong_event, num_times)
+    )
+    <span style="color:#ff79c6">await</span> ping_task
+    <span style="color:#ff79c6">await</span> pong_task
+
+
+<span style="color:#ff79c6">if</span> __name__ <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#39;__main__&#39;</span>:
+    asyncio<span style="color:#ff79c6">.</span>run(main())
+</code></pre></td></tr></table>
+</div>
+</div><p>Here we use an <code>asyncio.Event</code> to have one task communicate to another (and to the event loop) that it is done with its turn. We use two different events to avoid confusion and prevent a task from signalling to itself that it&rsquo;s done, which wouldn&rsquo;t be very useful.</p>
+<p>The ordering of the lines within the for-loops are to ensure that &ldquo;ping&rdquo; is printed first, just like in the other examples.</p>
+<p>This example could modify a <code>print_str</code> variable where <code>print()</code> is called on lines 7 and 15, like in previous examples, but this approach works too so I figured I&rsquo;d show it.</p>
+<p>This code differs from the other examples thus far because it only runs in one thread! The lack of context switching is one of the main performance benefits of asynchronous models over purely threaded ones.</p>
+<p>We see the same desired results from this code.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ python3 ping_pong_aio.py
+ping
+pong
+ping
+pong
+ping
+pong
+ping
+pong
+ping
+pong
+</code></pre></div><p><code>asyncio</code> also has support for mutexes and condition variables (which combines the functionality of an <a href="https://docs.python.org/3/library/asyncio-sync.html#asyncio.Condition" rel="noopener" target="_blank">Event and a Lock</a>
+) for synchronization between tasks . I don&rsquo;t think these are used much in normal asynchronous programming, but we might as well see them in action.</p>
+<p>Here is the <code>asyncio</code> code which uses <code>asyncio.Condition</code> instead of <code>asyncio.Event</code></p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3"><span style="color:#6272a4"># ping_pong_aio.py</span>
+<span style="color:#ff79c6">import</span> asyncio
+
+print_str <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;ping&#34;</span>
+<span style="color:#ff79c6">async</span> <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">ping_cond</span>(cond, num_times):
+    <span style="color:#ff79c6">global</span> print_str
+    <span style="color:#ff79c6">for</span> _ <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(num_times):
+        <span style="color:#ff79c6">async</span> <span style="color:#ff79c6">with</span> cond:
+            <span style="color:#ff79c6">while</span> print_str <span style="color:#ff79c6">!=</span> <span style="color:#f1fa8c">&#34;ping&#34;</span>:
+                <span style="color:#ff79c6">await</span> cond<span style="color:#ff79c6">.</span>wait()
+            <span style="color:#8be9fd;font-style:italic">print</span>(print_str)
+            print_str <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;pong&#34;</span>
+            cond<span style="color:#ff79c6">.</span>notify()
+
+<span style="color:#ff79c6">async</span> <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">pong_cond</span>(cond, num_times):
+    <span style="color:#ff79c6">global</span> print_str
+    <span style="color:#ff79c6">for</span> _ <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(num_times):
+        <span style="color:#ff79c6">async</span> <span style="color:#ff79c6">with</span> cond:
+            <span style="color:#ff79c6">while</span> print_str <span style="color:#ff79c6">!=</span> <span style="color:#f1fa8c">&#34;pong&#34;</span>:
+                <span style="color:#ff79c6">await</span> cond<span style="color:#ff79c6">.</span>wait()
+            <span style="color:#8be9fd;font-style:italic">print</span>(print_str)
+            print_str <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;ping&#34;</span>
+            cond<span style="color:#ff79c6">.</span>notify()
+
+<span style="color:#ff79c6">async</span> <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">main_cond</span>():
+    num_times <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">5</span>
+    cond <span style="color:#ff79c6">=</span> asyncio<span style="color:#ff79c6">.</span>Condition()
+    ping_task <span style="color:#ff79c6">=</span> asyncio<span style="color:#ff79c6">.</span>create_task(ping_cond(cond, num_times))
+    pong_task <span style="color:#ff79c6">=</span> asyncio<span style="color:#ff79c6">.</span>create_task(pong_cond(cond, num_times))
+    <span style="color:#ff79c6">await</span> ping_task
+    <span style="color:#ff79c6">await</span> pong_task
+
+<span style="color:#ff79c6">if</span> __name__ <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#39;__main__&#39;</span>:
+    asyncio<span style="color:#ff79c6">.</span>run(main_cond())
+</code></pre></td></tr></table>
+</div>
+</div><p>The calls to <code>async with cond</code>, like on line 8, simply acquire the underlying mutex. Golang and Python&rsquo;s approach to have the condition variable be automatically associated with an underlying mutex is quite convenient, since this is regarded as best practices anyway.</p>
+<p><code>cond.notify()</code> simply alerts the other task that the <code>print_str</code> has been changed and that the current task&rsquo;s turn is over.</p>
+<p>Once again we see the desired output from running this code.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ python3 ping_pong_aio.py
+ping
+pong
+ping
+pong
+ping
+pong
+ping
+pong
+ping
+pong
+</code></pre></div><p>Now let&rsquo;s take a look some examples in Rust.</p>
+<h2 id="rust">Rust</h2>
+<p>Rust also has native support for thread-safe queues for message-passing concurrency, which it also calls a channel, just like Golang. Unfortunately Rust&rsquo;s channels are only multiple-producer, <strong>single-consumer</strong> (abbreviated &ldquo;mpsc&rdquo;) channels, which is somewhat limiting. It enforces only one consumer using Rust&rsquo;s innovative ownership semantics.</p>
+<p>This differs from Golang&rsquo;s channels and Python&rsquo;s thread-safe queue, which are both multiple-producer, <strong>multiple-consumer</strong> (abbreviated &ldquo;mpmc&rdquo;) channels/queues.</p>
+<p>These concurrency primitives are much more flexible than Rust&rsquo;s, since many threads can take values out of the channel. It seems there are no plans to have a natively supported mpmc channel in Rust, at least based on this <a href="https://github.com/rust-lang/rfcs/issues/848" rel="noopener" target="_blank">GitHub issue</a>
+.</p>
+<p>To work around these limitations, we use two channels for each thread to send messages to the other. Here is the code.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#6272a4">// src/main.rs
+</span><span style="color:#6272a4"></span><span style="color:#ff79c6">use</span> std::sync::mpsc::{Sender, Receiver};
+<span style="color:#ff79c6">use</span> std::sync::mpsc;
+<span style="color:#ff79c6">use</span> std::sync::{Arc, Mutex, Condvar};
+<span style="color:#ff79c6">use</span> std::thread;
+
+<span style="color:#ff79c6">fn</span> <span style="color:#50fa7b">main_channels</span>() {
+    <span style="color:#8be9fd;font-style:italic">let</span> (ping_tx, ping_rx): (Sender<span style="color:#ff79c6">&lt;&amp;</span><span style="color:#8be9fd">str</span><span style="color:#ff79c6">&gt;</span>, Receiver<span style="color:#ff79c6">&lt;&amp;</span><span style="color:#8be9fd">str</span><span style="color:#ff79c6">&gt;</span>) <span style="color:#ff79c6">=</span> mpsc::channel();
+    <span style="color:#8be9fd;font-style:italic">let</span> (pong_tx, pong_rx): (Sender<span style="color:#ff79c6">&lt;&amp;</span><span style="color:#8be9fd">str</span><span style="color:#ff79c6">&gt;</span>, Receiver<span style="color:#ff79c6">&lt;&amp;</span><span style="color:#8be9fd">str</span><span style="color:#ff79c6">&gt;</span>) <span style="color:#ff79c6">=</span> mpsc::channel();
+    <span style="color:#8be9fd;font-style:italic">let</span> num_times <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">5</span>;
+
+    <span style="color:#8be9fd;font-style:italic">let</span> ping_thread <span style="color:#ff79c6">=</span> thread::spawn(<span style="color:#ff79c6">move</span> <span style="color:#ff79c6">||</span> {
+        <span style="color:#ff79c6">for</span> _ <span style="color:#ff79c6">in</span> <span style="color:#bd93f9">0</span>..num_times {
+            println<span style="color:#ff79c6">!</span>(<span style="color:#f1fa8c">&#34;{:?}&#34;</span>, ping_rx.recv().unwrap());
+            pong_tx.send(<span style="color:#f1fa8c">&#34;pong&#34;</span>).unwrap();
+        }
+    });
+    <span style="color:#8be9fd;font-style:italic">let</span> pong_thread <span style="color:#ff79c6">=</span> thread::spawn(<span style="color:#ff79c6">move</span> <span style="color:#ff79c6">||</span> {
+        <span style="color:#ff79c6">for</span> _ <span style="color:#ff79c6">in</span> <span style="color:#bd93f9">0</span>..num_times {
+            ping_tx.send(<span style="color:#f1fa8c">&#34;ping&#34;</span>).unwrap();
+            println<span style="color:#ff79c6">!</span>(<span style="color:#f1fa8c">&#34;{:?}&#34;</span>, pong_rx.recv().unwrap());
+        }
+    });
+    ping_thread.join().unwrap();
+    pong_thread.join().unwrap();
+
+}
+
+<span style="color:#ff79c6">fn</span> <span style="color:#50fa7b">main</span>() {
+    main_channels();
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>As with most other primitives, the <code>_rx</code> ends of the channels block until a value can be removed, which causes the for-loops to wait until the other thread has had its turn.</p>
+<p>I do like Rust&rsquo;s optional interface of passing a closure / lambda for a thread to run. It&rsquo;s always nice to save a few lines of code where possible (Golang and Python support this too).</p>
+<p>This code also produces the desired result.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cargo run
+   Compiling ping_pong v0.1.0 <span style="color:#ff79c6">(</span>/Users/Joey/Dev/sandbox/rust/ping_pong<span style="color:#ff79c6">)</span>
+    Finished dev <span style="color:#ff79c6">[</span>unoptimized + debuginfo<span style="color:#ff79c6">]</span> target<span style="color:#ff79c6">(</span>s<span style="color:#ff79c6">)</span> in 0.92s
+     Running <span style="color:#f1fa8c">`</span>target/debug/ping_pong<span style="color:#f1fa8c">`</span>
+<span style="color:#f1fa8c">&#34;ping&#34;</span>
+<span style="color:#f1fa8c">&#34;pong&#34;</span>
+<span style="color:#f1fa8c">&#34;ping&#34;</span>
+<span style="color:#f1fa8c">&#34;pong&#34;</span>
+<span style="color:#f1fa8c">&#34;ping&#34;</span>
+<span style="color:#f1fa8c">&#34;pong&#34;</span>
+<span style="color:#f1fa8c">&#34;ping&#34;</span>
+<span style="color:#f1fa8c">&#34;pong&#34;</span>
+<span style="color:#f1fa8c">&#34;ping&#34;</span>
+<span style="color:#f1fa8c">&#34;pong&#34;</span>
+</code></pre></div><p>As with the other languages we&rsquo;ve examined thus far, Rust also supports monitor-style concurrency. Rust&rsquo;s ownership model makes acquiring and releasing a mutex pretty fool-proof, mainly because there&rsquo;s no <code>unlock</code> function! Here is the code.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#6272a4">// src/main.rs
+</span><span style="color:#6272a4"></span><span style="color:#ff79c6">use</span> std::sync::mpsc::{Sender, Receiver};
+<span style="color:#ff79c6">use</span> std::sync::mpsc;
+<span style="color:#ff79c6">use</span> std::sync::{Arc, Mutex, Condvar};
+<span style="color:#ff79c6">use</span> std::thread;
+
+<span style="color:#ff79c6">fn</span> <span style="color:#50fa7b">main_mutex</span>() {
+    <span style="color:#8be9fd;font-style:italic">let</span> num_times <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">5</span>;
+    <span style="color:#6272a4">// let pair = Arc::new((Mutex::new(Some(&#34;ping&#34;)), Condvar::new()));
+</span><span style="color:#6272a4"></span>    <span style="color:#8be9fd;font-style:italic">let</span> pair <span style="color:#ff79c6">=</span> Arc::new((Mutex::new(<span style="color:#f1fa8c">&#34;ping&#34;</span>), Condvar::new()));
+    <span style="color:#8be9fd;font-style:italic">let</span> pair2 <span style="color:#ff79c6">=</span> Arc::clone(<span style="color:#ff79c6">&amp;</span>pair);
+    <span style="color:#8be9fd;font-style:italic">let</span> ping_thread <span style="color:#ff79c6">=</span> thread::spawn(<span style="color:#ff79c6">move</span> <span style="color:#ff79c6">||</span> {
+        <span style="color:#ff79c6">for</span> _ <span style="color:#ff79c6">in</span> <span style="color:#bd93f9">0</span>..num_times {
+            <span style="color:#8be9fd;font-style:italic">let</span> <span style="color:#ff79c6">&amp;</span>(<span style="color:#ff79c6">ref</span> lock, <span style="color:#ff79c6">ref</span> cv) <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">&amp;*</span>pair2;
+            <span style="color:#8be9fd;font-style:italic">let</span> <span style="color:#ff79c6">mut</span> print_str <span style="color:#ff79c6">=</span> lock.lock().unwrap();
+            <span style="color:#ff79c6">while</span> <span style="color:#ff79c6">*</span>print_str <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#34;pong&#34;</span> {
+                print_str <span style="color:#ff79c6">=</span> cv.wait(print_str).unwrap();
+
+            }
+            println<span style="color:#ff79c6">!</span>(<span style="color:#f1fa8c">&#34;{:?}&#34;</span>, <span style="color:#ff79c6">*</span>print_str);
+            <span style="color:#ff79c6">*</span>print_str <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;pong&#34;</span>;
+            cv.notify_one();
+        }
+    });
+    <span style="color:#8be9fd;font-style:italic">let</span> pong_thread <span style="color:#ff79c6">=</span> thread::spawn(<span style="color:#ff79c6">move</span> <span style="color:#ff79c6">||</span> {
+        <span style="color:#ff79c6">for</span> _ <span style="color:#ff79c6">in</span> <span style="color:#bd93f9">0</span>..num_times {
+            <span style="color:#8be9fd;font-style:italic">let</span> <span style="color:#ff79c6">&amp;</span>(<span style="color:#ff79c6">ref</span> lock, <span style="color:#ff79c6">ref</span> cv) <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">&amp;*</span>Arc::clone(<span style="color:#ff79c6">&amp;</span>pair);
+            <span style="color:#8be9fd;font-style:italic">let</span> <span style="color:#ff79c6">mut</span> print_str <span style="color:#ff79c6">=</span> lock.lock().unwrap();
+            <span style="color:#ff79c6">while</span> <span style="color:#ff79c6">*</span>print_str <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#34;ping&#34;</span> {
+                print_str <span style="color:#ff79c6">=</span> cv.wait(print_str).unwrap();
+
+            }
+            println<span style="color:#ff79c6">!</span>(<span style="color:#f1fa8c">&#34;{:?}&#34;</span>, <span style="color:#ff79c6">*</span>print_str);
+            <span style="color:#ff79c6">*</span>print_str <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;ping&#34;</span>;
+            cv.notify_one();
+        }
+    });
+    ping_thread.join().unwrap();
+    pong_thread.join().unwrap();
+}
+
+<span style="color:#ff79c6">fn</span> <span style="color:#50fa7b">main</span>() {
+    main_mutex();
+}
+</code></pre></div><p>This interface is really clunky to me, and certainly isn&rsquo;t intuitive to read! It&rsquo;s also way more lines the previous example which is not great. Clunky or not, it still produces the same result.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cargo run
+   Compiling ping_pong v0.1.0 <span style="color:#ff79c6">(</span>/Users/Joey/Dev/sandbox/rust/ping_pong<span style="color:#ff79c6">)</span>
+    Finished dev <span style="color:#ff79c6">[</span>unoptimized + debuginfo<span style="color:#ff79c6">]</span> target<span style="color:#ff79c6">(</span>s<span style="color:#ff79c6">)</span> in 0.92s
+     Running <span style="color:#f1fa8c">`</span>target/debug/ping_pong<span style="color:#f1fa8c">`</span>
+<span style="color:#f1fa8c">&#34;ping&#34;</span>
+<span style="color:#f1fa8c">&#34;pong&#34;</span>
+<span style="color:#f1fa8c">&#34;ping&#34;</span>
+<span style="color:#f1fa8c">&#34;pong&#34;</span>
+<span style="color:#f1fa8c">&#34;ping&#34;</span>
+<span style="color:#f1fa8c">&#34;pong&#34;</span>
+<span style="color:#f1fa8c">&#34;ping&#34;</span>
+<span style="color:#f1fa8c">&#34;pong&#34;</span>
+<span style="color:#f1fa8c">&#34;ping&#34;</span>
+<span style="color:#f1fa8c">&#34;pong&#34;</span>
+</code></pre></div><p>Let&rsquo;s take a look at how another systems language, C++, handles the task.</p>
+<h2 id="c">C++</h2>
+<p>Unfortunately C++ doesn&rsquo;t have a native channel or thread-safe queue implementation. This means our only option provided by the STL is monitor-style concurrency.</p>
+<p>Here is the code.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#6272a4">// Builds to executable ping_pong using CMake and Ninja, see source.
+</span><span style="color:#6272a4"></span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;iostream&gt;</span><span style="color:#ff79c6">
+</span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;thread&gt;</span><span style="color:#ff79c6">
+</span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;mutex&gt;</span><span style="color:#ff79c6">
+</span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;condition_variable&gt;</span><span style="color:#ff79c6">
+</span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;chrono&gt;</span><span style="color:#ff79c6">
+</span><span style="color:#ff79c6"></span>
+std<span style="color:#ff79c6">::</span>mutex mut;
+std<span style="color:#ff79c6">::</span>condition_variable cv;
+std<span style="color:#ff79c6">::</span>string print_str <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;ping&#34;</span>;
+
+<span style="color:#8be9fd">void</span> <span style="color:#50fa7b">ping</span>(<span style="color:#8be9fd">int</span> n) {
+    <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>; i <span style="color:#ff79c6">&lt;</span> n; <span style="color:#ff79c6">++</span>i) {
+        std<span style="color:#ff79c6">::</span>unique_lock<span style="color:#ff79c6">&lt;</span>std<span style="color:#ff79c6">::</span>mutex<span style="color:#ff79c6">&gt;</span> lk(mut);
+        <span style="color:#ff79c6">while</span> (print_str <span style="color:#ff79c6">!=</span> <span style="color:#f1fa8c">&#34;ping&#34;</span>) {
+            cv.wait(lk);
+        }
+        std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> print_str <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">&#34;</span>;
+        print_str <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;pong&#34;</span>;
+        lk.unlock();
+        cv.notify_one();
+    }
+}
+
+<span style="color:#8be9fd">void</span> <span style="color:#50fa7b">pong</span>(<span style="color:#8be9fd">int</span> n) {
+    <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>; i <span style="color:#ff79c6">&lt;</span> n; <span style="color:#ff79c6">++</span>i) {
+        std<span style="color:#ff79c6">::</span>unique_lock<span style="color:#ff79c6">&lt;</span>std<span style="color:#ff79c6">::</span>mutex<span style="color:#ff79c6">&gt;</span> lk(mut);
+        <span style="color:#ff79c6">while</span> (print_str <span style="color:#ff79c6">!=</span> <span style="color:#f1fa8c">&#34;pong&#34;</span>) {
+            cv.wait(lk);
+        }
+        std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> print_str <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">&#34;</span>;
+        print_str <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;ping&#34;</span>;
+        lk.unlock();
+        cv.notify_one();
+    }
+}
+
+<span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>() {
+    <span style="color:#8be9fd">int</span> n <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">5</span>;
+    std<span style="color:#ff79c6">::</span><span style="color:#ff79c6">thread</span> ping_thread(ping, n);
+    std<span style="color:#ff79c6">::</span><span style="color:#ff79c6">thread</span> pong_thread(pong, n);
+    ping_thread.join();
+    pong_thread.join();
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>Unsurprisingly, this code yields the same desired result.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./ping_pong
+ping
+pong
+ping
+pong
+ping
+pong
+ping
+pong
+ping
+pong
+</code></pre></div><h2 id="conclusion">Conclusion</h2>
+<p>We examined a simple concurrency example in four languages, each looking fairly similar to the other. I found this to be useful exercise. It&rsquo;s not always the case that similar ideas yield similar code across languages, but this is definitely the case here.</p>
+
+        </div>
+    </article>
+    
+
+
+        </main>
+        <footer>
+            
+                <hr></hr>
+<div class="container mb-4">
+    <div class="row">
+        <div class="col pl-0">
+            © Joey Buiteweg, 2020
+            <br>
+            <span>
+            Powered by <a target="_blank" rel="noopener" href="https://gohugo.io/">Hugo</a>
+            </span>
+        </div>
+        <div class="col text-right pr-0">
+                <a href="https://www.josephbuiteweg.com/contact/">Contact</a>
+                <br>
+                <a href="https://www.josephbuiteweg.com/extra/faq/">FAQ</a>
+        </div>
+    </div>
+</div>
+
+            
+        </footer>
+    </div>
+</body>
+</html>

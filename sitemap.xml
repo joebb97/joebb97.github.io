@@ -3,17 +3,42 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://www.josephbuiteweg.com/blog/project-considerations/</loc>
-    <lastmod>2020-11-28T00:00:00+00:00</lastmod>
+    <loc>https://www.josephbuiteweg.com/blog/ping-pong-concurrency/</loc>
+    <lastmod>2020-12-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.josephbuiteweg.com/categories/</loc>
-    <lastmod>2020-11-28T00:00:00+00:00</lastmod>
+    <lastmod>2020-12-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.josephbuiteweg.com/categories/cpp/</loc>
+    <lastmod>2020-12-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.josephbuiteweg.com/categories/golang/</loc>
+    <lastmod>2020-12-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.josephbuiteweg.com/</loc>
+    <lastmod>2020-12-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.josephbuiteweg.com/categories/python/</loc>
+    <lastmod>2020-12-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.josephbuiteweg.com/categories/rust/</loc>
+    <lastmod>2020-12-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.josephbuiteweg.com/blog/project-considerations/</loc>
     <lastmod>2020-11-28T00:00:00+00:00</lastmod>
   </url>
   
@@ -24,11 +49,6 @@
   
   <url>
     <loc>https://www.josephbuiteweg.com/blog/security-bad-things-list/</loc>
-    <lastmod>2020-11-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.josephbuiteweg.com/categories/python/</loc>
     <lastmod>2020-11-27T00:00:00+00:00</lastmod>
   </url>
   
