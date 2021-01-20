@@ -6,7 +6,7 @@
     <description>Joey Buiteweg (Joseph Buiteweg)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 22 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 15 Jun 2020 18:37:51 -0400</lastBuildDate>
     
     <atom:link href="https://www.josephbuiteweg.com/index.xml" rel="self" type="application/rss+xml" />
     
@@ -1289,7 +1289,7 @@ and a strong network of people supporting me along my journey in life.&lt;/p&gt;
       
       <guid>https://www.josephbuiteweg.com/blog/design-hints/</guid>
       <description>&lt;p&gt;A summary of &lt;a href=&#34;https://en.wikipedia.org/wiki/Butler_Lampson&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;Butler Lampson&lt;/a&gt;
-&amp;rsquo;s original &lt;a href=&#34;https://bwlampson.site/33-Hints/Acrobat.pdf&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;paper&lt;/a&gt;
+&amp;lsquo;s original &lt;a href=&#34;https://bwlampson.site/33-Hints/Acrobat.pdf&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;paper&lt;/a&gt;
 &lt;/p&gt;
 &lt;h1 id=&#34;2-functionality&#34;&gt;2 Functionality&lt;/h1&gt;
 &lt;h2 id=&#34;21-keep-it-simple&#34;&gt;2.1: Keep it simple&lt;/h2&gt;
