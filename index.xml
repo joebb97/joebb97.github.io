@@ -6,10 +6,110 @@
     <description>Joey Buiteweg (Joseph Buiteweg)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 15 Jun 2020 18:37:51 -0400</lastBuildDate>
+    <lastBuildDate>Sat, 30 Jan 2021 00:00:00 +0000</lastBuildDate>
     
     <atom:link href="https://www.josephbuiteweg.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Elm Sudoku Solver</title>
+      <link>https://www.josephbuiteweg.com/projects/elm-sudoku/</link>
+      <pubDate>Sat, 30 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.josephbuiteweg.com/projects/elm-sudoku/</guid>
+      <description>&lt;h2 id=&#34;the-finished-project&#34;&gt;The Finished Project&lt;/h2&gt;
+&lt;p&gt;It lives &lt;a href=&#34;https://elm-sudoku.netlify.app&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;here on netlify&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;The source code lives &lt;a href=&#34;https://github.com/joebb97/sandbox/tree/master/elm/sudoku&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;here on GitHub&lt;/a&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;supported-functionality&#34;&gt;Supported Functionality&lt;/h2&gt;
+&lt;p&gt;This app can solve user specified &lt;a href=&#34;https://en.wikipedia.org/wiki/Sudoku&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;Sudoku&lt;/a&gt;
+ boards, as well as generate boards for users to test their abilities on.&lt;/p&gt;
+&lt;p&gt;Both user specified and generated boards can be solved by simply clicking the &amp;ldquo;solve&amp;rdquo; button.&lt;/p&gt;
+&lt;p&gt;The solver can solve the &amp;ldquo;world&amp;rsquo;s hardest wikipedia board&amp;rdquo; (shown below) in roughly a second or so. Feel free to try it out!
+&lt;figure class=&#34;md-image text-center&#34;&gt;
+    &lt;img src=&#34;https://www.josephbuiteweg.com/sudoku.jpg&#34; alt=&#34;board&#34; class=&#34;figure-img img-fluid&#34;/&gt;
+    &lt;figcaption&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Note: The &amp;ldquo;wikipedia board&amp;rdquo; button generates the same board from the Wikipedia article on Sudoku, which can also be solved by the user or the solver. It was used for testing purposes.&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;quick-bullets&#34;&gt;Quick Bullets&lt;/h2&gt;
+&lt;p&gt;In this project I:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Learned a new frontend, functional programming language, &lt;a href=&#34;https://elm-lang.org/&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;elm&lt;/a&gt;
+, and applied what I learned to a sample problem.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Designed the HTML, CSS, and algorithms for a Sudoku player and solver.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Created an efficient solution to the Sudoku Constraint Satisfaction Problem (CSP) using a backtracking algorithm with the Minimum Remaining Value (MRV) heuristic.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Constructed data model and transformation logic for handling updates to the Sudoku board.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Enforced Sudoku rules when receiving input from a player so that the game functions correctly.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Leveraged help from the &lt;a href=&#34;https://faq.elm-community.org/&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;Elm community&lt;/a&gt;
+, mainly the Slack workspace, to get past roadblocks faced during the project.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;my-goals&#34;&gt;My Goals&lt;/h2&gt;
+&lt;p&gt;My goals in this project were to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Learn a functional language to make adopting the paradigm easier in future projects and in my work.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Increase my ability to contribute correct, efficient, code to the frontends of projects, and further myself as an all-stack developer.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;I love most every aspect of computing, from logic gates to firmware and operating systems all the way up to web systems!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Make a simple, efficient, and useful web application for real people.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I&amp;rsquo;d say I accomplished these goals in this project.&lt;/p&gt;
+&lt;h2 id=&#34;reflections&#34;&gt;Reflections&lt;/h2&gt;
+&lt;p&gt;It might be nice to support a &amp;ldquo;clear&amp;rdquo; button that keeps the same generated board, in case the user wants to start over. I&amp;rsquo;ll add this functionality if enough people request it.&lt;/p&gt;
+&lt;p&gt;It might also be nice to support importing and exporting boards, but since I&amp;rsquo;m unaware of a universal format for storing sudoku boards I don&amp;rsquo;t see much utility to this.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Exercism: A Community-Driven Alternative to Leetcode</title>
+      <link>https://www.josephbuiteweg.com/blog/exercism/</link>
+      <pubDate>Sat, 30 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.josephbuiteweg.com/blog/exercism/</guid>
+      <description>&lt;h2 id=&#34;whiteboard-questions&#34;&gt;Whiteboard Questions&lt;/h2&gt;
+&lt;p&gt;Anyone who has interviewed for a software engineering position has no doubt spent some time practicing &amp;ldquo;whiteboard questions&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;Whiteboard questions are normally datastructures and algorithms-oriented programming questions meant to assess technical competency. I personally think such questions fall short in evaluating the effectiveness of an engineer, but they are still prevalent nonetheless.&lt;/p&gt;
+&lt;p&gt;Whether or not the interviewing company does these types of technical questions depends on the company. It is well known though, that Facebook, Amazon, Apple, Netflix and Google (colloquially known as &amp;ldquo;FAANG&amp;rdquo;) ask these kinds of questions in their interviews.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://leetcode.com/&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;Leetcode&lt;/a&gt;
+, cringy name and all, is a popular site for practicing such whiteboard questions. You work on example problems and submit them, after which you solution is evaluated for performance and correctness.&lt;/p&gt;
+&lt;p&gt;In my opinion, Leetcode falls short in its lack of potential feedback from an actual human being. Interviewers place strong perference on code readability and being able to understand your solution as you make it. &lt;strong&gt;Leetcode absolutely does not ensure either of these!&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;exercism&#34;&gt;Exercism&lt;/h2&gt;
+&lt;p&gt;Enter &lt;a href=&#34;https://exercism.io/&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;Exercism&lt;/a&gt;
+, a great alternative or supplement to Leetcode for programming practice.&lt;/p&gt;
+&lt;p&gt;Exercism is entirely free, unlike Leetcode which requires purchasing a premium tier to access all problems, and provides the option to be mentored on improving your solutions. &lt;a href=&#34;https://exercism.io/become-a-mentor&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;Mentoring&lt;/a&gt;
+ and receiving general input from others on your public solutions is a fantastic way to improve yourself as a teammate and engineer!&lt;/p&gt;
+&lt;p&gt;If you&amp;rsquo;re not comfortable with this aspect of Exercism, mentoring and making your solutions public is entirely optional.&lt;/p&gt;
+&lt;p&gt;Not only is Exercism a great tool for interview practice, it&amp;rsquo;s excellent for learning a new programming language as well. I&amp;rsquo;ve read and heard many success stories from engineers using Exercism to become fluent in a new programming language.&lt;/p&gt;
+&lt;p&gt;I recently attended a Go Developer Network event and watched &lt;a href=&#34;https://www.youtube.com/watch?v=-eWTdp58uiY&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;this talk&lt;/a&gt;
+, which is both a great example success story and how I learned about Exercism in the first place!&lt;/p&gt;
+&lt;h2 id=&#34;my-experience&#34;&gt;My Experience&lt;/h2&gt;
+&lt;p&gt;I just recently started using Exercism and love it thus far. I especially like its command-line interface (CLI), and how everything is run on your machine, as opposed to some annoying and slow web-interface like Leetcode&amp;rsquo;s development environment. The free tier of Leetcode takes longer to compile, run and submit solutions, which is very unappealing!&lt;/p&gt;
+&lt;p&gt;Here is &lt;a href=&#34;https://exercism.io/profiles/joebb97&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;my exercism profile&lt;/a&gt;
+ as well as &lt;a href=&#34;https://github.com/joebb97/exercism-solutions&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;my repository&lt;/a&gt;
+ with my solutions to various problems on the site.&lt;/p&gt;
+&lt;p&gt;I hope you&amp;rsquo;ll join the community and make use of this wonderful resource!&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>A Small Concurrency Example in Various Languages</title>
@@ -1289,7 +1389,7 @@ and a strong network of people supporting me along my journey in life.&lt;/p&gt;
       
       <guid>https://www.josephbuiteweg.com/blog/design-hints/</guid>
       <description>&lt;p&gt;A summary of &lt;a href=&#34;https://en.wikipedia.org/wiki/Butler_Lampson&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;Butler Lampson&lt;/a&gt;
-&amp;lsquo;s original &lt;a href=&#34;https://bwlampson.site/33-Hints/Acrobat.pdf&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;paper&lt;/a&gt;
+&amp;rsquo;s original &lt;a href=&#34;https://bwlampson.site/33-Hints/Acrobat.pdf&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;paper&lt;/a&gt;
 &lt;/p&gt;
 &lt;h1 id=&#34;2-functionality&#34;&gt;2 Functionality&lt;/h1&gt;
 &lt;h2 id=&#34;21-keep-it-simple&#34;&gt;2.1: Keep it simple&lt;/h2&gt;

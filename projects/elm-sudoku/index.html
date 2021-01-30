@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+        
+<meta charset="utf-8">
+<meta name="HandheldFriendly" content="True">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer-when-downgrade">
+
+<title>Elm Sudoku Solver</title>
+<meta name="description" content="Joey&#39;s Personal Website/Blog">
+
+<link rel="alternate" type="application/rss+xml" title="RSS" href="https://www.josephbuiteweg.com/rss/">
+
+<link rel="icon" type="image/x-icon" href="https://www.josephbuiteweg.com/favicon.ico">
+<link rel="apple-touch-icon-precomposed" href="https://www.josephbuiteweg.com/favicon.png">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://www.josephbuiteweg.com/css/style.css?rnd=1612035638" />
+<link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
+
+
+
+
+
+
+
+    
+</head>
+<body>
+    <div class="container">
+        <header class="site-header">
+            
+                <nav class="navbar navbar-expand">
+    <a class="navbar-brand" href="https://www.josephbuiteweg.com/">Joey Buiteweg</a>
+    <div class="navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+            
+            
+            <li class="nav-item"><a class="nav-link" href="/about/" title="">About</a></li>
+            
+            <li class="nav-item"><a class="nav-link" href="/blog/" title="">Blog</a></li>
+            
+            <li class="nav-item"><a class="nav-link" href="/projects/" title="">Projects</a></li>
+            
+            <li class="nav-item"><a class="nav-link" href="/music/" title="">Music</a></li>
+            
+            <li class="nav-item"><a class="nav-link" href="/contact/" title="">Contact</a></li>
+            
+        </ul>
+    </div>
+</nav>
+
+            
+        </header>
+        <main>
+            
+
+    <article class="post">
+        <header class="mt-4 text-center" >
+            <h1 class="post-title">Elm Sudoku Solver</h1>
+            <div class="article-info">
+    
+    by Joey Buiteweg
+    
+        <div class="article-date">
+            Last updated
+            2021-01-30
+        </div>
+    
+    
+    
+    <div class="article-taxonomies">
+        
+            <span class="article-categories">
+                Categories: 
+                
+                    <a href="https://www.josephbuiteweg.com/categories/elm">elm</a>
+                
+            </span>
+            
+            
+    </div>
+</div>
+
+            <hr>
+        </header>
+        
+
+        <div class="content">
+            <h2 id="the-finished-project">The Finished Project</h2>
+<p>It lives <a href="https://elm-sudoku.netlify.app" rel="noopener" target="_blank">here on netlify</a>
+</p>
+<p>The source code lives <a href="https://github.com/joebb97/sandbox/tree/master/elm/sudoku" rel="noopener" target="_blank">here on GitHub</a>
+</p>
+<h2 id="supported-functionality">Supported Functionality</h2>
+<p>This app can solve user specified <a href="https://en.wikipedia.org/wiki/Sudoku" rel="noopener" target="_blank">Sudoku</a>
+ boards, as well as generate boards for users to test their abilities on.</p>
+<p>Both user specified and generated boards can be solved by simply clicking the &ldquo;solve&rdquo; button.</p>
+<p>The solver can solve the &ldquo;world&rsquo;s hardest wikipedia board&rdquo; (shown below) in roughly a second or so. Feel free to try it out!
+<figure class="md-image text-center">
+    <img src="/sudoku.jpg" alt="board" class="figure-img img-fluid"/>
+    <figcaption></figcaption>
+</figure>
+</p>
+<p><em>Note: The &ldquo;wikipedia board&rdquo; button generates the same board from the Wikipedia article on Sudoku, which can also be solved by the user or the solver. It was used for testing purposes.</em></p>
+<h2 id="quick-bullets">Quick Bullets</h2>
+<p>In this project I:</p>
+<ul>
+<li>
+<p>Learned a new frontend, functional programming language, <a href="https://elm-lang.org/" rel="noopener" target="_blank">elm</a>
+, and applied what I learned to a sample problem.</p>
+</li>
+<li>
+<p>Designed the HTML, CSS, and algorithms for a Sudoku player and solver.</p>
+</li>
+<li>
+<p>Created an efficient solution to the Sudoku Constraint Satisfaction Problem (CSP) using a backtracking algorithm with the Minimum Remaining Value (MRV) heuristic.</p>
+</li>
+<li>
+<p>Constructed data model and transformation logic for handling updates to the Sudoku board.</p>
+</li>
+<li>
+<p>Enforced Sudoku rules when receiving input from a player so that the game functions correctly.</p>
+</li>
+<li>
+<p>Leveraged help from the <a href="https://faq.elm-community.org/" rel="noopener" target="_blank">Elm community</a>
+, mainly the Slack workspace, to get past roadblocks faced during the project.</p>
+</li>
+</ul>
+<h2 id="my-goals">My Goals</h2>
+<p>My goals in this project were to:</p>
+<ul>
+<li>
+<p>Learn a functional language to make adopting the paradigm easier in future projects and in my work.</p>
+</li>
+<li>
+<p>Increase my ability to contribute correct, efficient, code to the frontends of projects, and further myself as an all-stack developer.</p>
+<ul>
+<li>I love most every aspect of computing, from logic gates to firmware and operating systems all the way up to web systems!</li>
+</ul>
+</li>
+<li>
+<p>Make a simple, efficient, and useful web application for real people.</p>
+</li>
+</ul>
+<p>I&rsquo;d say I accomplished these goals in this project.</p>
+<h2 id="reflections">Reflections</h2>
+<p>It might be nice to support a &ldquo;clear&rdquo; button that keeps the same generated board, in case the user wants to start over. I&rsquo;ll add this functionality if enough people request it.</p>
+<p>It might also be nice to support importing and exporting boards, but since I&rsquo;m unaware of a universal format for storing sudoku boards I don&rsquo;t see much utility to this.</p>
+
+        </div>
+    </article>
+    
+
+
+        </main>
+        <footer>
+            
+                <hr></hr>
+<div class="container mb-4">
+    <div class="row">
+        <div class="col pl-0">
+            © Joey Buiteweg, 2021
+            <br>
+            <span>
+            Powered by <a target="_blank" rel="noopener" href="https://gohugo.io/">Hugo</a>
+            </span>
+        </div>
+        <div class="col text-right pr-0">
+                <a href="https://www.josephbuiteweg.com/contact/">Contact</a>
+                <br>
+                <a href="https://www.josephbuiteweg.com/extra/faq/">FAQ</a>
+        </div>
+    </div>
+</div>
+
+            
+        </footer>
+    </div>
+</body>
+</html>

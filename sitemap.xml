@@ -3,12 +3,42 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://www.josephbuiteweg.com/blog/ping-pong-concurrency/</loc>
-    <lastmod>2020-12-22T00:00:00+00:00</lastmod>
+    <loc>https://www.josephbuiteweg.com/categories/</loc>
+    <lastmod>2021-01-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.josephbuiteweg.com/categories/</loc>
+    <loc>https://www.josephbuiteweg.com/categories/elm/</loc>
+    <lastmod>2021-01-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.josephbuiteweg.com/projects/elm-sudoku/</loc>
+    <lastmod>2021-01-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.josephbuiteweg.com/blog/exercism/</loc>
+    <lastmod>2021-01-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.josephbuiteweg.com/categories/interviewing/</loc>
+    <lastmod>2021-01-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.josephbuiteweg.com/</loc>
+    <lastmod>2021-01-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.josephbuiteweg.com/projects/</loc>
+    <lastmod>2021-01-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.josephbuiteweg.com/blog/ping-pong-concurrency/</loc>
     <lastmod>2020-12-22T00:00:00+00:00</lastmod>
   </url>
   
@@ -74,11 +104,6 @@
   </url>
   
   <url>
-    <loc>https://www.josephbuiteweg.com/</loc>
-    <lastmod>2020-06-15T18:37:51-04:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://www.josephbuiteweg.com/blog/design-hints/</loc>
     <lastmod>2020-06-07T00:00:00+00:00</lastmod>
   </url>
@@ -118,10 +143,6 @@
   
   <url>
     <loc>https://www.josephbuiteweg.com/tags/nonsense/</loc>
-  </url>
-  
-  <url>
-    <loc>https://www.josephbuiteweg.com/projects/</loc>
   </url>
   
   <url>
