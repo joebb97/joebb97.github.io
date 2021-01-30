@@ -44,6 +44,226 @@
     </item>
     
     <item>
+      <title>Simple Networking Applications in Rust and Golang</title>
+      <link>https://www.josephbuiteweg.com/blog/networking-examples/</link>
+      <pubDate>Sat, 30 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.josephbuiteweg.com/blog/networking-examples/</guid>
+      <description>&lt;h1 id=&#34;the-premise&#34;&gt;The Premise&lt;/h1&gt;
+&lt;p&gt;I wanted to be more comfortable and competent with the provided networking libraries in Rust and Golang. I figured implementing some simple client/server applications would be a great way to do this.&lt;/p&gt;
+&lt;h1 id=&#34;the-applications&#34;&gt;The Applications&lt;/h1&gt;
+&lt;h2 id=&#34;echo-server&#34;&gt;Echo Server&lt;/h2&gt;
+&lt;p&gt;I implemented a simple Echo Server and Client in both Rust and Go.&lt;/p&gt;
+&lt;p&gt;Here is the &lt;a href=&#34;https://github.com/joebb97/sandbox/tree/master/rust/echo_net&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;Rust source code&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;And here is the &lt;a href=&#34;https://github.com/joebb97/sandbox/tree/master/go/src/echo_net&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;Go source code&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;Both implementations support the same functionality which is sending either TCP or UDP messages from a client to a server and having the server &amp;ldquo;echo&amp;rdquo; back whatever the client sent.&lt;/p&gt;
+&lt;p&gt;An example run looks like this&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# Server output&lt;/span&gt;
+$ go run echo_net.go -s
+2021/01/30 14:56:45 Listening on &lt;span style=&#34;color:#ff79c6&#34;&gt;[&lt;/span&gt;::&lt;span style=&#34;color:#ff79c6&#34;&gt;]&lt;/span&gt;:5001 using tcp
+2021/01/30 14:57:15 Accepted a connection request.
+hey there
+you handsome devil
+Yay networking!
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# Client output&lt;/span&gt;
+$ go run echo_net.go -c
+2021/01/30 14:57:15 Dialing localhost:5001 using tcp
+hey there
+hey there
+you handsome devil
+you handsome devil
+Yay networking!
+Yay networking!
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Each line appears twice in the client output because the first one is the user entering the message while the second is the server&amp;rsquo;s respone.&lt;/p&gt;
+&lt;p&gt;The command line flags can also be used to specify alternative hostnames/IP addresses, ports, and a buffer size used store the messages sent and received.&lt;/p&gt;
+&lt;p&gt;For brevity, I&amp;rsquo;ll showcase the key TCP and UDP client/server code for the Go implementation. Feel free to check out the UDP implementations in both languages.&lt;/p&gt;
+&lt;p&gt;Here&amp;rsquo;s the TCP Server connection handling code,&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;// TCP Server Handling Connection
+&lt;/span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;handleConnection&lt;/span&gt;(conn net.Conn, bufSize &lt;span style=&#34;color:#8be9fd&#34;&gt;uint&lt;/span&gt;) {
+	buf &lt;span style=&#34;color:#ff79c6&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;make&lt;/span&gt;([]&lt;span style=&#34;color:#8be9fd&#34;&gt;byte&lt;/span&gt;, bufSize)
+	&lt;span style=&#34;color:#ff79c6&#34;&gt;defer&lt;/span&gt; conn.&lt;span style=&#34;color:#50fa7b&#34;&gt;Close&lt;/span&gt;()
+	&lt;span style=&#34;color:#ff79c6&#34;&gt;for&lt;/span&gt; {
+		size, err &lt;span style=&#34;color:#ff79c6&#34;&gt;:=&lt;/span&gt; conn.&lt;span style=&#34;color:#50fa7b&#34;&gt;Read&lt;/span&gt;(buf)
+		&lt;span style=&#34;color:#ff79c6&#34;&gt;switch&lt;/span&gt; {
+		&lt;span style=&#34;color:#ff79c6&#34;&gt;case&lt;/span&gt; err &lt;span style=&#34;color:#ff79c6&#34;&gt;==&lt;/span&gt; io.EOF:
+			log.&lt;span style=&#34;color:#50fa7b&#34;&gt;Println&lt;/span&gt;(&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Connection reached EOF, closing.\n ---&amp;#34;&lt;/span&gt;)
+			&lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt;
+		&lt;span style=&#34;color:#ff79c6&#34;&gt;case&lt;/span&gt; err &lt;span style=&#34;color:#ff79c6&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;nil&lt;/span&gt;:
+			log.&lt;span style=&#34;color:#50fa7b&#34;&gt;Println&lt;/span&gt;(&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Error receiving message from connection\n&amp;#34;&lt;/span&gt;, err)
+			&lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt;
+		}
+		msg &lt;span style=&#34;color:#ff79c6&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;string&lt;/span&gt;(buf[:size])
+		fmt.&lt;span style=&#34;color:#50fa7b&#34;&gt;Println&lt;/span&gt;(msg)
+		conn.&lt;span style=&#34;color:#50fa7b&#34;&gt;Write&lt;/span&gt;(buf[:size])
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And the UDP server connection handling code,&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;handleConnectionUDP&lt;/span&gt;(conn &lt;span style=&#34;color:#ff79c6&#34;&gt;*&lt;/span&gt;net.UDPConn, bufSize &lt;span style=&#34;color:#8be9fd&#34;&gt;uint&lt;/span&gt;) {
+	buf &lt;span style=&#34;color:#ff79c6&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;make&lt;/span&gt;([]&lt;span style=&#34;color:#8be9fd&#34;&gt;byte&lt;/span&gt;, bufSize)
+	&lt;span style=&#34;color:#ff79c6&#34;&gt;for&lt;/span&gt; {
+		size, remoteAddr, err &lt;span style=&#34;color:#ff79c6&#34;&gt;:=&lt;/span&gt; conn.&lt;span style=&#34;color:#50fa7b&#34;&gt;ReadFromUDP&lt;/span&gt;(buf)
+		&lt;span style=&#34;color:#ff79c6&#34;&gt;switch&lt;/span&gt; {
+		&lt;span style=&#34;color:#ff79c6&#34;&gt;case&lt;/span&gt; err &lt;span style=&#34;color:#ff79c6&#34;&gt;==&lt;/span&gt; io.EOF:
+			log.&lt;span style=&#34;color:#50fa7b&#34;&gt;Println&lt;/span&gt;(&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Connection reached EOF, closing.\n ---&amp;#34;&lt;/span&gt;)
+			&lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt;
+		&lt;span style=&#34;color:#ff79c6&#34;&gt;case&lt;/span&gt; err &lt;span style=&#34;color:#ff79c6&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;nil&lt;/span&gt;:
+			log.&lt;span style=&#34;color:#50fa7b&#34;&gt;Println&lt;/span&gt;(&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Error receiving message from connection\n&amp;#34;&lt;/span&gt;, err)
+			&lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt;
+		}
+		msg &lt;span style=&#34;color:#ff79c6&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;string&lt;/span&gt;(buf[:size])
+		fmt.&lt;span style=&#34;color:#50fa7b&#34;&gt;Println&lt;/span&gt;(msg)
+		conn.&lt;span style=&#34;color:#50fa7b&#34;&gt;WriteToUDP&lt;/span&gt;(buf[:size], remoteAddr)
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And finally the TCP and UDP Client connection handling code.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;// TCP and UDP Client Connection Code
+&lt;/span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;runClient&lt;/span&gt;(flags &lt;span style=&#34;color:#ff79c6&#34;&gt;*&lt;/span&gt;Flags) &lt;span style=&#34;color:#8be9fd&#34;&gt;error&lt;/span&gt; {
+	wholeAddr &lt;span style=&#34;color:#ff79c6&#34;&gt;:=&lt;/span&gt; flags.addr &lt;span style=&#34;color:#ff79c6&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;:&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;+&lt;/span&gt; flags.port
+	conn, err &lt;span style=&#34;color:#ff79c6&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;Open&lt;/span&gt;(flags.protoStr, wholeAddr)
+	&lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; err &lt;span style=&#34;color:#ff79c6&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;nil&lt;/span&gt; {
+		&lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt; errors.&lt;span style=&#34;color:#50fa7b&#34;&gt;Wrap&lt;/span&gt;(err, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Client: Failed to open connection to &amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;+&lt;/span&gt;wholeAddr)
+	}
+	stdinReader &lt;span style=&#34;color:#ff79c6&#34;&gt;:=&lt;/span&gt; bufio.&lt;span style=&#34;color:#50fa7b&#34;&gt;NewReader&lt;/span&gt;(os.Stdin)
+	bufSize, _ &lt;span style=&#34;color:#ff79c6&#34;&gt;:=&lt;/span&gt; strconv.&lt;span style=&#34;color:#50fa7b&#34;&gt;Atoi&lt;/span&gt;(flags.bufSize)
+	buf &lt;span style=&#34;color:#ff79c6&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;make&lt;/span&gt;([]&lt;span style=&#34;color:#8be9fd&#34;&gt;byte&lt;/span&gt;, &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;uint&lt;/span&gt;(bufSize))
+	&lt;span style=&#34;color:#ff79c6&#34;&gt;for&lt;/span&gt; {
+		text, stdinErr &lt;span style=&#34;color:#ff79c6&#34;&gt;:=&lt;/span&gt; stdinReader.&lt;span style=&#34;color:#50fa7b&#34;&gt;ReadString&lt;/span&gt;(&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;\n&amp;#39;&lt;/span&gt;)
+		&lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; stdinErr &lt;span style=&#34;color:#ff79c6&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;nil&lt;/span&gt; {
+			&lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt; errors.&lt;span style=&#34;color:#50fa7b&#34;&gt;Wrap&lt;/span&gt;(stdinErr, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Couldn&amp;#39;t read from stdin&amp;#34;&lt;/span&gt;)
+		}
+		text = text[:&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;len&lt;/span&gt;(text)&lt;span style=&#34;color:#ff79c6&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;1&lt;/span&gt;]
+		_, err &lt;span style=&#34;color:#ff79c6&#34;&gt;:=&lt;/span&gt; conn.&lt;span style=&#34;color:#50fa7b&#34;&gt;Write&lt;/span&gt;([]&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;byte&lt;/span&gt;(text))
+		&lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; err &lt;span style=&#34;color:#ff79c6&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;nil&lt;/span&gt; {
+			&lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt; errors.&lt;span style=&#34;color:#50fa7b&#34;&gt;Wrap&lt;/span&gt;(err, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Couldn&amp;#39;t write message to server&amp;#34;&lt;/span&gt;)
+		}
+		replySize, err &lt;span style=&#34;color:#ff79c6&#34;&gt;:=&lt;/span&gt; conn.&lt;span style=&#34;color:#50fa7b&#34;&gt;Read&lt;/span&gt;(buf)
+		&lt;span style=&#34;color:#6272a4&#34;&gt;// Don&amp;#39;t print the newline
+&lt;/span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;		fmt.&lt;span style=&#34;color:#50fa7b&#34;&gt;Println&lt;/span&gt;(&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;string&lt;/span&gt;(buf[:replySize]))
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;I enjoyed how the same client code mostly worked for both TCP and UDP (the &lt;code&gt;Open&lt;/code&gt; function is different), which is a sign of good API design!&lt;/p&gt;
+&lt;h2 id=&#34;iperf&#34;&gt;Iperf&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;iperf&lt;/code&gt; is a &lt;a href=&#34;https://linuxhint.com/iperf_command_usage/&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;network utility&lt;/a&gt;
+ used for measuring throughput between two networked devices. I&amp;rsquo;d written a novel implementation of the tool in C++ for a class before, so I was interested to see what a Golang implementation would look like.&lt;/p&gt;
+&lt;p&gt;My Go implementation supports the same functionality as the normal iperf (written in C), which allows for profiling throughput between two devices over UDP and TCP.&lt;/p&gt;
+&lt;p&gt;I haven&amp;rsquo;t made a Rust implementation yet, but am planning to in the near future&lt;/p&gt;
+&lt;p&gt;Here is an example run of the tool.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# Server output&lt;/span&gt;
+$ go run iperf.go -s -b &lt;span style=&#34;color:#bd93f9&#34;&gt;131072&lt;/span&gt;
+Listening on &lt;span style=&#34;color:#ff79c6&#34;&gt;[&lt;/span&gt;::&lt;span style=&#34;color:#ff79c6&#34;&gt;]&lt;/span&gt;:5001 using TCP
+Received &lt;span style=&#34;color:#bd93f9&#34;&gt;29369565&lt;/span&gt; KB in 10.00017095 seconds &lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;rate&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;23495.250 Mbps&lt;span style=&#34;color:#ff79c6&#34;&gt;)&lt;/span&gt; from &lt;span style=&#34;color:#ff79c6&#34;&gt;[&lt;/span&gt;::1&lt;span style=&#34;color:#ff79c6&#34;&gt;]&lt;/span&gt;:54716
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# Client output&lt;/span&gt;
+$ go run iperf.go -c -t &lt;span style=&#34;color:#bd93f9&#34;&gt;10&lt;/span&gt; -b &lt;span style=&#34;color:#bd93f9&#34;&gt;131072&lt;/span&gt;
+Dialing localhost:5001 using TCP
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;As we can see the tool measured ~23.5Gbps of throughput from one process to another on my laptop, which is definitely sensible.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;-b&lt;/code&gt; parameter specifies the underlying buffer size to use when storing/sending packets. I found that using a size of 128Kb yielded more accurate measured throughput (compared to the regular &lt;code&gt;iperf&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;This is much larger than it should be and is probably necessary due to some ineffeciency that I don&amp;rsquo;t really care to investigate. I&amp;rsquo;ll be interested to see if the same behavior surfaces in the Rust implementation I&amp;rsquo;m planning on making.&lt;/p&gt;
+&lt;p&gt;The command line flags support the same functionality as the Echo Server/Client, as well as specifying how long the client should send for (with the &lt;code&gt;-t&lt;/code&gt; flag).&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ll again showcase the key pieces of code for the server and client.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;// TCP and UDP Server Connection Handling
+&lt;/span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;handleConnection&lt;/span&gt;(conn net.Conn, bufSize &lt;span style=&#34;color:#8be9fd&#34;&gt;uint&lt;/span&gt;, protoStr &lt;span style=&#34;color:#8be9fd&#34;&gt;string&lt;/span&gt;) {
+	buf &lt;span style=&#34;color:#ff79c6&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;make&lt;/span&gt;([]&lt;span style=&#34;color:#8be9fd&#34;&gt;byte&lt;/span&gt;, bufSize)
+	&lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; protoStr &lt;span style=&#34;color:#ff79c6&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;tcp&amp;#34;&lt;/span&gt; {
+		&lt;span style=&#34;color:#ff79c6&#34;&gt;defer&lt;/span&gt; conn.&lt;span style=&#34;color:#50fa7b&#34;&gt;Close&lt;/span&gt;()
+	}
+	&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;var&lt;/span&gt; remoteAddr &lt;span style=&#34;color:#ff79c6&#34;&gt;*&lt;/span&gt;net.UDPAddr
+	totalRecvd &lt;span style=&#34;color:#ff79c6&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;0&lt;/span&gt;
+	startTime &lt;span style=&#34;color:#ff79c6&#34;&gt;:=&lt;/span&gt; time.&lt;span style=&#34;color:#50fa7b&#34;&gt;Now&lt;/span&gt;()
+	&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;var&lt;/span&gt; size &lt;span style=&#34;color:#8be9fd&#34;&gt;int&lt;/span&gt;
+	&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;var&lt;/span&gt; err &lt;span style=&#34;color:#8be9fd&#34;&gt;error&lt;/span&gt;
+	&lt;span style=&#34;color:#ff79c6&#34;&gt;for&lt;/span&gt; {
+		&lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; remoteAddr &lt;span style=&#34;color:#ff79c6&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;nil&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; protoStr &lt;span style=&#34;color:#ff79c6&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;udp&amp;#34;&lt;/span&gt; {
+			size, remoteAddr, err = conn.(&lt;span style=&#34;color:#ff79c6&#34;&gt;*&lt;/span&gt;net.UDPConn).&lt;span style=&#34;color:#50fa7b&#34;&gt;ReadFromUDP&lt;/span&gt;(buf)
+			startTime = time.&lt;span style=&#34;color:#50fa7b&#34;&gt;Now&lt;/span&gt;()
+		} &lt;span style=&#34;color:#ff79c6&#34;&gt;else&lt;/span&gt; {
+			size, err = conn.&lt;span style=&#34;color:#50fa7b&#34;&gt;Read&lt;/span&gt;(buf)
+		}
+		&lt;span style=&#34;color:#ff79c6&#34;&gt;switch&lt;/span&gt; {
+		&lt;span style=&#34;color:#ff79c6&#34;&gt;case&lt;/span&gt; err &lt;span style=&#34;color:#ff79c6&#34;&gt;==&lt;/span&gt; io.EOF:
+			fmt.&lt;span style=&#34;color:#50fa7b&#34;&gt;Println&lt;/span&gt;(&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Connection reached EOF, closing.\n ---&amp;#34;&lt;/span&gt;)
+			&lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt;
+		&lt;span style=&#34;color:#ff79c6&#34;&gt;case&lt;/span&gt; err &lt;span style=&#34;color:#ff79c6&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;nil&lt;/span&gt;:
+			fmt.&lt;span style=&#34;color:#50fa7b&#34;&gt;Println&lt;/span&gt;(&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Error receiving message from connection\n&amp;#34;&lt;/span&gt;, err)
+			&lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt;
+		}
+		totalRecvd &lt;span style=&#34;color:#ff79c6&#34;&gt;+=&lt;/span&gt; size
+		&lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; buf[size&lt;span style=&#34;color:#ff79c6&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;1&lt;/span&gt;] &lt;span style=&#34;color:#ff79c6&#34;&gt;==&lt;/span&gt; endbyte {
+			&lt;span style=&#34;color:#ff79c6&#34;&gt;break&lt;/span&gt;
+		}
+	}
+	duration &lt;span style=&#34;color:#ff79c6&#34;&gt;:=&lt;/span&gt; time.&lt;span style=&#34;color:#50fa7b&#34;&gt;Since&lt;/span&gt;(startTime).&lt;span style=&#34;color:#50fa7b&#34;&gt;Seconds&lt;/span&gt;()
+	&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;var&lt;/span&gt; addr &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;interface&lt;/span&gt;{}
+	&lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; protoStr &lt;span style=&#34;color:#ff79c6&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;udp&amp;#34;&lt;/span&gt; {
+		addr = remoteAddr
+	} &lt;span style=&#34;color:#ff79c6&#34;&gt;else&lt;/span&gt; {
+		addr = conn.&lt;span style=&#34;color:#50fa7b&#34;&gt;RemoteAddr&lt;/span&gt;()
+	}
+	kiloBytes &lt;span style=&#34;color:#ff79c6&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;int&lt;/span&gt;(&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;float64&lt;/span&gt;(totalRecvd) &lt;span style=&#34;color:#ff79c6&#34;&gt;/&lt;/span&gt; math.&lt;span style=&#34;color:#50fa7b&#34;&gt;Pow10&lt;/span&gt;(&lt;span style=&#34;color:#bd93f9&#34;&gt;3&lt;/span&gt;))
+	megaBitsPerSecond &lt;span style=&#34;color:#ff79c6&#34;&gt;:=&lt;/span&gt; (&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;float64&lt;/span&gt;(totalRecvd) &lt;span style=&#34;color:#ff79c6&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;8.0&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;/&lt;/span&gt; math.&lt;span style=&#34;color:#50fa7b&#34;&gt;Pow10&lt;/span&gt;(&lt;span style=&#34;color:#bd93f9&#34;&gt;6&lt;/span&gt;)) &lt;span style=&#34;color:#ff79c6&#34;&gt;/&lt;/span&gt; duration
+	fmt.&lt;span style=&#34;color:#50fa7b&#34;&gt;Printf&lt;/span&gt;(&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Received %+v KB in %+v seconds (rate=%.3f Mbps) from %+v\n&amp;#34;&lt;/span&gt;,
+		kiloBytes, duration, megaBitsPerSecond, addr)
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And here is the client code&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;// TCP/UDP Client Connection Handling
+&lt;/span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;runClient&lt;/span&gt;(flags &lt;span style=&#34;color:#ff79c6&#34;&gt;*&lt;/span&gt;Flags) &lt;span style=&#34;color:#8be9fd&#34;&gt;error&lt;/span&gt; {
+	wholeAddr &lt;span style=&#34;color:#ff79c6&#34;&gt;:=&lt;/span&gt; flags.addr &lt;span style=&#34;color:#ff79c6&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;:&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;+&lt;/span&gt; flags.port
+	conn, err &lt;span style=&#34;color:#ff79c6&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;Open&lt;/span&gt;(flags.protoStr, wholeAddr)
+	&lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; err &lt;span style=&#34;color:#ff79c6&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;nil&lt;/span&gt; {
+		&lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt; err
+	}
+	&lt;span style=&#34;color:#ff79c6&#34;&gt;defer&lt;/span&gt; conn.&lt;span style=&#34;color:#50fa7b&#34;&gt;Close&lt;/span&gt;()
+	bufSize, _ &lt;span style=&#34;color:#ff79c6&#34;&gt;:=&lt;/span&gt; strconv.&lt;span style=&#34;color:#50fa7b&#34;&gt;Atoi&lt;/span&gt;(flags.bufSize)
+	buf &lt;span style=&#34;color:#ff79c6&#34;&gt;:=&lt;/span&gt; bytes.&lt;span style=&#34;color:#50fa7b&#34;&gt;Repeat&lt;/span&gt;([]&lt;span style=&#34;color:#8be9fd&#34;&gt;byte&lt;/span&gt;{&lt;span style=&#34;color:#bd93f9&#34;&gt;0&lt;/span&gt;}, bufSize)
+	totalSent &lt;span style=&#34;color:#ff79c6&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;0&lt;/span&gt;
+
+	duration, _ &lt;span style=&#34;color:#ff79c6&#34;&gt;:=&lt;/span&gt; strconv.&lt;span style=&#34;color:#50fa7b&#34;&gt;Atoi&lt;/span&gt;(flags.duration)
+	endTime &lt;span style=&#34;color:#ff79c6&#34;&gt;:=&lt;/span&gt; time.&lt;span style=&#34;color:#50fa7b&#34;&gt;Now&lt;/span&gt;().&lt;span style=&#34;color:#50fa7b&#34;&gt;Add&lt;/span&gt;(time.Second &lt;span style=&#34;color:#ff79c6&#34;&gt;*&lt;/span&gt; time.&lt;span style=&#34;color:#50fa7b&#34;&gt;Duration&lt;/span&gt;(duration))
+	&lt;span style=&#34;color:#ff79c6&#34;&gt;for&lt;/span&gt; time.&lt;span style=&#34;color:#50fa7b&#34;&gt;Now&lt;/span&gt;().&lt;span style=&#34;color:#50fa7b&#34;&gt;Before&lt;/span&gt;(endTime) {
+		bytesSent, err &lt;span style=&#34;color:#ff79c6&#34;&gt;:=&lt;/span&gt; conn.&lt;span style=&#34;color:#50fa7b&#34;&gt;Write&lt;/span&gt;(buf)
+		&lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; err &lt;span style=&#34;color:#ff79c6&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;nil&lt;/span&gt; {
+			&lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt; errors.&lt;span style=&#34;color:#50fa7b&#34;&gt;Wrap&lt;/span&gt;(err, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Couldn&amp;#39;t write message to server&amp;#34;&lt;/span&gt;)
+		}
+		totalSent &lt;span style=&#34;color:#ff79c6&#34;&gt;+=&lt;/span&gt; bytesSent
+	}
+	buf[&lt;span style=&#34;color:#bd93f9&#34;&gt;0&lt;/span&gt;] = endbyte
+	&lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; flags.protoStr &lt;span style=&#34;color:#ff79c6&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;tcp&amp;#34;&lt;/span&gt; {
+		_, err = conn.&lt;span style=&#34;color:#50fa7b&#34;&gt;Write&lt;/span&gt;(buf[:&lt;span style=&#34;color:#bd93f9&#34;&gt;1&lt;/span&gt;])
+		&lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; err &lt;span style=&#34;color:#ff79c6&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;nil&lt;/span&gt; {
+			&lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt; errors.&lt;span style=&#34;color:#50fa7b&#34;&gt;Wrap&lt;/span&gt;(err, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Couldn&amp;#39;t write message to server&amp;#34;&lt;/span&gt;)
+		}
+	} &lt;span style=&#34;color:#ff79c6&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; flags.protoStr &lt;span style=&#34;color:#ff79c6&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;udp&amp;#34;&lt;/span&gt; {
+		_, err = conn.&lt;span style=&#34;color:#50fa7b&#34;&gt;Write&lt;/span&gt;(buf[:&lt;span style=&#34;color:#bd93f9&#34;&gt;1&lt;/span&gt;])
+		&lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; err &lt;span style=&#34;color:#ff79c6&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;nil&lt;/span&gt; {
+			&lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt; errors.&lt;span style=&#34;color:#50fa7b&#34;&gt;Wrap&lt;/span&gt;(err, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Couldn&amp;#39;t write message to server&amp;#34;&lt;/span&gt;)
+		}
+		&lt;span style=&#34;color:#6272a4&#34;&gt;// TODO: Do more sophisticated connection closing
+&lt;/span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;		&lt;span style=&#34;color:#6272a4&#34;&gt;// The ending packet that was just sent isn&amp;#39;t guaranteed to make it
+&lt;/span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;		&lt;span style=&#34;color:#6272a4&#34;&gt;// to the server
+&lt;/span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;
+		&lt;span style=&#34;color:#6272a4&#34;&gt;// Server should only send back one byte END message
+&lt;/span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;		&lt;span style=&#34;color:#6272a4&#34;&gt;// recvBuf := []byte{0}
+&lt;/span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;		&lt;span style=&#34;color:#6272a4&#34;&gt;// for recvBuf[0] != endbyte {
+&lt;/span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;		&lt;span style=&#34;color:#6272a4&#34;&gt;// 	_, err = conn.Read(recvBuf)
+&lt;/span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;		&lt;span style=&#34;color:#6272a4&#34;&gt;// 	if err != nil {
+&lt;/span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;		&lt;span style=&#34;color:#6272a4&#34;&gt;// 		return errors.Wrap(err, &amp;#34;Couldn&amp;#39;t write message to server&amp;#34;)
+&lt;/span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;		&lt;span style=&#34;color:#6272a4&#34;&gt;// 	}
+&lt;/span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;		&lt;span style=&#34;color:#6272a4&#34;&gt;// }
+&lt;/span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;
+	}
+	&lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;nil&lt;/span&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;As the TODO in the client code notes, the connection closing for UDP isn&amp;rsquo;t failure proof and could certainly be improved for more reliability. If the last UDP packet sent by the client for closing the connection gets lost, the server will think the connection is still open! Definitely a problematic situation.&lt;/p&gt;
+&lt;p&gt;Handling this situation would require implementing a TCP-like connection termination process which I don&amp;rsquo;t have the desire to write myself.&lt;/p&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;This was a great exercise to get me accustomed to some different networking libraries, since up until now most of my socket level programming had been done in C++ and Python. I found my prior knowledge in these languages helped a lot in these implementaitons as well, since the syscall wrappers are mostly named the same and perform the same tasks.&lt;/p&gt;
+&lt;p&gt;Hope the article was useful, and happy coding!&lt;/p&gt;
+&lt;p&gt;I found the exercise to be both rewarding and useful!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>A Small Concurrency Example in Various Languages</title>
       <link>https://www.josephbuiteweg.com/blog/ping-pong-concurrency/</link>
       <pubDate>Tue, 22 Dec 2020 00:00:00 +0000</pubDate>

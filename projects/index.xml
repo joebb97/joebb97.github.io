@@ -18,7 +18,7 @@
       
       <guid>https://www.josephbuiteweg.com/projects/elm-sudoku/</guid>
       <description>&lt;h2 id=&#34;the-finished-project&#34;&gt;The Finished Project&lt;/h2&gt;
-&lt;p&gt;It lives &lt;a href=&#34;https://elm-sudoku.netlify.app&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;here on netlify&lt;/a&gt;
+&lt;p&gt;It lives &lt;a href=&#34;https://elm-sudoku.netlify.app&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;here on Netlify&lt;/a&gt;
 &lt;/p&gt;
 &lt;p&gt;The source code lives &lt;a href=&#34;https://github.com/joebb97/sandbox/tree/master/elm/sudoku&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;here on GitHub&lt;/a&gt;
 &lt;/p&gt;
@@ -26,7 +26,7 @@
 &lt;p&gt;This app can solve user specified &lt;a href=&#34;https://en.wikipedia.org/wiki/Sudoku&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;Sudoku&lt;/a&gt;
  boards, as well as generate boards for users to test their abilities on.&lt;/p&gt;
 &lt;p&gt;Both user specified and generated boards can be solved by simply clicking the &amp;ldquo;solve&amp;rdquo; button.&lt;/p&gt;
-&lt;p&gt;The solver can solve the &amp;ldquo;world&amp;rsquo;s hardest wikipedia board&amp;rdquo; (shown below) in roughly a second or so. Feel free to try it out!
+&lt;p&gt;The solver can solve the &amp;ldquo;world&amp;rsquo;s hardest Sudoku board&amp;rdquo; (shown below) in roughly a second or so. Feel free to try it out!
 &lt;figure class=&#34;md-image text-center&#34;&gt;
     &lt;img src=&#34;https://www.josephbuiteweg.com/sudoku.jpg&#34; alt=&#34;board&#34; class=&#34;figure-img img-fluid&#34;/&gt;
     &lt;figcaption&gt;&lt;/figcaption&gt;
