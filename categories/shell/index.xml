@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>shell on Joey Buiteweg</title>
+    <link>https://www.josephbuiteweg.com/categories/shell/</link>
+    <description>Joey Buiteweg (shell)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 12 Oct 2021 00:00:00 +0000</lastBuildDate>
+    
+    <atom:link href="https://www.josephbuiteweg.com/categories/shell/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Use shellcheck!</title>
+      <link>https://www.josephbuiteweg.com/blog/shellcheck/</link>
+      <pubDate>Tue, 12 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.josephbuiteweg.com/blog/shellcheck/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/koalaman/shellcheck&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;shellcheck&lt;/a&gt;
+ is a super useful linter for your shell scripts.&lt;/p&gt;
+&lt;p&gt;I say shell scripts instead of &lt;code&gt;bash&lt;/code&gt; scripts since you should typically avoid using bash to run your scripts, since &lt;code&gt;bash&lt;/code&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Includes functionality that isn&amp;rsquo;t &lt;a href=&#34;https://en.wikipedia.org/wiki/POSIX&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;POSIX&lt;/a&gt;
+ compliant, which risks portability.&lt;/li&gt;
+&lt;li&gt;Is slower than &lt;code&gt;dash&lt;/code&gt;, which is POSIX compliant and includes no extra features.&lt;/li&gt;
+&lt;li&gt;Has idiosyncracies, typically called bash-isms, that manage to creep their way into regular shellscripts&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The above reasons are why you should put &lt;code&gt;#!/bin/sh&lt;/code&gt; at the top of your scripts, and not &lt;code&gt;#!/bin/bash&lt;/code&gt;. On Debian systems &lt;code&gt;/bin/sh&lt;/code&gt; is symlinked to &lt;code&gt;/bin/dash&lt;/code&gt; so that your scripts run as fast as possible. On other distros it might be linked to something else, but I highly recommend linking it to &lt;code&gt;dash&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Note: &lt;code&gt;/bin/sh&lt;/code&gt; being linked to another shell is entirely different from your login shell. You can still use whatever login shell you want, I use &lt;code&gt;fish&lt;/code&gt; for example, without it affecting your scripts. The scripts will still be invoked with a POSIX compliant shell.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Anyway. &lt;code&gt;shellcheck&lt;/code&gt; helps you write POSIX compliant scripts, or will let you specify &lt;code&gt;#!/bin/bash&lt;/code&gt; and use all the bash-isms you want. It also has detailed descriptions and justifications of its warnings on &lt;a href=&#34;https://github.com/koalaman/shellcheck/wiki/Checks&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;their wiki&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;Writing shell scripts comes with a lot of footguns. &lt;code&gt;shellcheck&lt;/code&gt; can help remove some of these, provided you heed its warnings!&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt; _________________
+&amp;lt; Use shellcheck! &amp;gt;
+ -----------------
+   \
+    \
+        .--.
+       |o_o |
+       |:_/ |
+      //   \ \
+     (|     | )
+    /&#39;\_   _/`\
+    \___)=(___/
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="no-referrer-when-downgrade">
 
-<title>My First Review</title>
+<title>Use shellcheck!</title>
 <meta name="description" content="Joey&#39;s Personal Website/Blog">
 
 <link rel="alternate" type="application/rss+xml" title="RSS" href="https://www.josephbuiteweg.com/rss/">
@@ -59,22 +59,28 @@
 
     <article class="post">
         <header class="mt-4 text-center" >
-            <h1 class="post-title">My First Review</h1>
+            <h1 class="post-title">Use shellcheck!</h1>
             <div class="article-info">
+    
+    by Joey Buiteweg
+    
+        <div class="article-date">
+            Last updated
+            2021-10-12
+        </div>
+    
+    
     
     <div class="article-taxonomies">
         
+            <span class="article-categories">
+                Categories: 
+                
+                    <a href="https://www.josephbuiteweg.com/categories/shell">shell</a>
+                
+            </span>
             
-                <br>
-                <span class="article-tags">
-                    Tags: 
-                    
-                        <a href="https://www.josephbuiteweg.com/tags/nonsense">#nonsense</a>
-                    
-                        <a href="https://www.josephbuiteweg.com/tags/baluga">#baluga</a>
-                    
-                </span>
-        
+            
     </div>
 </div>
 
@@ -83,8 +89,33 @@
         
 
         <div class="content">
-            <p>Following is a review of my favorite mechanical keyboard.</p>
-
+            <p><a href="https://github.com/koalaman/shellcheck" rel="noopener" target="_blank">shellcheck</a>
+ is a super useful linter for your shell scripts.</p>
+<p>I say shell scripts instead of <code>bash</code> scripts since you should typically avoid using bash to run your scripts, since <code>bash</code>:</p>
+<ul>
+<li>Includes functionality that isn&rsquo;t <a href="https://en.wikipedia.org/wiki/POSIX" rel="noopener" target="_blank">POSIX</a>
+ compliant, which risks portability.</li>
+<li>Is slower than <code>dash</code>, which is POSIX compliant and includes no extra features.</li>
+<li>Has idiosyncracies, typically called bash-isms, that manage to creep their way into regular shellscripts</li>
+</ul>
+<p>The above reasons are why you should put <code>#!/bin/sh</code> at the top of your scripts, and not <code>#!/bin/bash</code>. On Debian systems <code>/bin/sh</code> is symlinked to <code>/bin/dash</code> so that your scripts run as fast as possible. On other distros it might be linked to something else, but I highly recommend linking it to <code>dash</code>.</p>
+<p><em>Note: <code>/bin/sh</code> being linked to another shell is entirely different from your login shell. You can still use whatever login shell you want, I use <code>fish</code> for example, without it affecting your scripts. The scripts will still be invoked with a POSIX compliant shell.</em></p>
+<p>Anyway. <code>shellcheck</code> helps you write POSIX compliant scripts, or will let you specify <code>#!/bin/bash</code> and use all the bash-isms you want. It also has detailed descriptions and justifications of its warnings on <a href="https://github.com/koalaman/shellcheck/wiki/Checks" rel="noopener" target="_blank">their wiki</a>
+</p>
+<p>Writing shell scripts comes with a lot of footguns. <code>shellcheck</code> can help remove some of these, provided you heed its warnings!</p>
+<pre tabindex="0"><code> _________________
+&lt; Use shellcheck! &gt;
+ -----------------
+   \
+    \
+        .--.
+       |o_o |
+       |:_/ |
+      //   \ \
+     (|     | )
+    /'\_   _/`\
+    \___)=(___/
+</code></pre>
         </div>
     </article>
     
