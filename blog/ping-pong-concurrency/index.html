@@ -17,7 +17,7 @@
 <link rel="apple-touch-icon-precomposed" href="https://www.josephbuiteweg.com/favicon.png">
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<link rel="stylesheet" href="https://www.josephbuiteweg.com/css/style.css?rnd=1612038572" />
+<link rel="stylesheet" href="https://www.josephbuiteweg.com/css/style.css?rnd=1634005692" />
 <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
 
 
@@ -120,7 +120,7 @@
 <p>One of Go&rsquo;s best features is its beautiful and simple message-passing concurrency via channels. The message-passing code looks like this:</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -160,7 +160,7 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#6272a4">// main.go
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#6272a4">// main.go
 </span><span style="color:#6272a4"></span><span style="color:#ff79c6">package</span> main
 
 <span style="color:#ff79c6">import</span> (
@@ -204,7 +204,7 @@
 <p>Golang&rsquo;s unbuffered channels, <code>theChannel</code> in this example, are perfect for this situation since both producers and consumers block until a value is put into or removed from the channel, respectively. This is why the for-loops on lines 17 and 27 don&rsquo;t immediately keep executing.</p>
 <p>If <code>theChannel</code> was buffered with a size of one, the call to put a value into the channel wouldn&rsquo;t block on lines 20 and 28. This would cause the ping thread to potentially print &ldquo;pong&rdquo;, which isn&rsquo;t what we want!</p>
 <p>Running the example we see the desired output.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ go run main.go
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ go run main.go
 ping
 pong
 ping
@@ -218,7 +218,7 @@ pong
 </code></pre></div><p>Golang also supports the traditional monitor-style synchronization primitives of mutexes and condition variables. Here&rsquo;s what the ping-pong problem looks like using that style of concurrency.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -265,7 +265,7 @@ pong
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#6272a4">// main.go
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#6272a4">// main.go
 </span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">mainMutex</span>() {
 	numTimes <span style="color:#ff79c6">:=</span> <span style="color:#bd93f9">5</span>
 	<span style="color:#8be9fd;font-style:italic">var</span> wg sync.WaitGroup
@@ -316,7 +316,7 @@ pong
 <p><strong>Remember to always wrap your calls to <code>cv.Wait()</code> in a loop to handle spurious wakeups!</strong></p>
 <p>Personally, I feel this style is less intuitive, but it&rsquo;s good to know it&rsquo;s still supported.</p>
 <p>Running this example gives the same result.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ go run main.go
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ go run main.go
 ping
 pong
 ping
@@ -335,7 +335,7 @@ pong
 <p>Here is the code.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -365,7 +365,7 @@ pong
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3"><span style="color:#6272a4"># ping_pong.py</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3"><span style="color:#6272a4"># ping_pong.py</span>
 <span style="color:#ff79c6">import</span> queue
 <span style="color:#ff79c6">import</span> threading
 
@@ -397,7 +397,7 @@ pong
 </div>
 </div><p>By deafult, calls to <code>queue.get</code> will block until a value is availble, which is why lines 8 and 15 won&rsquo;t print until a value is enqueued.</p>
 <p>This code produces the desired output.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ python3 ping_pong.py
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ python3 ping_pong.py
 ping
 pong
 ping
@@ -416,7 +416,7 @@ pong
 <p>Here is the code.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -450,7 +450,7 @@ pong
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3"><span style="color:#6272a4"># ping_pong_aio.py</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3"><span style="color:#6272a4"># ping_pong_aio.py</span>
 <span style="color:#ff79c6">import</span> asyncio
 
 <span style="color:#ff79c6">async</span> <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">ping</span>(ping_event, pong_event, num_times):
@@ -489,7 +489,7 @@ pong
 <p>This example could modify a <code>print_str</code> variable where <code>print()</code> is called on lines 7 and 15, like in previous examples, but this approach works too so I figured I&rsquo;d show it.</p>
 <p>This code differs from the other examples thus far because it only runs in one thread! The lack of context switching is one of the main performance benefits of asynchronous models over purely threaded ones.</p>
 <p>We see the same desired results from this code.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ python3 ping_pong_aio.py
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ python3 ping_pong_aio.py
 ping
 pong
 ping
@@ -505,7 +505,7 @@ pong
 <p>Here is the <code>asyncio</code> code which uses <code>asyncio.Condition</code> instead of <code>asyncio.Event</code></p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -541,7 +541,7 @@ pong
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3"><span style="color:#6272a4"># ping_pong_aio.py</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3"><span style="color:#6272a4"># ping_pong_aio.py</span>
 <span style="color:#ff79c6">import</span> asyncio
 
 print_str <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;ping&#34;</span>
@@ -580,7 +580,7 @@ print_str <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;
 </div><p>The calls to <code>async with cond</code>, like on line 8, simply acquire the underlying mutex. Golang and Python&rsquo;s approach to have the condition variable be automatically associated with an underlying mutex is quite convenient, since this is regarded as best practices anyway.</p>
 <p><code>cond.notify()</code> simply alerts the other task that the <code>print_str</code> has been changed and that the current task&rsquo;s turn is over.</p>
 <p>Once again we see the desired output from running this code.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ python3 ping_pong_aio.py
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ python3 ping_pong_aio.py
 ping
 pong
 ping
@@ -600,7 +600,7 @@ pong
 <p>To work around these limitations, we use two channels for each thread to send messages to the other. Here is the code.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -633,7 +633,7 @@ pong
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#6272a4">// src/main.rs
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#6272a4">// src/main.rs
 </span><span style="color:#6272a4"></span><span style="color:#ff79c6">use</span> std::sync::mpsc::{Sender, Receiver};
 <span style="color:#ff79c6">use</span> std::sync::mpsc;
 <span style="color:#ff79c6">use</span> std::sync::{Arc, Mutex, Condvar};
@@ -669,7 +669,7 @@ pong
 </div><p>As with most other primitives, the <code>_rx</code> ends of the channels block until a value can be removed, which causes the for-loops to wait until the other thread has had its turn.</p>
 <p>I do like Rust&rsquo;s optional interface of passing a closure / lambda for a thread to run. It&rsquo;s always nice to save a few lines of code where possible (Golang and Python support this too).</p>
 <p>This code also produces the desired result.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cargo run
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cargo run
    Compiling ping_pong v0.1.0 <span style="color:#ff79c6">(</span>/Users/Joey/Dev/sandbox/rust/ping_pong<span style="color:#ff79c6">)</span>
     Finished dev <span style="color:#ff79c6">[</span>unoptimized + debuginfo<span style="color:#ff79c6">]</span> target<span style="color:#ff79c6">(</span>s<span style="color:#ff79c6">)</span> in 0.92s
      Running <span style="color:#f1fa8c">`</span>target/debug/ping_pong<span style="color:#f1fa8c">`</span>
@@ -684,7 +684,7 @@ pong
 <span style="color:#f1fa8c">&#34;ping&#34;</span>
 <span style="color:#f1fa8c">&#34;pong&#34;</span>
 </code></pre></div><p>As with the other languages we&rsquo;ve examined thus far, Rust also supports monitor-style concurrency. Rust&rsquo;s ownership model makes acquiring and releasing a mutex pretty fool-proof, mainly because there&rsquo;s no <code>unlock</code> function! Here is the code.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#6272a4">// src/main.rs
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#6272a4">// src/main.rs
 </span><span style="color:#6272a4"></span><span style="color:#ff79c6">use</span> std::sync::mpsc::{Sender, Receiver};
 <span style="color:#ff79c6">use</span> std::sync::mpsc;
 <span style="color:#ff79c6">use</span> std::sync::{Arc, Mutex, Condvar};
@@ -729,7 +729,7 @@ pong
     main_mutex();
 }
 </code></pre></div><p>This interface is really clunky to me, and certainly isn&rsquo;t intuitive to read! It&rsquo;s also way more lines the previous example which is not great. Clunky or not, it still produces the same result.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cargo run
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cargo run
    Compiling ping_pong v0.1.0 <span style="color:#ff79c6">(</span>/Users/Joey/Dev/sandbox/rust/ping_pong<span style="color:#ff79c6">)</span>
     Finished dev <span style="color:#ff79c6">[</span>unoptimized + debuginfo<span style="color:#ff79c6">]</span> target<span style="color:#ff79c6">(</span>s<span style="color:#ff79c6">)</span> in 0.92s
      Running <span style="color:#f1fa8c">`</span>target/debug/ping_pong<span style="color:#f1fa8c">`</span>
@@ -749,7 +749,7 @@ pong
 <p>Here is the code.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -795,7 +795,7 @@ pong
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#6272a4">// Builds to executable ping_pong using CMake and Ninja, see source.
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#6272a4">// Builds to executable ping_pong using CMake and Ninja, see source.
 </span><span style="color:#6272a4"></span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;iostream&gt;</span><span style="color:#ff79c6">
 </span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;thread&gt;</span><span style="color:#ff79c6">
 </span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;mutex&gt;</span><span style="color:#ff79c6">
@@ -842,7 +842,7 @@ std<span style="color:#ff79c6">::</span>string print_str <span style="color:#ff7
 </code></pre></td></tr></table>
 </div>
 </div><p>Unsurprisingly, this code yields the same desired result.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./ping_pong
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./ping_pong
 ping
 pong
 ping
