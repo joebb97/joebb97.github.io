@@ -17,7 +17,7 @@
 <link rel="apple-touch-icon-precomposed" href="https://www.josephbuiteweg.com/favicon.png">
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<link rel="stylesheet" href="https://www.josephbuiteweg.com/css/style.css?rnd=1645570561" />
+<link rel="stylesheet" href="https://www.josephbuiteweg.com/css/style.css?rnd=1652671710" />
 <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
 
 
@@ -111,14 +111,14 @@
 </p>
 <p>Both implementations support the same functionality which is sending either TCP or UDP messages from a client to a server and having the server &ldquo;echo&rdquo; back whatever the client sent.</p>
 <p>An example run looks like this</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#6272a4"># Server output</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#6272a4"># Server output</span>
 $ go run echo_net.go -s
 2021/01/30 14:56:45 Listening on <span style="color:#ff79c6">[</span>::<span style="color:#ff79c6">]</span>:5001 using tcp
 2021/01/30 14:57:15 Accepted a connection request.
 hey there
 you handsome devil
 Yay networking!
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#6272a4"># Client output</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#6272a4"># Client output</span>
 $ go run echo_net.go -c
 2021/01/30 14:57:15 Dialing localhost:5001 using tcp
 hey there
@@ -131,7 +131,7 @@ Yay networking!
 <p>The command line flags can also be used to specify alternative hostnames/IP addresses, ports, and a buffer size used store the messages sent and received.</p>
 <p>For brevity, I&rsquo;ll showcase the key TCP and UDP client/server code for the Go implementation. Feel free to check out the UDP implementations in both languages.</p>
 <p>Here&rsquo;s the TCP Server connection handling code,</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#6272a4">// TCP Server Handling Connection
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#6272a4">// TCP Server Handling Connection
 </span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">handleConnection</span>(conn net.Conn, bufSize <span style="color:#8be9fd">uint</span>) {
 	buf <span style="color:#ff79c6">:=</span> <span style="color:#8be9fd;font-style:italic">make</span>([]<span style="color:#8be9fd">byte</span>, bufSize)
 	<span style="color:#ff79c6">defer</span> conn.<span style="color:#50fa7b">Close</span>()
@@ -151,7 +151,7 @@ Yay networking!
 	}
 }
 </code></pre></div><p>And the UDP server connection handling code,</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">handleConnectionUDP</span>(conn <span style="color:#ff79c6">*</span>net.UDPConn, bufSize <span style="color:#8be9fd">uint</span>) {
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">handleConnectionUDP</span>(conn <span style="color:#ff79c6">*</span>net.UDPConn, bufSize <span style="color:#8be9fd">uint</span>) {
 	buf <span style="color:#ff79c6">:=</span> <span style="color:#8be9fd;font-style:italic">make</span>([]<span style="color:#8be9fd">byte</span>, bufSize)
 	<span style="color:#ff79c6">for</span> {
 		size, remoteAddr, err <span style="color:#ff79c6">:=</span> conn.<span style="color:#50fa7b">ReadFromUDP</span>(buf)
@@ -169,7 +169,7 @@ Yay networking!
 	}
 }
 </code></pre></div><p>And finally the TCP and UDP Client connection handling code.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#6272a4">// TCP and UDP Client Connection Code
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#6272a4">// TCP and UDP Client Connection Code
 </span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">runClient</span>(flags <span style="color:#ff79c6">*</span>Flags) <span style="color:#8be9fd">error</span> {
 	wholeAddr <span style="color:#ff79c6">:=</span> flags.addr <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34;:&#34;</span> <span style="color:#ff79c6">+</span> flags.port
 	conn, err <span style="color:#ff79c6">:=</span> <span style="color:#50fa7b">Open</span>(flags.protoStr, wholeAddr)
@@ -201,11 +201,11 @@ Yay networking!
 <p>My Go implementation supports the same functionality as the normal iperf (written in C), which allows for profiling throughput between two devices over UDP and TCP.</p>
 <p>I haven&rsquo;t made a Rust implementation yet, but am planning to in the near future</p>
 <p>Here is an example run of the tool.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#6272a4"># Server output</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#6272a4"># Server output</span>
 $ go run iperf.go -s -b <span style="color:#bd93f9">131072</span>
 Listening on <span style="color:#ff79c6">[</span>::<span style="color:#ff79c6">]</span>:5001 using TCP
 Received <span style="color:#bd93f9">29369565</span> KB in 10.00017095 seconds <span style="color:#ff79c6">(</span><span style="color:#8be9fd;font-style:italic">rate</span><span style="color:#ff79c6">=</span>23495.250 Mbps<span style="color:#ff79c6">)</span> from <span style="color:#ff79c6">[</span>::1<span style="color:#ff79c6">]</span>:54716
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#6272a4"># Client output</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#6272a4"># Client output</span>
 $ go run iperf.go -c -t <span style="color:#bd93f9">10</span> -b <span style="color:#bd93f9">131072</span>
 Dialing localhost:5001 using TCP
 </code></pre></div><p>As we can see the tool measured ~23.5Gbps of throughput from one process to another on my laptop, which is definitely sensible.</p>
@@ -213,7 +213,7 @@ Dialing localhost:5001 using TCP
 <p>This is much larger than it should be and is probably necessary due to some ineffeciency that I don&rsquo;t really care to investigate. I&rsquo;ll be interested to see if the same behavior surfaces in the Rust implementation I&rsquo;m planning on making.</p>
 <p>The command line flags support the same functionality as the Echo Server/Client, as well as specifying how long the client should send for (with the <code>-t</code> flag).</p>
 <p>I&rsquo;ll again showcase the key pieces of code for the server and client.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#6272a4">// TCP and UDP Server Connection Handling
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#6272a4">// TCP and UDP Server Connection Handling
 </span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">handleConnection</span>(conn net.Conn, bufSize <span style="color:#8be9fd">uint</span>, protoStr <span style="color:#8be9fd">string</span>) {
 	buf <span style="color:#ff79c6">:=</span> <span style="color:#8be9fd;font-style:italic">make</span>([]<span style="color:#8be9fd">byte</span>, bufSize)
 	<span style="color:#ff79c6">if</span> protoStr <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#34;tcp&#34;</span> {
@@ -257,7 +257,7 @@ Dialing localhost:5001 using TCP
 		kiloBytes, duration, megaBitsPerSecond, addr)
 }
 </code></pre></div><p>And here is the client code</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#6272a4">// TCP/UDP Client Connection Handling
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#6272a4">// TCP/UDP Client Connection Handling
 </span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">runClient</span>(flags <span style="color:#ff79c6">*</span>Flags) <span style="color:#8be9fd">error</span> {
 	wholeAddr <span style="color:#ff79c6">:=</span> flags.addr <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34;:&#34;</span> <span style="color:#ff79c6">+</span> flags.port
 	conn, err <span style="color:#ff79c6">:=</span> <span style="color:#50fa7b">Open</span>(flags.protoStr, wholeAddr)

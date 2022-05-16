@@ -17,7 +17,7 @@
 <link rel="apple-touch-icon-precomposed" href="https://www.josephbuiteweg.com/favicon.png">
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<link rel="stylesheet" href="https://www.josephbuiteweg.com/css/style.css?rnd=1645570561" />
+<link rel="stylesheet" href="https://www.josephbuiteweg.com/css/style.css?rnd=1652671710" />
 <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
 
 
@@ -90,7 +90,7 @@
             <h2 id="the-oddity">The Oddity</h2>
 <p>Let&rsquo;s say you want to intialize a matrix (a two-dimensional <code>list</code>) in python. It&rsquo;ll be an NxN matrix of numbers. Just for fun we&rsquo;ll make all the inital elements <code>1</code>, instead of <code>0</code>.</p>
 <p>One might think the following would be a sensible one-liner.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3"><span style="color:#6272a4"># sample.py</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3"><span style="color:#6272a4"># sample.py</span>
 <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">print_mat</span>(matrix):
     <span style="color:#ff79c6">for</span> row <span style="color:#ff79c6">in</span> matrix:
         <span style="color:#8be9fd;font-style:italic">print</span>(row)
@@ -98,7 +98,7 @@
 matrix <span style="color:#ff79c6">=</span> [[<span style="color:#bd93f9">1</span>] <span style="color:#ff79c6">*</span> <span style="color:#bd93f9">10</span>] <span style="color:#ff79c6">*</span> <span style="color:#bd93f9">10</span>
 print_mat(matrix)
 </code></pre></div><p>prints</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python3 sample.py 
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python3 sample.py 
 <span style="color:#ff79c6">[</span>1, 1, 1, 1, 1, 1, 1, 1, 1, 1<span style="color:#ff79c6">]</span>
 <span style="color:#ff79c6">[</span>1, 1, 1, 1, 1, 1, 1, 1, 1, 1<span style="color:#ff79c6">]</span>
 <span style="color:#ff79c6">[</span>1, 1, 1, 1, 1, 1, 1, 1, 1, 1<span style="color:#ff79c6">]</span>
@@ -110,7 +110,7 @@ print_mat(matrix)
 <span style="color:#ff79c6">[</span>1, 1, 1, 1, 1, 1, 1, 1, 1, 1<span style="color:#ff79c6">]</span>
 <span style="color:#ff79c6">[</span>1, 1, 1, 1, 1, 1, 1, 1, 1, 1<span style="color:#ff79c6">]</span>
 </code></pre></div><p><strong>But</strong>, what happens if we modify part of the matrix?</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3"><span style="color:#6272a4"># sample.py</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3"><span style="color:#6272a4"># sample.py</span>
 <span style="color:#6272a4"># same print_mat as above</span>
 matrix <span style="color:#ff79c6">=</span> [[<span style="color:#bd93f9">1</span>] <span style="color:#ff79c6">*</span> <span style="color:#bd93f9">10</span>] <span style="color:#ff79c6">*</span> <span style="color:#bd93f9">10</span>
 <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#34;--- BEFORE MOD ---&#34;</span>)
@@ -120,7 +120,7 @@ matrix[<span style="color:#bd93f9">0</span>][<span style="color:#bd93f9">3</span
 <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#34;--- AFTER MOD ---&#34;</span>)
 print_mat(matrix)
 </code></pre></div><p>prints</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python3 sample.py
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python3 sample.py
 --- BEFORE MOD ---
 <span style="color:#ff79c6">[</span>1, 1, 1, 1, 1, 1, 1, 1, 1, 1<span style="color:#ff79c6">]</span>
 <span style="color:#ff79c6">[</span>1, 1, 1, 1, 1, 1, 1, 1, 1, 1<span style="color:#ff79c6">]</span>
@@ -148,14 +148,14 @@ print_mat(matrix)
 <p><em>(If you are confused, we would normally expect <strong>only</strong> the first row to have been modified to have the <code>89</code>, not all of the rows)</em></p>
 <h2 id="explanation">Explanation</h2>
 <p>To better illustrate what&rsquo;s going on, the above declaration of matrix</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3">matrix <span style="color:#ff79c6">=</span> [[<span style="color:#bd93f9">1</span>] <span style="color:#ff79c6">*</span> <span style="color:#bd93f9">10</span>] <span style="color:#ff79c6">*</span> <span style="color:#bd93f9">10</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3">matrix <span style="color:#ff79c6">=</span> [[<span style="color:#bd93f9">1</span>] <span style="color:#ff79c6">*</span> <span style="color:#bd93f9">10</span>] <span style="color:#ff79c6">*</span> <span style="color:#bd93f9">10</span>
 </code></pre></div><p>is really the same as</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3">inner_list <span style="color:#ff79c6">=</span> [<span style="color:#bd93f9">1</span>] <span style="color:#ff79c6">*</span> <span style="color:#bd93f9">10</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3">inner_list <span style="color:#ff79c6">=</span> [<span style="color:#bd93f9">1</span>] <span style="color:#ff79c6">*</span> <span style="color:#bd93f9">10</span>
 matrix <span style="color:#ff79c6">=</span> [inner_list] <span style="color:#ff79c6">*</span> <span style="color:#bd93f9">10</span>
 </code></pre></div><p>Since python variables are really just pointers to objects, we&rsquo;re making a list of ten of the same pointer to one object, in this case our <code>list</code> of ten ones.</p>
 <h2 id="the-correct-way">The Correct Way</h2>
 <p>It&rsquo;s pretty straight forward to fix this, we just use a list comprehension instead of the <code>*</code> shorthand, which produces this unexpected behavior when applied to a list of lists.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3"><span style="color:#6272a4"># sample.py</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3"><span style="color:#6272a4"># sample.py</span>
 matrix <span style="color:#ff79c6">=</span> [[<span style="color:#bd93f9">1</span>] <span style="color:#ff79c6">*</span> <span style="color:#bd93f9">10</span> <span style="color:#ff79c6">for</span> _ <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(<span style="color:#bd93f9">10</span>)]
 <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#34;--- BEFORE MOD ---&#34;</span>)
 print_mat(matrix)
@@ -164,7 +164,7 @@ matrix[<span style="color:#bd93f9">0</span>][<span style="color:#bd93f9">3</span
 <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#34;--- AFTER MOD ---&#34;</span>)
 print_mat(matrix)
 </code></pre></div><p>which produces the expected output</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python3 sample.py
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python3 sample.py
 --- BEFORE MOD ---
 <span style="color:#ff79c6">[</span>1, 1, 1, 1, 1, 1, 1, 1, 1, 1<span style="color:#ff79c6">]</span>
 <span style="color:#ff79c6">[</span>1, 1, 1, 1, 1, 1, 1, 1, 1, 1<span style="color:#ff79c6">]</span>
@@ -191,7 +191,7 @@ print_mat(matrix)
 
 
 </code></pre></div><p><em>Note: we could also say</em>
-<code>matrix = [[1 for _ in range(10)] for _ in range(10)]</code><em>, but that is more to type!</em></p>
+<code>matrix = [[1 for _ in range(10)] for _ in range(10)]</code>_, but that is more to type!_</p>
 
         </div>
     </article>

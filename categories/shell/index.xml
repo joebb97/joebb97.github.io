@@ -31,7 +31,7 @@
 &lt;p&gt;Anyway. &lt;code&gt;shellcheck&lt;/code&gt; helps you write POSIX compliant scripts, or will let you specify &lt;code&gt;#!/bin/bash&lt;/code&gt; and use all the bash-isms you want. It also has detailed descriptions and justifications of its warnings on &lt;a href=&#34;https://github.com/koalaman/shellcheck/wiki/Checks&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;their wiki&lt;/a&gt;
 &lt;/p&gt;
 &lt;p&gt;Writing shell scripts comes with a lot of footguns. &lt;code&gt;shellcheck&lt;/code&gt; can help remove some of these, provided you heed its warnings!&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt; _________________
+&lt;pre&gt;&lt;code&gt; _________________
 &amp;lt; Use shellcheck! &amp;gt;
  -----------------
    \

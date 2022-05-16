@@ -12,6 +12,193 @@
     
     
     <item>
+      <title>Languages. Mainly those used for programming.</title>
+      <link>https://www.josephbuiteweg.com/blog/may-11-2022/</link>
+      <pubDate>Wed, 11 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.josephbuiteweg.com/blog/may-11-2022/</guid>
+      <description>&lt;p&gt;This is all w.r.t my agreement with &lt;a href=&#34;http://www.leancrew.com/all-this/2011/12/more-shell-less-egg/&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;this article&lt;/a&gt;
+,&lt;/p&gt;
+&lt;p&gt;and my frustration with Programming Languages that have been taken out of their design domain.&lt;/p&gt;
+&lt;h2 id=&#34;some-poetry-about-assembly&#34;&gt;Some poetry about assembly&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;miss me with some donald knuth
+    saying that I should do assembly language.
+    miss me with some       assembly language.
+
+miss me with some
+
+    I = {x86, CISC},
+    &amp;quot;CISC&amp;quot; == Complex Instruction Set Computer
+
+That. I = {x86, CISC}. Am. is not for humans.
+{amd64, x86}               is not for humans.
+
+  Yes. amd64 == x86_64. Fun fact.
+  In general, amd64 == x86. History!
+
+ARM (Advanced RISC Machine) is almost, but not quite, for humans,
+
+  &amp;quot;RISC&amp;quot; == Reduced Instruction Set Computer.
+  Yes. That&#39;s what ARM stands for. Fun Fact.
+&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
+&lt;h2 id=&#34;my-hawt-takes&#34;&gt;My HAWT Takes&lt;/h2&gt;
+&lt;p&gt;I am a human. And I don&amp;rsquo;t read assembly because. Well.
+I am not a &lt;em&gt;literally&lt;/em&gt; spineless, brainless piece of silicon.
+I function outside the constraints of a digitally oscillating nanofabricated clock.&lt;/p&gt;
+&lt;p&gt;I am not an analog clock. One breathing with actual electricity. That clock. Does not think.
+It { adds, divides, subtracts, multiplies } at the speed of GHz.
+Billions of times per second (&lt;em&gt;literally&lt;/em&gt;).&lt;/p&gt;
+&lt;p&gt;Do not. Try to equate my brain with that poopy-doodoo robot brain called
+{ siri, alexa, google voice assistant }. That is, total nonsense! Donald Knuth.
+Here&amp;rsquo;s what should probably happen.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;START:
+DO:
+    while(bad code || sad || unproductive) {
+SIMPLE: write POSIX shell, KISS, use simple plaintext
+        if (SIMPLE doesn&#39;t work) {
+          write in pseudocode
+          if (sufficient) {
+            continue
+          } // end if
+          // otherwise
+          write in a real ding-danging PL // A good one! [1]
+
+  };
+END:
+
+
+/* [1] A real academic, robust, &amp;quot;enterprise ready&amp;quot; programming language.
+* There are many to choose from. But they are *not*. **NOT**.
+* ABSOLUTELY NOT { 
+    python{
+      2, 2.7. 3.3, 3.7. 3.9, /etc.
+    }
+    (notReallyJava)Script (this one should really be JavaShit),
+    TypeScript,
+    Ruby
+ }
+* I say these languages aren&#39;t &amp;quot;enterprise ready&amp;quot; because.
+* They were not designed. Adequately.
+* For the problems we try to apply them to, such as {
+    banking,
+    ecommerce,
+    social media,
+    military,
+    embedded devices (
+        like Belkin&#39;s worthless &#39;digital light switches!
+        it should just be a light switch. not a computer.
+        change my mind. you probably won&#39;t
+    ), // end embedded devices
+    Smart TVs (
+        seriously most of these things are giant pieces of garbage.
+        Because well. 
+        I&#39;m gonna guess there&#39;s some really unperformant
+        interpreted [i.e slower, that is a fact, not an opinion],
+            {dynamic, duck, weakly}-typed langs in there.
+    ) // end SMART TVs
+* } // end &amp;quot;for the problems&amp;quot;
+} // end ABSOLUTELY NOT
+* 
+* INSTEAD. I say the languages we should learn towards are:
+*    - Compiled.
+*    - Strongly Typed.
+*    - (Sometimes, but not required) Statically Typed.
+*    - Safe by default. Footguns are opt-in, not opt-out.
+*    - (Sometimes, depending on the domain) Light on syntax.
+*    - Mostly performant out of the box.
+*       &amp;gt; You normally get this by just having a fucking compiler
+          and the decades of research that comes with one.
+          Blessed be thy LLVM and WASM in the future.
+*    - Well researched. Well designed.
+        &amp;gt; they have means of reducing boilerplate. like generics.
+          error propagation, etc.
+*    - Can do any I/O. Lol. Simon Peyton-Jones Haskell
+       used to struggle with this at one point. No longer!
+       It has I/O, concurrency, async, and it&#39;s all pretty great!
+*
+* Some that I&#39;ve come across that fit this bill:
+*    - Haskell
+*    - Elm
+*    - OCaml
+*    - Elixir 
+*    - Rust
+*    - Scala (?)
+*    - Julia (?)
+* (?) implies that I&#39;m just going out on a limb since I don&#39;t know for sure
+*/
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;That list I just rattled off is by no means exhaustive. But &lt;code&gt;golang&lt;/code&gt; is &lt;strong&gt;very intentionally&lt;/strong&gt; left off of the list.
+They just want me to write&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-golang&#34; data-lang=&#34;golang&#34;&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; err &lt;span style=&#34;color:#ff79c6&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;nil&lt;/span&gt; {
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;someFootGunValueYouCouldUse&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#ff79c6&#34;&gt;nil&lt;/span&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;every other line, which means it violates the points, &lt;em&gt;well researched and well designed&lt;/em&gt;, and &lt;em&gt;safe by default&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Nor am I trying to say that we shouldn&amp;rsquo;t use the interpreted languages from the long list above. I&amp;rsquo;d just like to not see javascript running my bank&amp;rsquo;s frontend. Is all I&amp;rsquo;m saying.&lt;/p&gt;
+&lt;p&gt;The field of PL research (whose papers I absolutely have not read btw) has come a loooong way since those grey beards concocted a kernel worth two shits at Bell Labs. Called UNIX. With the forward slashes and what not.&lt;/p&gt;
+&lt;p&gt;Most of the research has yielded a loooot of niceties. Such as enums that are really enums (sum types I believe they&amp;rsquo;re called) and not just a silly increasing number. Lookin&amp;rsquo; at you &lt;strong&gt;Golang and C++&lt;/strong&gt;. Rust and Haskell have beautiful enums that can each carry their own data, that way you don&amp;rsquo;t accidentally use the wrong data.&lt;/p&gt;
+&lt;p&gt;And of course they have composition / structures / product types (I think is what they&amp;rsquo;re called). But python sure as shit didn&amp;rsquo;t until 3.7 when it added &lt;code&gt;datatype&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Just. Ask more of your languages. Especially if you are going to be using them. Every. Single. Day of the week and for most projects at your {research lab, computer company, shitty web service}. Stop defensive programming with lines of code like&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;if (thingy != nil &amp;amp;&amp;amp; typeof thingy == typeIWantThingyToBe) {
+    // Oh thank fucking god now I can actually use thingy without
+    // worrying about this Stinger missle imploding.
+    // Since it could be there&#39;s some proprietary garbage
+    // language without type safety running in a Stinger missle
+    // for all we know
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;or re-enacting the following scenario&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Write some code like&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;a_function_without_types&lt;/span&gt;(thingy):
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;pass&lt;/span&gt; &lt;span style=&#34;color:#6272a4&#34;&gt;# on this language as a whole&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Then. 200 years later. You find your code not working because something has
+magically changed types while your program was running because, well, your ish is duck-typed.
+And now you have to, for about 5000+ lines of code, add in mind-numbing annotations like&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;a_function_without_types_but_now_has_them&lt;/span&gt;(thingy: thingyType):
+    &lt;span style=&#34;color:#6272a4&#34;&gt;# but the type checking doesn&amp;#39;t actually matter until you add&lt;/span&gt;
+    &lt;span style=&#34;color:#6272a4&#34;&gt;# something to your project to make sure it&amp;#39;s being done.&lt;/span&gt;
+    &lt;span style=&#34;color:#6272a4&#34;&gt;# because fuck me right?&lt;/span&gt;
+    &lt;span style=&#34;color:#6272a4&#34;&gt;# So it&amp;#39;s still totally possible for you to submit programs&lt;/span&gt;
+    &lt;span style=&#34;color:#6272a4&#34;&gt;# to the &amp;#34;compiler&amp;#34; MyPy and just ignore its errors, which once&lt;/span&gt;
+    &lt;span style=&#34;color:#6272a4&#34;&gt;# again brings you back to unsafe by default.&lt;/span&gt;
+
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;pass&lt;/span&gt; &lt;span style=&#34;color:#6272a4&#34;&gt;# on this language as a whole&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Wish you&amp;rsquo;d picked a language with a compiler because that&amp;rsquo;s what CS
+research has pointed us to probably since fucking day one.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;complaints-i-already-know-about&#34;&gt;Complaints I already know about&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;It&amp;rsquo;s too verbose!
+&lt;ul&gt;
+&lt;li&gt;Not if it&amp;rsquo;s got type inference 👍🏼. Yay type inference and patterns like&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-rust&#34; data-lang=&#34;rust&#34;&gt;&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;let&lt;/span&gt; x &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;dingdong&amp;#34;&lt;/span&gt;;
+&lt;span style=&#34;color:#6272a4&#34;&gt;// do things with x
+&lt;/span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;let&lt;/span&gt; x &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; Ditch();
+&lt;span style=&#34;color:#6272a4&#34;&gt;// do more things with x
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And if that&amp;rsquo;s too verbose for ya. Check out Haskell. It&amp;rsquo;s like Python but better in every way, including having farrrr fewer parentheses than most languages ever have.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;Inheritance sucks!
+&lt;ul&gt;
+&lt;li&gt;Yes it does! None of the languages I recommended above make you practice that
+trash pattern from the late 90s. Some don&amp;rsquo;t even support it whatsoever!&lt;/li&gt;
+&lt;li&gt;Composition/structures are me and &lt;a href=&#34;https://rust-for-rustaceans.com/&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;Jon Gjengsent&lt;/a&gt;
+&amp;rsquo;s spirit animals.
+Dynamic dispatch is nice and also achievable without. Shitty. Inheritance that looks something like
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Handler -&amp;gt; WebHandler -&amp;gt; ApiHandler -&amp;gt; ApiV2Handler -&amp;gt; ThingThatAlmostDoesHTTP -&amp;gt; ThingThatActuallyDoesHTTP&lt;/code&gt;
+and it juuust gets worse from there.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Use shellcheck!</title>
       <link>https://www.josephbuiteweg.com/blog/shellcheck/</link>
       <pubDate>Tue, 12 Oct 2021 00:00:00 +0000</pubDate>
@@ -31,7 +218,7 @@
 &lt;p&gt;Anyway. &lt;code&gt;shellcheck&lt;/code&gt; helps you write POSIX compliant scripts, or will let you specify &lt;code&gt;#!/bin/bash&lt;/code&gt; and use all the bash-isms you want. It also has detailed descriptions and justifications of its warnings on &lt;a href=&#34;https://github.com/koalaman/shellcheck/wiki/Checks&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;their wiki&lt;/a&gt;
 &lt;/p&gt;
 &lt;p&gt;Writing shell scripts comes with a lot of footguns. &lt;code&gt;shellcheck&lt;/code&gt; can help remove some of these, provided you heed its warnings!&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt; _________________
+&lt;pre&gt;&lt;code&gt; _________________
 &amp;lt; Use shellcheck! &amp;gt;
  -----------------
    \
@@ -55,7 +242,7 @@
       <description>&lt;h2 id=&#34;the-oddity&#34;&gt;The Oddity&lt;/h2&gt;
 &lt;p&gt;Let&amp;rsquo;s say you want to intialize a matrix (a two-dimensional &lt;code&gt;list&lt;/code&gt;) in python. It&amp;rsquo;ll be an NxN matrix of numbers. Just for fun we&amp;rsquo;ll make all the inital elements &lt;code&gt;1&lt;/code&gt;, instead of &lt;code&gt;0&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;One might think the following would be a sensible one-liner.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# sample.py&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# sample.py&lt;/span&gt;
 &lt;span style=&#34;color:#ff79c6&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;print_mat&lt;/span&gt;(matrix):
     &lt;span style=&#34;color:#ff79c6&#34;&gt;for&lt;/span&gt; row &lt;span style=&#34;color:#ff79c6&#34;&gt;in&lt;/span&gt; matrix:
         &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;print&lt;/span&gt;(row)
@@ -63,7 +250,7 @@
 matrix &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; [[&lt;span style=&#34;color:#bd93f9&#34;&gt;1&lt;/span&gt;] &lt;span style=&#34;color:#ff79c6&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;10&lt;/span&gt;] &lt;span style=&#34;color:#ff79c6&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;10&lt;/span&gt;
 print_mat(matrix)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;prints&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ python3 sample.py 
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ python3 sample.py 
 &lt;span style=&#34;color:#ff79c6&#34;&gt;[&lt;/span&gt;1, 1, 1, 1, 1, 1, 1, 1, 1, 1&lt;span style=&#34;color:#ff79c6&#34;&gt;]&lt;/span&gt;
 &lt;span style=&#34;color:#ff79c6&#34;&gt;[&lt;/span&gt;1, 1, 1, 1, 1, 1, 1, 1, 1, 1&lt;span style=&#34;color:#ff79c6&#34;&gt;]&lt;/span&gt;
 &lt;span style=&#34;color:#ff79c6&#34;&gt;[&lt;/span&gt;1, 1, 1, 1, 1, 1, 1, 1, 1, 1&lt;span style=&#34;color:#ff79c6&#34;&gt;]&lt;/span&gt;
@@ -75,7 +262,7 @@ print_mat(matrix)
 &lt;span style=&#34;color:#ff79c6&#34;&gt;[&lt;/span&gt;1, 1, 1, 1, 1, 1, 1, 1, 1, 1&lt;span style=&#34;color:#ff79c6&#34;&gt;]&lt;/span&gt;
 &lt;span style=&#34;color:#ff79c6&#34;&gt;[&lt;/span&gt;1, 1, 1, 1, 1, 1, 1, 1, 1, 1&lt;span style=&#34;color:#ff79c6&#34;&gt;]&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;But&lt;/strong&gt;, what happens if we modify part of the matrix?&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# sample.py&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# sample.py&lt;/span&gt;
 &lt;span style=&#34;color:#6272a4&#34;&gt;# same print_mat as above&lt;/span&gt;
 matrix &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; [[&lt;span style=&#34;color:#bd93f9&#34;&gt;1&lt;/span&gt;] &lt;span style=&#34;color:#ff79c6&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;10&lt;/span&gt;] &lt;span style=&#34;color:#ff79c6&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;10&lt;/span&gt;
 &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;--- BEFORE MOD ---&amp;#34;&lt;/span&gt;)
@@ -85,7 +272,7 @@ matrix[&lt;span style=&#34;color:#bd93f9&#34;&gt;0&lt;/span&gt;][&lt;span style=
 &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;--- AFTER MOD ---&amp;#34;&lt;/span&gt;)
 print_mat(matrix)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;prints&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ python3 sample.py
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ python3 sample.py
 --- BEFORE MOD ---
 &lt;span style=&#34;color:#ff79c6&#34;&gt;[&lt;/span&gt;1, 1, 1, 1, 1, 1, 1, 1, 1, 1&lt;span style=&#34;color:#ff79c6&#34;&gt;]&lt;/span&gt;
 &lt;span style=&#34;color:#ff79c6&#34;&gt;[&lt;/span&gt;1, 1, 1, 1, 1, 1, 1, 1, 1, 1&lt;span style=&#34;color:#ff79c6&#34;&gt;]&lt;/span&gt;
@@ -113,14 +300,14 @@ print_mat(matrix)
 &lt;p&gt;&lt;em&gt;(If you are confused, we would normally expect &lt;strong&gt;only&lt;/strong&gt; the first row to have been modified to have the &lt;code&gt;89&lt;/code&gt;, not all of the rows)&lt;/em&gt;&lt;/p&gt;
 &lt;h2 id=&#34;explanation&#34;&gt;Explanation&lt;/h2&gt;
 &lt;p&gt;To better illustrate what&amp;rsquo;s going on, the above declaration of matrix&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;matrix &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; [[&lt;span style=&#34;color:#bd93f9&#34;&gt;1&lt;/span&gt;] &lt;span style=&#34;color:#ff79c6&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;10&lt;/span&gt;] &lt;span style=&#34;color:#ff79c6&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;10&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;matrix &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; [[&lt;span style=&#34;color:#bd93f9&#34;&gt;1&lt;/span&gt;] &lt;span style=&#34;color:#ff79c6&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;10&lt;/span&gt;] &lt;span style=&#34;color:#ff79c6&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;10&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;is really the same as&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;inner_list &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; [&lt;span style=&#34;color:#bd93f9&#34;&gt;1&lt;/span&gt;] &lt;span style=&#34;color:#ff79c6&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;10&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;inner_list &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; [&lt;span style=&#34;color:#bd93f9&#34;&gt;1&lt;/span&gt;] &lt;span style=&#34;color:#ff79c6&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;10&lt;/span&gt;
 matrix &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; [inner_list] &lt;span style=&#34;color:#ff79c6&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;10&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Since python variables are really just pointers to objects, we&amp;rsquo;re making a list of ten of the same pointer to one object, in this case our &lt;code&gt;list&lt;/code&gt; of ten ones.&lt;/p&gt;
 &lt;h2 id=&#34;the-correct-way&#34;&gt;The Correct Way&lt;/h2&gt;
 &lt;p&gt;It&amp;rsquo;s pretty straight forward to fix this, we just use a list comprehension instead of the &lt;code&gt;*&lt;/code&gt; shorthand, which produces this unexpected behavior when applied to a list of lists.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# sample.py&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# sample.py&lt;/span&gt;
 matrix &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; [[&lt;span style=&#34;color:#bd93f9&#34;&gt;1&lt;/span&gt;] &lt;span style=&#34;color:#ff79c6&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;10&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;for&lt;/span&gt; _ &lt;span style=&#34;color:#ff79c6&#34;&gt;in&lt;/span&gt; &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;range&lt;/span&gt;(&lt;span style=&#34;color:#bd93f9&#34;&gt;10&lt;/span&gt;)]
 &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;--- BEFORE MOD ---&amp;#34;&lt;/span&gt;)
 print_mat(matrix)
@@ -129,7 +316,7 @@ matrix[&lt;span style=&#34;color:#bd93f9&#34;&gt;0&lt;/span&gt;][&lt;span style=
 &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;--- AFTER MOD ---&amp;#34;&lt;/span&gt;)
 print_mat(matrix)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;which produces the expected output&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ python3 sample.py
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ python3 sample.py
 --- BEFORE MOD ---
 &lt;span style=&#34;color:#ff79c6&#34;&gt;[&lt;/span&gt;1, 1, 1, 1, 1, 1, 1, 1, 1, 1&lt;span style=&#34;color:#ff79c6&#34;&gt;]&lt;/span&gt;
 &lt;span style=&#34;color:#ff79c6&#34;&gt;[&lt;/span&gt;1, 1, 1, 1, 1, 1, 1, 1, 1, 1&lt;span style=&#34;color:#ff79c6&#34;&gt;]&lt;/span&gt;
@@ -156,7 +343,7 @@ print_mat(matrix)
 
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;Note: we could also say&lt;/em&gt;
-&lt;code&gt;matrix = [[1 for _ in range(10)] for _ in range(10)]&lt;/code&gt;&lt;em&gt;, but that is more to type!&lt;/em&gt;&lt;/p&gt;
+&lt;code&gt;matrix = [[1 for _ in range(10)] for _ in range(10)]&lt;/code&gt;_, but that is more to type!_&lt;/p&gt;
 </description>
     </item>
     
@@ -209,14 +396,14 @@ print_mat(matrix)
 &lt;/p&gt;
 &lt;p&gt;Both implementations support the same functionality which is sending either TCP or UDP messages from a client to a server and having the server &amp;ldquo;echo&amp;rdquo; back whatever the client sent.&lt;/p&gt;
 &lt;p&gt;An example run looks like this&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# Server output&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# Server output&lt;/span&gt;
 $ go run echo_net.go -s
 2021/01/30 14:56:45 Listening on &lt;span style=&#34;color:#ff79c6&#34;&gt;[&lt;/span&gt;::&lt;span style=&#34;color:#ff79c6&#34;&gt;]&lt;/span&gt;:5001 using tcp
 2021/01/30 14:57:15 Accepted a connection request.
 hey there
 you handsome devil
 Yay networking!
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# Client output&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# Client output&lt;/span&gt;
 $ go run echo_net.go -c
 2021/01/30 14:57:15 Dialing localhost:5001 using tcp
 hey there
@@ -229,7 +416,7 @@ Yay networking!
 &lt;p&gt;The command line flags can also be used to specify alternative hostnames/IP addresses, ports, and a buffer size used store the messages sent and received.&lt;/p&gt;
 &lt;p&gt;For brevity, I&amp;rsquo;ll showcase the key TCP and UDP client/server code for the Go implementation. Feel free to check out the UDP implementations in both languages.&lt;/p&gt;
 &lt;p&gt;Here&amp;rsquo;s the TCP Server connection handling code,&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;// TCP Server Handling Connection
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;// TCP Server Handling Connection
 &lt;/span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;handleConnection&lt;/span&gt;(conn net.Conn, bufSize &lt;span style=&#34;color:#8be9fd&#34;&gt;uint&lt;/span&gt;) {
 	buf &lt;span style=&#34;color:#ff79c6&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;make&lt;/span&gt;([]&lt;span style=&#34;color:#8be9fd&#34;&gt;byte&lt;/span&gt;, bufSize)
 	&lt;span style=&#34;color:#ff79c6&#34;&gt;defer&lt;/span&gt; conn.&lt;span style=&#34;color:#50fa7b&#34;&gt;Close&lt;/span&gt;()
@@ -249,7 +436,7 @@ Yay networking!
 	}
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And the UDP server connection handling code,&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;handleConnectionUDP&lt;/span&gt;(conn &lt;span style=&#34;color:#ff79c6&#34;&gt;*&lt;/span&gt;net.UDPConn, bufSize &lt;span style=&#34;color:#8be9fd&#34;&gt;uint&lt;/span&gt;) {
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;handleConnectionUDP&lt;/span&gt;(conn &lt;span style=&#34;color:#ff79c6&#34;&gt;*&lt;/span&gt;net.UDPConn, bufSize &lt;span style=&#34;color:#8be9fd&#34;&gt;uint&lt;/span&gt;) {
 	buf &lt;span style=&#34;color:#ff79c6&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;make&lt;/span&gt;([]&lt;span style=&#34;color:#8be9fd&#34;&gt;byte&lt;/span&gt;, bufSize)
 	&lt;span style=&#34;color:#ff79c6&#34;&gt;for&lt;/span&gt; {
 		size, remoteAddr, err &lt;span style=&#34;color:#ff79c6&#34;&gt;:=&lt;/span&gt; conn.&lt;span style=&#34;color:#50fa7b&#34;&gt;ReadFromUDP&lt;/span&gt;(buf)
@@ -267,7 +454,7 @@ Yay networking!
 	}
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And finally the TCP and UDP Client connection handling code.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;// TCP and UDP Client Connection Code
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;// TCP and UDP Client Connection Code
 &lt;/span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;runClient&lt;/span&gt;(flags &lt;span style=&#34;color:#ff79c6&#34;&gt;*&lt;/span&gt;Flags) &lt;span style=&#34;color:#8be9fd&#34;&gt;error&lt;/span&gt; {
 	wholeAddr &lt;span style=&#34;color:#ff79c6&#34;&gt;:=&lt;/span&gt; flags.addr &lt;span style=&#34;color:#ff79c6&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;:&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;+&lt;/span&gt; flags.port
 	conn, err &lt;span style=&#34;color:#ff79c6&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;Open&lt;/span&gt;(flags.protoStr, wholeAddr)
@@ -299,11 +486,11 @@ Yay networking!
 &lt;p&gt;My Go implementation supports the same functionality as the normal iperf (written in C), which allows for profiling throughput between two devices over UDP and TCP.&lt;/p&gt;
 &lt;p&gt;I haven&amp;rsquo;t made a Rust implementation yet, but am planning to in the near future&lt;/p&gt;
 &lt;p&gt;Here is an example run of the tool.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# Server output&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# Server output&lt;/span&gt;
 $ go run iperf.go -s -b &lt;span style=&#34;color:#bd93f9&#34;&gt;131072&lt;/span&gt;
 Listening on &lt;span style=&#34;color:#ff79c6&#34;&gt;[&lt;/span&gt;::&lt;span style=&#34;color:#ff79c6&#34;&gt;]&lt;/span&gt;:5001 using TCP
 Received &lt;span style=&#34;color:#bd93f9&#34;&gt;29369565&lt;/span&gt; KB in 10.00017095 seconds &lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;rate&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;23495.250 Mbps&lt;span style=&#34;color:#ff79c6&#34;&gt;)&lt;/span&gt; from &lt;span style=&#34;color:#ff79c6&#34;&gt;[&lt;/span&gt;::1&lt;span style=&#34;color:#ff79c6&#34;&gt;]&lt;/span&gt;:54716
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# Client output&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# Client output&lt;/span&gt;
 $ go run iperf.go -c -t &lt;span style=&#34;color:#bd93f9&#34;&gt;10&lt;/span&gt; -b &lt;span style=&#34;color:#bd93f9&#34;&gt;131072&lt;/span&gt;
 Dialing localhost:5001 using TCP
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;As we can see the tool measured ~23.5Gbps of throughput from one process to another on my laptop, which is definitely sensible.&lt;/p&gt;
@@ -311,7 +498,7 @@ Dialing localhost:5001 using TCP
 &lt;p&gt;This is much larger than it should be and is probably necessary due to some ineffeciency that I don&amp;rsquo;t really care to investigate. I&amp;rsquo;ll be interested to see if the same behavior surfaces in the Rust implementation I&amp;rsquo;m planning on making.&lt;/p&gt;
 &lt;p&gt;The command line flags support the same functionality as the Echo Server/Client, as well as specifying how long the client should send for (with the &lt;code&gt;-t&lt;/code&gt; flag).&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;ll again showcase the key pieces of code for the server and client.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;// TCP and UDP Server Connection Handling
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;// TCP and UDP Server Connection Handling
 &lt;/span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;handleConnection&lt;/span&gt;(conn net.Conn, bufSize &lt;span style=&#34;color:#8be9fd&#34;&gt;uint&lt;/span&gt;, protoStr &lt;span style=&#34;color:#8be9fd&#34;&gt;string&lt;/span&gt;) {
 	buf &lt;span style=&#34;color:#ff79c6&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;make&lt;/span&gt;([]&lt;span style=&#34;color:#8be9fd&#34;&gt;byte&lt;/span&gt;, bufSize)
 	&lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; protoStr &lt;span style=&#34;color:#ff79c6&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;tcp&amp;#34;&lt;/span&gt; {
@@ -355,7 +542,7 @@ Dialing localhost:5001 using TCP
 		kiloBytes, duration, megaBitsPerSecond, addr)
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And here is the client code&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;// TCP/UDP Client Connection Handling
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;// TCP/UDP Client Connection Handling
 &lt;/span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;runClient&lt;/span&gt;(flags &lt;span style=&#34;color:#ff79c6&#34;&gt;*&lt;/span&gt;Flags) &lt;span style=&#34;color:#8be9fd&#34;&gt;error&lt;/span&gt; {
 	wholeAddr &lt;span style=&#34;color:#ff79c6&#34;&gt;:=&lt;/span&gt; flags.addr &lt;span style=&#34;color:#ff79c6&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;:&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;+&lt;/span&gt; flags.port
 	conn, err &lt;span style=&#34;color:#ff79c6&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;Open&lt;/span&gt;(flags.protoStr, wholeAddr)
@@ -429,7 +616,7 @@ Dialing localhost:5001 using TCP
 &lt;p&gt;One of Go&amp;rsquo;s best features is its beautiful and simple message-passing concurrency via channels. The message-passing code looks like this:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
 &lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
+&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4
@@ -469,7 +656,7 @@ Dialing localhost:5001 using TCP
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;38
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-golang&#34; data-lang=&#34;golang&#34;&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;// main.go
+&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-golang&#34; data-lang=&#34;golang&#34;&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;// main.go
 &lt;/span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;package&lt;/span&gt; main
 
 &lt;span style=&#34;color:#ff79c6&#34;&gt;import&lt;/span&gt; (
@@ -513,7 +700,7 @@ Dialing localhost:5001 using TCP
 &lt;p&gt;Golang&amp;rsquo;s unbuffered channels, &lt;code&gt;theChannel&lt;/code&gt; in this example, are perfect for this situation since both producers and consumers block until a value is put into or removed from the channel, respectively. This is why the for-loops on lines 17 and 27 don&amp;rsquo;t immediately keep executing.&lt;/p&gt;
 &lt;p&gt;If &lt;code&gt;theChannel&lt;/code&gt; was buffered with a size of one, the call to put a value into the channel wouldn&amp;rsquo;t block on lines 20 and 28. This would cause the ping thread to potentially print &amp;ldquo;pong&amp;rdquo;, which isn&amp;rsquo;t what we want!&lt;/p&gt;
 &lt;p&gt;Running the example we see the desired output.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ go run main.go
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ go run main.go
 ping
 pong
 ping
@@ -527,7 +714,7 @@ pong
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Golang also supports the traditional monitor-style synchronization primitives of mutexes and condition variables. Here&amp;rsquo;s what the ping-pong problem looks like using that style of concurrency.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
 &lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
+&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4
@@ -574,7 +761,7 @@ pong
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;45
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-golang&#34; data-lang=&#34;golang&#34;&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;// main.go
+&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-golang&#34; data-lang=&#34;golang&#34;&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;// main.go
 &lt;/span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;mainMutex&lt;/span&gt;() {
 	numTimes &lt;span style=&#34;color:#ff79c6&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;5&lt;/span&gt;
 	&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;var&lt;/span&gt; wg sync.WaitGroup
@@ -625,7 +812,7 @@ pong
 &lt;p&gt;&lt;strong&gt;Remember to always wrap your calls to &lt;code&gt;cv.Wait()&lt;/code&gt; in a loop to handle spurious wakeups!&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Personally, I feel this style is less intuitive, but it&amp;rsquo;s good to know it&amp;rsquo;s still supported.&lt;/p&gt;
 &lt;p&gt;Running this example gives the same result.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ go run main.go
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ go run main.go
 ping
 pong
 ping
@@ -644,7 +831,7 @@ pong
 &lt;p&gt;Here is the code.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
 &lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
+&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4
@@ -674,7 +861,7 @@ pong
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;28
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# ping_pong.py&lt;/span&gt;
+&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# ping_pong.py&lt;/span&gt;
 &lt;span style=&#34;color:#ff79c6&#34;&gt;import&lt;/span&gt; queue
 &lt;span style=&#34;color:#ff79c6&#34;&gt;import&lt;/span&gt; threading
 
@@ -706,7 +893,7 @@ pong
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;By deafult, calls to &lt;code&gt;queue.get&lt;/code&gt; will block until a value is availble, which is why lines 8 and 15 won&amp;rsquo;t print until a value is enqueued.&lt;/p&gt;
 &lt;p&gt;This code produces the desired output.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ python3 ping_pong.py
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ python3 ping_pong.py
 ping
 pong
 ping
@@ -725,7 +912,7 @@ pong
 &lt;p&gt;Here is the code.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
 &lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
+&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4
@@ -759,7 +946,7 @@ pong
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;32
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# ping_pong_aio.py&lt;/span&gt;
+&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# ping_pong_aio.py&lt;/span&gt;
 &lt;span style=&#34;color:#ff79c6&#34;&gt;import&lt;/span&gt; asyncio
 
 &lt;span style=&#34;color:#ff79c6&#34;&gt;async&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;ping&lt;/span&gt;(ping_event, pong_event, num_times):
@@ -798,7 +985,7 @@ pong
 &lt;p&gt;This example could modify a &lt;code&gt;print_str&lt;/code&gt; variable where &lt;code&gt;print()&lt;/code&gt; is called on lines 7 and 15, like in previous examples, but this approach works too so I figured I&amp;rsquo;d show it.&lt;/p&gt;
 &lt;p&gt;This code differs from the other examples thus far because it only runs in one thread! The lack of context switching is one of the main performance benefits of asynchronous models over purely threaded ones.&lt;/p&gt;
 &lt;p&gt;We see the same desired results from this code.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ python3 ping_pong_aio.py
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ python3 ping_pong_aio.py
 ping
 pong
 ping
@@ -814,7 +1001,7 @@ pong
 &lt;p&gt;Here is the &lt;code&gt;asyncio&lt;/code&gt; code which uses &lt;code&gt;asyncio.Condition&lt;/code&gt; instead of &lt;code&gt;asyncio.Event&lt;/code&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
 &lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
+&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4
@@ -850,7 +1037,7 @@ pong
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;34
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# ping_pong_aio.py&lt;/span&gt;
+&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# ping_pong_aio.py&lt;/span&gt;
 &lt;span style=&#34;color:#ff79c6&#34;&gt;import&lt;/span&gt; asyncio
 
 print_str &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;ping&amp;#34;&lt;/span&gt;
@@ -889,7 +1076,7 @@ print_str &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span styl
 &lt;/div&gt;&lt;p&gt;The calls to &lt;code&gt;async with cond&lt;/code&gt;, like on line 8, simply acquire the underlying mutex. Golang and Python&amp;rsquo;s approach to have the condition variable be automatically associated with an underlying mutex is quite convenient, since this is regarded as best practices anyway.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;cond.notify()&lt;/code&gt; simply alerts the other task that the &lt;code&gt;print_str&lt;/code&gt; has been changed and that the current task&amp;rsquo;s turn is over.&lt;/p&gt;
 &lt;p&gt;Once again we see the desired output from running this code.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ python3 ping_pong_aio.py
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ python3 ping_pong_aio.py
 ping
 pong
 ping
@@ -909,7 +1096,7 @@ pong
 &lt;p&gt;To work around these limitations, we use two channels for each thread to send messages to the other. Here is the code.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
 &lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
+&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4
@@ -942,7 +1129,7 @@ pong
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;31
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-rust&#34; data-lang=&#34;rust&#34;&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;// src/main.rs
+&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-rust&#34; data-lang=&#34;rust&#34;&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;// src/main.rs
 &lt;/span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;use&lt;/span&gt; std::sync::mpsc::{Sender, Receiver};
 &lt;span style=&#34;color:#ff79c6&#34;&gt;use&lt;/span&gt; std::sync::mpsc;
 &lt;span style=&#34;color:#ff79c6&#34;&gt;use&lt;/span&gt; std::sync::{Arc, Mutex, Condvar};
@@ -978,7 +1165,7 @@ pong
 &lt;/div&gt;&lt;p&gt;As with most other primitives, the &lt;code&gt;_rx&lt;/code&gt; ends of the channels block until a value can be removed, which causes the for-loops to wait until the other thread has had its turn.&lt;/p&gt;
 &lt;p&gt;I do like Rust&amp;rsquo;s optional interface of passing a closure / lambda for a thread to run. It&amp;rsquo;s always nice to save a few lines of code where possible (Golang and Python support this too).&lt;/p&gt;
 &lt;p&gt;This code also produces the desired result.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ cargo run
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ cargo run
    Compiling ping_pong v0.1.0 &lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;/Users/Joey/Dev/sandbox/rust/ping_pong&lt;span style=&#34;color:#ff79c6&#34;&gt;)&lt;/span&gt;
     Finished dev &lt;span style=&#34;color:#ff79c6&#34;&gt;[&lt;/span&gt;unoptimized + debuginfo&lt;span style=&#34;color:#ff79c6&#34;&gt;]&lt;/span&gt; target&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;s&lt;span style=&#34;color:#ff79c6&#34;&gt;)&lt;/span&gt; in 0.92s
      Running &lt;span style=&#34;color:#f1fa8c&#34;&gt;`&lt;/span&gt;target/debug/ping_pong&lt;span style=&#34;color:#f1fa8c&#34;&gt;`&lt;/span&gt;
@@ -993,7 +1180,7 @@ pong
 &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;ping&amp;#34;&lt;/span&gt;
 &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;pong&amp;#34;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;As with the other languages we&amp;rsquo;ve examined thus far, Rust also supports monitor-style concurrency. Rust&amp;rsquo;s ownership model makes acquiring and releasing a mutex pretty fool-proof, mainly because there&amp;rsquo;s no &lt;code&gt;unlock&lt;/code&gt; function! Here is the code.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-rust&#34; data-lang=&#34;rust&#34;&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;// src/main.rs
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-rust&#34; data-lang=&#34;rust&#34;&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;// src/main.rs
 &lt;/span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;use&lt;/span&gt; std::sync::mpsc::{Sender, Receiver};
 &lt;span style=&#34;color:#ff79c6&#34;&gt;use&lt;/span&gt; std::sync::mpsc;
 &lt;span style=&#34;color:#ff79c6&#34;&gt;use&lt;/span&gt; std::sync::{Arc, Mutex, Condvar};
@@ -1038,7 +1225,7 @@ pong
     main_mutex();
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This interface is really clunky to me, and certainly isn&amp;rsquo;t intuitive to read! It&amp;rsquo;s also way more lines the previous example which is not great. Clunky or not, it still produces the same result.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ cargo run
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ cargo run
    Compiling ping_pong v0.1.0 &lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;/Users/Joey/Dev/sandbox/rust/ping_pong&lt;span style=&#34;color:#ff79c6&#34;&gt;)&lt;/span&gt;
     Finished dev &lt;span style=&#34;color:#ff79c6&#34;&gt;[&lt;/span&gt;unoptimized + debuginfo&lt;span style=&#34;color:#ff79c6&#34;&gt;]&lt;/span&gt; target&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;s&lt;span style=&#34;color:#ff79c6&#34;&gt;)&lt;/span&gt; in 0.92s
      Running &lt;span style=&#34;color:#f1fa8c&#34;&gt;`&lt;/span&gt;target/debug/ping_pong&lt;span style=&#34;color:#f1fa8c&#34;&gt;`&lt;/span&gt;
@@ -1058,7 +1245,7 @@ pong
 &lt;p&gt;Here is the code.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
 &lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
+&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4
@@ -1104,7 +1291,7 @@ pong
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;44
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;// Builds to executable ping_pong using CMake and Ninja, see source.
+&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;// Builds to executable ping_pong using CMake and Ninja, see source.
 &lt;/span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;thread&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;mutex&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;
@@ -1151,7 +1338,7 @@ std&lt;span style=&#34;color:#ff79c6&#34;&gt;::&lt;/span&gt;string print_str &lt
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;Unsurprisingly, this code yields the same desired result.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ ./ping_pong
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ ./ping_pong
 ping
 pong
 ping
@@ -1546,45 +1733,45 @@ If you see one of these acronyms or ideas somewhere in your code or product then
       <description>&lt;h2 id=&#34;positive-numbers&#34;&gt;Positive Numbers&lt;/h2&gt;
 &lt;p&gt;If you&amp;rsquo;re in the market for converting from python2 to python3, be aware that there&amp;rsquo;s some fundamental differences in default division of integers. Also beware that these differences won&amp;rsquo;t be automagically resolved by the tool &lt;a href=&#34;https://docs.python.org/3/library/2to3.html&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;2to3&lt;/a&gt;
 .&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;$ python3
-Python &lt;span style=&#34;color:#bd93f9&#34;&gt;3.8.5&lt;/span&gt; (default, Jul &lt;span style=&#34;color:#bd93f9&#34;&gt;21&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;2020&lt;/span&gt;, &lt;span style=&#34;color:#bd93f9&#34;&gt;10&lt;/span&gt;:&lt;span style=&#34;color:#bd93f9&#34;&gt;42&lt;/span&gt;:&lt;span style=&#34;color:#bd93f9&#34;&gt;08&lt;/span&gt;)
-[Clang &lt;span style=&#34;color:#bd93f9&#34;&gt;11.0.0&lt;/span&gt; (clang&lt;span style=&#34;color:#ff79c6&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;1100.0.33.17&lt;/span&gt;)] on darwin
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;$ python3
+Python &lt;span style=&#34;color:#bd93f9&#34;&gt;3.8&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;5&lt;/span&gt; (default, Jul &lt;span style=&#34;color:#bd93f9&#34;&gt;21&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;2020&lt;/span&gt;, &lt;span style=&#34;color:#bd93f9&#34;&gt;10&lt;/span&gt;:&lt;span style=&#34;color:#bd93f9&#34;&gt;42&lt;/span&gt;:&lt;span style=&#34;color:#bd93f9&#34;&gt;08&lt;/span&gt;)
+[Clang &lt;span style=&#34;color:#bd93f9&#34;&gt;11.0&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;0&lt;/span&gt; (clang&lt;span style=&#34;color:#ff79c6&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;1100.0&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;33.17&lt;/span&gt;)] on darwin
 Type &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;help&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;copyright&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;credits&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;or&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;license&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;for&lt;/span&gt; more information&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;
 &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;5&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;/&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;3&lt;/span&gt;
 &lt;span style=&#34;color:#bd93f9&#34;&gt;1.6666666666666667&lt;/span&gt;
 &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;$ python
-Python &lt;span style=&#34;color:#bd93f9&#34;&gt;2.7.16&lt;/span&gt; (default, Jan &lt;span style=&#34;color:#bd93f9&#34;&gt;27&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;2020&lt;/span&gt;, &lt;span style=&#34;color:#bd93f9&#34;&gt;04&lt;/span&gt;:&lt;span style=&#34;color:#bd93f9&#34;&gt;46&lt;/span&gt;:&lt;span style=&#34;color:#bd93f9&#34;&gt;15&lt;/span&gt;)
-[GCC &lt;span style=&#34;color:#bd93f9&#34;&gt;4.2.1&lt;/span&gt; Compatible Apple LLVM &lt;span style=&#34;color:#bd93f9&#34;&gt;10.0.1&lt;/span&gt; (clang&lt;span style=&#34;color:#ff79c6&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;1001.0.37.14&lt;/span&gt;)] on darwin
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;$ python
+Python &lt;span style=&#34;color:#bd93f9&#34;&gt;2.7&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;16&lt;/span&gt; (default, Jan &lt;span style=&#34;color:#bd93f9&#34;&gt;27&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;2020&lt;/span&gt;, &lt;span style=&#34;color:#bd93f9&#34;&gt;04&lt;/span&gt;:&lt;span style=&#34;color:#bd93f9&#34;&gt;46&lt;/span&gt;:&lt;span style=&#34;color:#bd93f9&#34;&gt;15&lt;/span&gt;)
+[GCC &lt;span style=&#34;color:#bd93f9&#34;&gt;4.2&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;1&lt;/span&gt; Compatible Apple LLVM &lt;span style=&#34;color:#bd93f9&#34;&gt;10.0&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;1&lt;/span&gt; (clang&lt;span style=&#34;color:#ff79c6&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;1001.0&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;37.14&lt;/span&gt;)] on darwin
 Type &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;help&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;copyright&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;credits&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;or&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;license&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;for&lt;/span&gt; more information&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;
 &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;5&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;/&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;3&lt;/span&gt;
 &lt;span style=&#34;color:#bd93f9&#34;&gt;1&lt;/span&gt;
 &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;As you can see, the &lt;code&gt;/&lt;/code&gt; operator in python3 leads to floating point divison by default, which can lead to problems if you&amp;rsquo;re doing something like calculating memory page indices!&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;index &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; addr &lt;span style=&#34;color:#ff79c6&#34;&gt;/&lt;/span&gt; self&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;PAGE_SIZE
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;index &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; addr &lt;span style=&#34;color:#ff79c6&#34;&gt;/&lt;/span&gt; self&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;PAGE_SIZE
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To access the integer division behavior in python3, you&amp;rsquo;ll need to use the &lt;code&gt;//&lt;/code&gt; operator. The code above becomes&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;index &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; addr &lt;span style=&#34;color:#ff79c6&#34;&gt;//&lt;/span&gt; self&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;PAGE_SIZE
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;$ python3
-Python &lt;span style=&#34;color:#bd93f9&#34;&gt;3.8.5&lt;/span&gt; (default, Jul &lt;span style=&#34;color:#bd93f9&#34;&gt;21&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;2020&lt;/span&gt;, &lt;span style=&#34;color:#bd93f9&#34;&gt;10&lt;/span&gt;:&lt;span style=&#34;color:#bd93f9&#34;&gt;42&lt;/span&gt;:&lt;span style=&#34;color:#bd93f9&#34;&gt;08&lt;/span&gt;)
-[Clang &lt;span style=&#34;color:#bd93f9&#34;&gt;11.0.0&lt;/span&gt; (clang&lt;span style=&#34;color:#ff79c6&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;1100.0.33.17&lt;/span&gt;)] on darwin
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;index &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; addr &lt;span style=&#34;color:#ff79c6&#34;&gt;//&lt;/span&gt; self&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;PAGE_SIZE
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;$ python3
+Python &lt;span style=&#34;color:#bd93f9&#34;&gt;3.8&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;5&lt;/span&gt; (default, Jul &lt;span style=&#34;color:#bd93f9&#34;&gt;21&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;2020&lt;/span&gt;, &lt;span style=&#34;color:#bd93f9&#34;&gt;10&lt;/span&gt;:&lt;span style=&#34;color:#bd93f9&#34;&gt;42&lt;/span&gt;:&lt;span style=&#34;color:#bd93f9&#34;&gt;08&lt;/span&gt;)
+[Clang &lt;span style=&#34;color:#bd93f9&#34;&gt;11.0&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;0&lt;/span&gt; (clang&lt;span style=&#34;color:#ff79c6&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;1100.0&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;33.17&lt;/span&gt;)] on darwin
 Type &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;help&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;copyright&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;credits&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;or&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;license&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;for&lt;/span&gt; more information&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;
 &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;5&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;//&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;3&lt;/span&gt;
 &lt;span style=&#34;color:#bd93f9&#34;&gt;1&lt;/span&gt;
 &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;negative-numbers&#34;&gt;Negative Numbers&lt;/h2&gt;
 &lt;p&gt;Things get even more interesting when dealing with negative numbers and rounding.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;$ python
-Python &lt;span style=&#34;color:#bd93f9&#34;&gt;2.7.16&lt;/span&gt; (default, Jan &lt;span style=&#34;color:#bd93f9&#34;&gt;27&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;2020&lt;/span&gt;, &lt;span style=&#34;color:#bd93f9&#34;&gt;04&lt;/span&gt;:&lt;span style=&#34;color:#bd93f9&#34;&gt;46&lt;/span&gt;:&lt;span style=&#34;color:#bd93f9&#34;&gt;15&lt;/span&gt;)
-[GCC &lt;span style=&#34;color:#bd93f9&#34;&gt;4.2.1&lt;/span&gt; Compatible Apple LLVM &lt;span style=&#34;color:#bd93f9&#34;&gt;10.0.1&lt;/span&gt; (clang&lt;span style=&#34;color:#ff79c6&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;1001.0.37.14&lt;/span&gt;)] on darwin
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;$ python
+Python &lt;span style=&#34;color:#bd93f9&#34;&gt;2.7&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;16&lt;/span&gt; (default, Jan &lt;span style=&#34;color:#bd93f9&#34;&gt;27&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;2020&lt;/span&gt;, &lt;span style=&#34;color:#bd93f9&#34;&gt;04&lt;/span&gt;:&lt;span style=&#34;color:#bd93f9&#34;&gt;46&lt;/span&gt;:&lt;span style=&#34;color:#bd93f9&#34;&gt;15&lt;/span&gt;)
+[GCC &lt;span style=&#34;color:#bd93f9&#34;&gt;4.2&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;1&lt;/span&gt; Compatible Apple LLVM &lt;span style=&#34;color:#bd93f9&#34;&gt;10.0&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;1&lt;/span&gt; (clang&lt;span style=&#34;color:#ff79c6&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;1001.0&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;37.14&lt;/span&gt;)] on darwin
 Type &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;help&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;copyright&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;credits&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;or&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;license&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;for&lt;/span&gt; more information&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;
 &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;5&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;/&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;3&lt;/span&gt;
 &lt;span style=&#34;color:#ff79c6&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;2&lt;/span&gt;
 &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;int&lt;/span&gt;(&lt;span style=&#34;color:#bd93f9&#34;&gt;5&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;/&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;3&lt;/span&gt;)
 &lt;span style=&#34;color:#ff79c6&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;2&lt;/span&gt;
 &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;$ python3
-Python &lt;span style=&#34;color:#bd93f9&#34;&gt;3.8.5&lt;/span&gt; (default, Jul &lt;span style=&#34;color:#bd93f9&#34;&gt;21&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;2020&lt;/span&gt;, &lt;span style=&#34;color:#bd93f9&#34;&gt;10&lt;/span&gt;:&lt;span style=&#34;color:#bd93f9&#34;&gt;42&lt;/span&gt;:&lt;span style=&#34;color:#bd93f9&#34;&gt;08&lt;/span&gt;)
-[Clang &lt;span style=&#34;color:#bd93f9&#34;&gt;11.0.0&lt;/span&gt; (clang&lt;span style=&#34;color:#ff79c6&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;1100.0.33.17&lt;/span&gt;)] on darwin
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;$ python3
+Python &lt;span style=&#34;color:#bd93f9&#34;&gt;3.8&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;5&lt;/span&gt; (default, Jul &lt;span style=&#34;color:#bd93f9&#34;&gt;21&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;2020&lt;/span&gt;, &lt;span style=&#34;color:#bd93f9&#34;&gt;10&lt;/span&gt;:&lt;span style=&#34;color:#bd93f9&#34;&gt;42&lt;/span&gt;:&lt;span style=&#34;color:#bd93f9&#34;&gt;08&lt;/span&gt;)
+[Clang &lt;span style=&#34;color:#bd93f9&#34;&gt;11.0&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;0&lt;/span&gt; (clang&lt;span style=&#34;color:#ff79c6&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;1100.0&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;33.17&lt;/span&gt;)] on darwin
 Type &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;help&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;copyright&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;credits&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;or&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;license&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;for&lt;/span&gt; more information&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;
 &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;5&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;/&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;3&lt;/span&gt;
 &lt;span style=&#34;color:#ff79c6&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;1.6666666666666667&lt;/span&gt;
@@ -1594,36 +1781,36 @@ Type &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;help&amp;#34;&lt;/span&g
 &lt;span style=&#34;color:#ff79c6&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;1&lt;/span&gt;
 &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;From what I can tell, both python2 and python3 round towards negative infinity when doing integer division (&lt;code&gt;/&lt;/code&gt; in python2 with integer divider and dividend, &lt;code&gt;//&lt;/code&gt; in python3 with integer divider and dividend). They also do the same thing when converting a negative floating point number to an integer, which is to round towards zero.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;$ python
-Python &lt;span style=&#34;color:#bd93f9&#34;&gt;2.7.16&lt;/span&gt; (default, Jan &lt;span style=&#34;color:#bd93f9&#34;&gt;27&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;2020&lt;/span&gt;, &lt;span style=&#34;color:#bd93f9&#34;&gt;04&lt;/span&gt;:&lt;span style=&#34;color:#bd93f9&#34;&gt;46&lt;/span&gt;:&lt;span style=&#34;color:#bd93f9&#34;&gt;15&lt;/span&gt;)
-[GCC &lt;span style=&#34;color:#bd93f9&#34;&gt;4.2.1&lt;/span&gt; Compatible Apple LLVM &lt;span style=&#34;color:#bd93f9&#34;&gt;10.0.1&lt;/span&gt; (clang&lt;span style=&#34;color:#ff79c6&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;1001.0.37.14&lt;/span&gt;)] on darwin
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;$ python
+Python &lt;span style=&#34;color:#bd93f9&#34;&gt;2.7&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;16&lt;/span&gt; (default, Jan &lt;span style=&#34;color:#bd93f9&#34;&gt;27&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;2020&lt;/span&gt;, &lt;span style=&#34;color:#bd93f9&#34;&gt;04&lt;/span&gt;:&lt;span style=&#34;color:#bd93f9&#34;&gt;46&lt;/span&gt;:&lt;span style=&#34;color:#bd93f9&#34;&gt;15&lt;/span&gt;)
+[GCC &lt;span style=&#34;color:#bd93f9&#34;&gt;4.2&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;1&lt;/span&gt; Compatible Apple LLVM &lt;span style=&#34;color:#bd93f9&#34;&gt;10.0&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;1&lt;/span&gt; (clang&lt;span style=&#34;color:#ff79c6&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;1001.0&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;37.14&lt;/span&gt;)] on darwin
 Type &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;help&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;copyright&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;credits&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;or&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;license&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;for&lt;/span&gt; more information&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;
 &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;int&lt;/span&gt;(&lt;span style=&#34;color:#bd93f9&#34;&gt;5.0&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;/&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;3&lt;/span&gt;)
 &lt;span style=&#34;color:#ff79c6&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;1&lt;/span&gt;
 &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;$ python3
-Python &lt;span style=&#34;color:#bd93f9&#34;&gt;3.8.5&lt;/span&gt; (default, Jul &lt;span style=&#34;color:#bd93f9&#34;&gt;21&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;2020&lt;/span&gt;, &lt;span style=&#34;color:#bd93f9&#34;&gt;10&lt;/span&gt;:&lt;span style=&#34;color:#bd93f9&#34;&gt;42&lt;/span&gt;:&lt;span style=&#34;color:#bd93f9&#34;&gt;08&lt;/span&gt;)
-[Clang &lt;span style=&#34;color:#bd93f9&#34;&gt;11.0.0&lt;/span&gt; (clang&lt;span style=&#34;color:#ff79c6&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;1100.0.33.17&lt;/span&gt;)] on darwin
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;$ python3
+Python &lt;span style=&#34;color:#bd93f9&#34;&gt;3.8&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;5&lt;/span&gt; (default, Jul &lt;span style=&#34;color:#bd93f9&#34;&gt;21&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;2020&lt;/span&gt;, &lt;span style=&#34;color:#bd93f9&#34;&gt;10&lt;/span&gt;:&lt;span style=&#34;color:#bd93f9&#34;&gt;42&lt;/span&gt;:&lt;span style=&#34;color:#bd93f9&#34;&gt;08&lt;/span&gt;)
+[Clang &lt;span style=&#34;color:#bd93f9&#34;&gt;11.0&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;0&lt;/span&gt; (clang&lt;span style=&#34;color:#ff79c6&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;1100.0&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;33.17&lt;/span&gt;)] on darwin
 Type &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;help&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;copyright&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;credits&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;or&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;license&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;for&lt;/span&gt; more information&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;
 &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;int&lt;/span&gt;(&lt;span style=&#34;color:#bd93f9&#34;&gt;5.0&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;/&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;3&lt;/span&gt;)
 &lt;span style=&#34;color:#ff79c6&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;1&lt;/span&gt;
 &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;compared-to-c&#34;&gt;Compared to C++&lt;/h2&gt;
 &lt;p&gt;Integer division truncation with negative numbers is different in C++, unfortunately.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;$ python
-Python &lt;span style=&#34;color:#bd93f9&#34;&gt;2.7.16&lt;/span&gt; (default, Jan &lt;span style=&#34;color:#bd93f9&#34;&gt;27&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;2020&lt;/span&gt;, &lt;span style=&#34;color:#bd93f9&#34;&gt;04&lt;/span&gt;:&lt;span style=&#34;color:#bd93f9&#34;&gt;46&lt;/span&gt;:&lt;span style=&#34;color:#bd93f9&#34;&gt;15&lt;/span&gt;)
-[GCC &lt;span style=&#34;color:#bd93f9&#34;&gt;4.2.1&lt;/span&gt; Compatible Apple LLVM &lt;span style=&#34;color:#bd93f9&#34;&gt;10.0.1&lt;/span&gt; (clang&lt;span style=&#34;color:#ff79c6&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;1001.0.37.14&lt;/span&gt;)] on darwin
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;$ python
+Python &lt;span style=&#34;color:#bd93f9&#34;&gt;2.7&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;16&lt;/span&gt; (default, Jan &lt;span style=&#34;color:#bd93f9&#34;&gt;27&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;2020&lt;/span&gt;, &lt;span style=&#34;color:#bd93f9&#34;&gt;04&lt;/span&gt;:&lt;span style=&#34;color:#bd93f9&#34;&gt;46&lt;/span&gt;:&lt;span style=&#34;color:#bd93f9&#34;&gt;15&lt;/span&gt;)
+[GCC &lt;span style=&#34;color:#bd93f9&#34;&gt;4.2&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;1&lt;/span&gt; Compatible Apple LLVM &lt;span style=&#34;color:#bd93f9&#34;&gt;10.0&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;1&lt;/span&gt; (clang&lt;span style=&#34;color:#ff79c6&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;1001.0&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;37.14&lt;/span&gt;)] on darwin
 Type &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;help&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;copyright&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;credits&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;or&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;license&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;for&lt;/span&gt; more information&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;
 &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;5&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;/&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;3&lt;/span&gt;
 &lt;span style=&#34;color:#ff79c6&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;2&lt;/span&gt;
 &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;$ python3
-Python &lt;span style=&#34;color:#bd93f9&#34;&gt;3.8.5&lt;/span&gt; (default, Jul &lt;span style=&#34;color:#bd93f9&#34;&gt;21&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;2020&lt;/span&gt;, &lt;span style=&#34;color:#bd93f9&#34;&gt;10&lt;/span&gt;:&lt;span style=&#34;color:#bd93f9&#34;&gt;42&lt;/span&gt;:&lt;span style=&#34;color:#bd93f9&#34;&gt;08&lt;/span&gt;)
-[Clang &lt;span style=&#34;color:#bd93f9&#34;&gt;11.0.0&lt;/span&gt; (clang&lt;span style=&#34;color:#ff79c6&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;1100.0.33.17&lt;/span&gt;)] on darwin
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;$ python3
+Python &lt;span style=&#34;color:#bd93f9&#34;&gt;3.8&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;5&lt;/span&gt; (default, Jul &lt;span style=&#34;color:#bd93f9&#34;&gt;21&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;2020&lt;/span&gt;, &lt;span style=&#34;color:#bd93f9&#34;&gt;10&lt;/span&gt;:&lt;span style=&#34;color:#bd93f9&#34;&gt;42&lt;/span&gt;:&lt;span style=&#34;color:#bd93f9&#34;&gt;08&lt;/span&gt;)
+[Clang &lt;span style=&#34;color:#bd93f9&#34;&gt;11.0&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;0&lt;/span&gt; (clang&lt;span style=&#34;color:#ff79c6&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;1100.0&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;33.17&lt;/span&gt;)] on darwin
 Type &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;help&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;copyright&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;credits&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;or&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;license&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;for&lt;/span&gt; more information&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;
 &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;5&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;//&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;3&lt;/span&gt;
 &lt;span style=&#34;color:#ff79c6&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;2&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;// a.cpp
 &lt;/span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;
 &lt;span style=&#34;color:#8be9fd&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;main&lt;/span&gt;(){
@@ -1631,7 +1818,7 @@ Type &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;help&amp;#34;&lt;/span&g
     std&lt;span style=&#34;color:#ff79c6&#34;&gt;::&lt;/span&gt;cout &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#8be9fd&#34;&gt;int&lt;/span&gt;(&lt;span style=&#34;color:#bd93f9&#34;&gt;5.0&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;/&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;3&lt;/span&gt;) &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; std&lt;span style=&#34;color:#ff79c6&#34;&gt;::&lt;/span&gt;endl;
 
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ g++ a.cpp ; ./a.out
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ g++ a.cpp ; ./a.out
 -1
 -1
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Thankfully the behavior for converting a negative floating point number to an &lt;code&gt;int&lt;/code&gt; has the same behavior between the three languages (as shown by the output of &lt;code&gt;int(5.0 / -3)&lt;/code&gt; in C++).&lt;/p&gt;

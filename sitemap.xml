@@ -1,106 +1,185 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://www.josephbuiteweg.com/</loc>
+    <lastmod>2022-05-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.josephbuiteweg.com/blog/may-11-2022/</loc>
+    <lastmod>2022-05-11T00:00:00+00:00</lastmod>
+  </url>
+  
   <url>
     <loc>https://www.josephbuiteweg.com/categories/</loc>
     <lastmod>2021-10-12T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.josephbuiteweg.com/</loc>
-    <lastmod>2021-10-12T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://www.josephbuiteweg.com/categories/shell/</loc>
     <lastmod>2021-10-12T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://www.josephbuiteweg.com/blog/shellcheck/</loc>
     <lastmod>2021-10-12T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://www.josephbuiteweg.com/blog/python-oddity/</loc>
     <lastmod>2021-10-11T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://www.josephbuiteweg.com/categories/python/</loc>
     <lastmod>2021-10-11T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://www.josephbuiteweg.com/categories/elm/</loc>
     <lastmod>2021-01-30T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://www.josephbuiteweg.com/projects/elm-sudoku/</loc>
     <lastmod>2021-01-30T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://www.josephbuiteweg.com/blog/exercism/</loc>
     <lastmod>2021-01-30T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://www.josephbuiteweg.com/categories/golang/</loc>
     <lastmod>2021-01-30T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://www.josephbuiteweg.com/categories/interviewing/</loc>
     <lastmod>2021-01-30T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://www.josephbuiteweg.com/projects/</loc>
     <lastmod>2021-01-30T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://www.josephbuiteweg.com/categories/rust/</loc>
     <lastmod>2021-01-30T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://www.josephbuiteweg.com/blog/networking-examples/</loc>
     <lastmod>2021-01-30T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://www.josephbuiteweg.com/blog/ping-pong-concurrency/</loc>
     <lastmod>2020-12-22T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://www.josephbuiteweg.com/categories/cpp/</loc>
     <lastmod>2020-12-22T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://www.josephbuiteweg.com/blog/project-considerations/</loc>
     <lastmod>2020-11-28T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://www.josephbuiteweg.com/categories/system-design/</loc>
     <lastmod>2020-11-28T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://www.josephbuiteweg.com/blog/security-bad-things-list/</loc>
     <lastmod>2020-11-27T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://www.josephbuiteweg.com/categories/security/</loc>
     <lastmod>2020-11-27T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://www.josephbuiteweg.com/blog/python-divison/</loc>
     <lastmod>2020-11-27T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://www.josephbuiteweg.com/extra/</loc>
     <lastmod>2020-06-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://www.josephbuiteweg.com/extra/misc/</loc>
     <lastmod>2020-06-17T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://www.josephbuiteweg.com/about/</loc>
     <lastmod>2020-06-15T18:37:51-04:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://www.josephbuiteweg.com/blog/design-hints/</loc>
     <lastmod>2020-06-07T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://www.josephbuiteweg.com/blog/</loc>
     <lastmod>2020-06-04T23:28:10-04:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://www.josephbuiteweg.com/projects/otamatone/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://www.josephbuiteweg.com/tags/baluga/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://www.josephbuiteweg.com/contact/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://www.josephbuiteweg.com/categories/music/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://www.josephbuiteweg.com/music/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://www.josephbuiteweg.com/extra/key-review/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://www.josephbuiteweg.com/music/things/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://www.josephbuiteweg.com/tags/nonsense/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://www.josephbuiteweg.com/series/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://www.josephbuiteweg.com/projects/smartrooms/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://www.josephbuiteweg.com/tags/</loc>
   </url>
+  
 </urlset>
