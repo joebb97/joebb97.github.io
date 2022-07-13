@@ -6,66 +6,83 @@
     <description>Joey Buiteweg (Joseph Buiteweg)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 11 May 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 05 Jul 2022 00:00:00 +0000</lastBuildDate>
     
     <atom:link href="https://www.josephbuiteweg.com/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Languages. Mainly those used for programming.</title>
-      <link>https://www.josephbuiteweg.com/blog/may-11-2022/</link>
-      <pubDate>Wed, 11 May 2022 00:00:00 +0000</pubDate>
+      <link>https://www.josephbuiteweg.com/blog/pl-rant/</link>
+      <pubDate>Tue, 05 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://www.josephbuiteweg.com/blog/may-11-2022/</guid>
-      <description>&lt;p&gt;This is all w.r.t my agreement with &lt;a href=&#34;http://www.leancrew.com/all-this/2011/12/more-shell-less-egg/&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;this article&lt;/a&gt;
-,&lt;/p&gt;
-&lt;p&gt;and my frustration with Programming Languages that have been taken out of their design domain.&lt;/p&gt;
-&lt;h2 id=&#34;some-poetry-about-assembly&#34;&gt;Some poetry about assembly&lt;/h2&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;miss me with some donald knuth
-    saying that I should do assembly language.
-    miss me with some       assembly language.
-
-miss me with some
+      <guid>https://www.josephbuiteweg.com/blog/pl-rant/</guid>
+      <description>&lt;h2 id=&#34;hahahugoshortcode-s0-hbhb&#34;&gt;&lt;div style=&#34;color:red&#34;&gt;Warning: Runaway Train of Thought Ahead&lt;/h2&gt;
+&lt;p&gt;I agree wholeheartedly with the sentiment expressed in &lt;a href=&#34;http://www.leancrew.com/all-this/2011/12/more-shell-less-egg/&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;this article&lt;/a&gt;
+. The sentiment expressed there - that shell is a better starting point than writing your own Apache Spark - is good, but it does have a stopping point. Shell, i.e &lt;code&gt;sh&lt;/code&gt;, is Turing Complete, which is wonderful, but it is not entirely readable.&lt;/p&gt;
+&lt;p&gt;I have seen Build Systems made of 100s upon 100s of lines of Shell. I have worked on and improved said Build Systems. But in the process the amount of blood extruded from my eyeballs was at an all time high.&lt;/p&gt;
+&lt;p&gt;Hence why we should look to languages that scale better for more people. People from a diverse set of backgrounds. Which led me to thinking about our options for languages that run this world of ours. Which led me to the ensuing rant.&lt;/p&gt;
+&lt;h2 id=&#34;some-poetry-about-assembly-languages&#34;&gt;Some poetry about Assembly Languages&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;I. Am. That I Am.
 
     I = {x86, CISC},
     &amp;#34;CISC&amp;#34; == Complex Instruction Set Computer
 
-That. I = {x86, CISC}. Am. is not for humans.
-{amd64, x86}               is not for humans.
+That. I = {x86, CISC}. Am. is hard for humans.
+{amd64, x86}               is hard for humans.
 
   Yes. amd64 == x86_64. Fun fact.
   In general, amd64 == x86. History!
 
-ARM (Advanced RISC Machine) is almost, but not quite, for humans,
+ARM (Advanced RISC Machine) is easier, but still hard, for humans,
 
   &amp;#34;RISC&amp;#34; == Reduced Instruction Set Computer.
   Yes. That&amp;#39;s what ARM stands for. Fun Fact.
 &lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
-&lt;h2 id=&#34;my-hawt-takes&#34;&gt;My HAWT Takes&lt;/h2&gt;
-&lt;p&gt;I am a human. And I avoid reading assembly - even though I can - when I can because. Well.
-I am not a &lt;em&gt;literally&lt;/em&gt; spineless, brainless piece of silicon.
-I function outside the constraints of a digitally oscillating nanofabricated clock.&lt;/p&gt;
-&lt;p&gt;I am not an analog clock. One breathing with actual electricity. That clock. Does not think.
-It { adds, divides, subtracts, multiplies } at the speed of GHz.
-Billions of times per second (&lt;em&gt;literally&lt;/em&gt;).&lt;/p&gt;
-&lt;p&gt;Do not. Try to equate my brain with that poopy-doodoo robot brain called
-{ siri, alexa, google voice assistant }. That is, total nonsense! Donald Knuth.
-Here&amp;rsquo;s what should probably happen.&lt;/p&gt;
+&lt;h2 id=&#34;but-for-real&#34;&gt;But for real&lt;/h2&gt;
+&lt;p&gt;Assembly is a necessary evil.
+Sometimes a compiler is too much obfuscation surrounding the bits flowing where they flow.
+They flow over &lt;a href=&#34;https://en.wikipedia.org/wiki/Bus_%28computing%29&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;busses&lt;/a&gt;
+, over wires with [serial protocols. I get it. But!&lt;/p&gt;
+&lt;p&gt;I am a human. And I avoid reading and writing assembly - even though I can - when I can because. Well.
+I am not a spineless, brainless piece of silicon. I breathe Oxygen, not Electrons! A CPU doesn&amp;rsquo;t think.&lt;/p&gt;
+&lt;p&gt;It does math = &lt;code&gt;{add, sub, mul, div}&lt;/code&gt;, and logic = &lt;code&gt;{branch, compare, jump}&lt;/code&gt; instructions billions of times a second, hence the whole GHz thing.&lt;/p&gt;
+&lt;p&gt;The Instruction Set Architecture defines what the computer / CPU does,
+and it is represented in an Assembly Language for human beings.
+Each instruction gets turned into &lt;code&gt;$(bitWidth)&lt;/code&gt; number of 0s and 1s in the executable (called the binary) by the Assembler (&lt;code&gt;/usr/bin/as&lt;/code&gt; on  macOS).
+This distance between what the CPU understands and what the human understands is too small here. It&amp;rsquo;s why&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-s&#34; data-lang=&#34;s&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;square&lt;/span&gt;(int)&lt;span style=&#34;color:#ff79c6&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        push    rbp
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        mov     rbp, rsp
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        mov     DWORD PTR [rbp&lt;span style=&#34;color:#bd93f9&#34;&gt;-4&lt;/span&gt;], edi
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        mov     eax, DWORD PTR [rbp&lt;span style=&#34;color:#bd93f9&#34;&gt;-4&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        imul    eax, eax
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        pop     rbp
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        ret
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;makes a lot less sense at a glance than&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8be9fd&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;square&lt;/span&gt;(&lt;span style=&#34;color:#8be9fd&#34;&gt;int&lt;/span&gt; num) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt; num &lt;span style=&#34;color:#ff79c6&#34;&gt;*&lt;/span&gt; num;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;(see &lt;a href=&#34;https://godbolt.org/&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;godbolt&lt;/a&gt;
+)&lt;/p&gt;
+&lt;p&gt;There is no equating our brains and our intelligence with that poopy-doodoo robot brain called
+{ siri, alexa, google voice assistant }. That is, total nonsense!&lt;/p&gt;
+&lt;p&gt;Here&amp;rsquo;s what should probably happen when we develop the software that runs the world.&lt;/p&gt;
+&lt;h2 id=&#34;a-monospaced-font-demonstration-of-the-futility-of-my-thoughts-l-o-l&#34;&gt;A Monospaced Font Demonstration of the Futility of my Thoughts (l-o-l)&lt;/h2&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;START:
 DO:
     while(bad code || sad || unproductive) {
-SIMPLE: write POSIX shell, KISS, use simple plaintext
+SIMPLE: write POSIX shell, KISS, use simple plaintext, use awk!
         if (SIMPLE doesn&amp;#39;t work) {
-          write in pseudocode
-          if (sufficient) {
-            continue
-          } // end if
-          // otherwise
-          write in a real ding-danging PL // A good one! [1]
-
-  };
+           write in pseudocode, then write it yourself
+           if (sufficient) {
+             continue
+           }
+           // otherwise,
+           write in a real ding-danging PL // A good one! [1]
+        }
+    }
 END:
-
 
 /* [1] A real academic, robust, &amp;#34;enterprise ready&amp;#34; programming language.
 * There are many to choose from. But they are *not*. **NOT**.
@@ -73,7 +90,7 @@ END:
     python{
       2, 2.7. 3.3, 3.7. 3.9, /etc.
     }
-    (notReallyJava)Script (this one should really be JavaShit),
+    (notReallyJava)Script &amp;lt;- a.k.a &amp;#34;what even is scoping script&amp;#34;,
     TypeScript,
     Ruby
  }
@@ -86,12 +103,13 @@ END:
     military,
     embedded devices (
         like Belkin&amp;#39;s worthless &amp;#39;digital light switches!
-        it should just be a light switch. not a computer.
+        it should just be an analog light switch. not a computer.
         change my mind. you probably won&amp;#39;t
-    ), // end embedded devices
+    ), // End most embedded devices.
+       // I&amp;#39;ve seen their guts. I know their guts. It&amp;#39;s bad fam.
     Smart TVs (
         seriously most of these things are giant pieces of garbage.
-        Because well. 
+        Because, well. 
         I&amp;#39;m gonna guess there&amp;#39;s some really unperformant
         interpreted [i.e slower, that is a fact, not an opinion],
             {dynamic, duck, weakly}-typed langs in there.
@@ -106,9 +124,9 @@ END:
 *    - Safe by default. Footguns are opt-in, not opt-out.
 *    - (Sometimes, depending on the domain) Light on syntax.
 *    - Mostly performant out of the box.
-*       &amp;gt; You normally get this by just having a fucking compiler
+*       &amp;gt; You normally get this by just having a flapping compiler
           and the decades of research that comes with one.
-          Blessed be thy LLVM and WASM in the future.
+          Blessed be thy LLVM and WASM.
 *    - Well researched. Well designed.
         &amp;gt; they have means of reducing boilerplate. like generics.
           error propagation, etc.
@@ -117,34 +135,38 @@ END:
        It has I/O, concurrency, async, and it&amp;#39;s all pretty great!
 *
 * Some that I&amp;#39;ve come across that fit this bill:
-*    - Haskell
+*    - Rust
 *    - Elm
+*    - Haskell
 *    - OCaml
 *    - Elixir 
-*    - Rust
-*    - Scala (?)
-*    - Julia (?)
-* (?) implies that I&amp;#39;m just going out on a limb since I don&amp;#39;t know for sure
+*    - Scala&amp;#39;
+*    - Julia&amp;#39;
+* &amp;#39;: I haven&amp;#39;t dealt with these, but I&amp;#39;ve heard good things.
 */
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;That list I just rattled off is by no means exhaustive. But &lt;code&gt;golang&lt;/code&gt; is &lt;strong&gt;very intentionally&lt;/strong&gt; left off of the list.
-They just want me to write&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;That list I just rattled off is by no means exhaustive.
+But &lt;code&gt;golang&lt;/code&gt; is &lt;strong&gt;very intentionally&lt;/strong&gt; left off of the list.
+Because of how I write&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-golang&#34; data-lang=&#34;golang&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; err &lt;span style=&#34;color:#ff79c6&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;nil&lt;/span&gt; {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;someFootGunValueYouCouldUse&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#ff79c6&#34;&gt;nil&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;every other line, which means it violates the points, &lt;em&gt;well researched and well designed&lt;/em&gt;, and &lt;em&gt;safe by default&lt;/em&gt;.&lt;/p&gt;
-&lt;p&gt;Nor am I trying to say that we shouldn&amp;rsquo;t use the interpreted languages from the long list above. I&amp;rsquo;d just like to not see javascript running my bank&amp;rsquo;s frontend. Is all I&amp;rsquo;m saying.&lt;/p&gt;
+&lt;p&gt;Java is incredibly verbose. C is unsafe. C++ is opt-in safety, meaning it depends upon your own dutifulness.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://nodejs.org/en/&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;Node&lt;/a&gt;
+ is a thing, paired with TypeScript it gives a huge ecosystem and tons of prior work. Heck &lt;a href=&#34;https://www.joyent.com/&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;Joyent&lt;/a&gt;
+ even built an entire Public Cloud with it!!! It was necessary at that point in history (2009 says wikipedia). I think if we&amp;rsquo;re starting fresh though, we can ask more of our infrastructure languages.&lt;/p&gt;
 &lt;p&gt;The field of PL research (whose papers I absolutely have not read btw) has come a loooong way since those grey beards concocted a kernel worth two shits at Bell Labs. Called UNIX. With the forward slashes and what not.&lt;/p&gt;
-&lt;p&gt;Most of the research has yielded a loooot of niceties. Such as enums that are really enums (sum types I believe they&amp;rsquo;re called) and not just a silly increasing number. Lookin&amp;rsquo; at you &lt;strong&gt;Golang and C++&lt;/strong&gt;. Rust and Haskell have beautiful enums that can each carry their own data, that way you don&amp;rsquo;t accidentally use the wrong data.&lt;/p&gt;
+&lt;p&gt;Most of the research has yielded a loooot of niceties. Such as enums that are really enums (sum types I believe they&amp;rsquo;re called) and not just a silly increasing number. Lookin&amp;rsquo; at you &lt;strong&gt;Golang and C++&lt;/strong&gt;. Rust has enums that can each carry their own data, that way you don&amp;rsquo;t accidentally use the wrong data.&lt;/p&gt;
 &lt;p&gt;And of course they have composition / structures / product types (I think is what they&amp;rsquo;re called). But python sure as shit didn&amp;rsquo;t until 3.7 when it added &lt;code&gt;datatype&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Just. Ask more of your languages. Especially if you are going to be using them. Every. Single. Day of the week and for most projects at your {research lab, computer company, shitty web service}. Stop defensive programming with lines of code like&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;if (thingy != nil &amp;amp;&amp;amp; typeof thingy == typeIWantThingyToBe) {
-    // Oh thank fucking god now I can actually use thingy without
-    // worrying about this Stinger missle imploding.
-    // Since it could be there&amp;#39;s some proprietary garbage
-    // language without type safety running in a Stinger missle
-    // for all we know
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;or re-enacting the following scenario&lt;/p&gt;
+&lt;p&gt;Just. Ask more of your languages. Especially if you are going to be using them. Every. Single. Day of the week and for most projects at your {research lab, computer company, poopy web service}. Stop defensive programming with lines of code like&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; (thingy &lt;span style=&#34;color:#ff79c6&#34;&gt;!=&lt;/span&gt; nil &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; typeof thingy &lt;span style=&#34;color:#ff79c6&#34;&gt;==&lt;/span&gt; typeIWantThingyToBe) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#6272a4&#34;&gt;// Oh thank effing god now I can actually use thingy without
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#6272a4&#34;&gt;// worrying about this Stinger missle imploding.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#6272a4&#34;&gt;// Since it could be there&amp;#39;s some proprietary garbage
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#6272a4&#34;&gt;// language without type safety running in a Stinger missle
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#6272a4&#34;&gt;// for all we know
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;or re-enacting the following scenario&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Write some code like&lt;/li&gt;
 &lt;/ol&gt;
@@ -158,7 +180,7 @@ And now you have to, for about 5000+ lines of code, add in mind-numbing annotati
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;a_function_without_types_but_now_has_them&lt;/span&gt;(thingy: thingyType):
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#6272a4&#34;&gt;# but the type checking doesn&amp;#39;t actually matter until you add&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#6272a4&#34;&gt;# something to your project to make sure it&amp;#39;s being done.&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#6272a4&#34;&gt;# because fuck me right?&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#6272a4&#34;&gt;# because eff me right?&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#6272a4&#34;&gt;# So it&amp;#39;s still totally possible for you to submit programs&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#6272a4&#34;&gt;# to the &amp;#34;compiler&amp;#34; MyPy and just ignore its errors, which once&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#6272a4&#34;&gt;# again brings you back to unsafe by default.&lt;/span&gt;
@@ -166,7 +188,7 @@ And now you have to, for about 5000+ lines of code, add in mind-numbing annotati
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff79c6&#34;&gt;pass&lt;/span&gt; &lt;span style=&#34;color:#6272a4&#34;&gt;# on this language as a whole&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;
 &lt;li&gt;Wish you&amp;rsquo;d picked a language with a compiler because that&amp;rsquo;s what CS
-research has pointed us to probably since fucking day one.&lt;/li&gt;
+research has pointed us to probably since the Unix Epoch.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;complaints-i-already-know-about&#34;&gt;Complaints I already know about&lt;/h2&gt;
 &lt;ul&gt;
@@ -178,7 +200,7 @@ research has pointed us to probably since fucking day one.&lt;/li&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;// do things with x
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;let&lt;/span&gt; x &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; Ditch();
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;// do more things with x
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;And if that&amp;rsquo;s too verbose for ya. Check out Haskell. It&amp;rsquo;s like Python but better in every way, including having farrrr fewer parentheses than most languages ever have.&lt;/li&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;And if that&amp;rsquo;s too verbose for ya, those other languages I listed have fairly light syntaxes or means of making syntax light.&lt;/li&gt;
 &lt;li&gt;Inheritance sucks!
 &lt;ul&gt;
 &lt;li&gt;Yes it does! None of the languages I recommended above make you practice that
@@ -190,6 +212,13 @@ Dynamic dispatch is nice and also achievable without. Shitty. Inheritance that l
 &lt;li&gt;&lt;code&gt;Handler -&amp;gt; WebHandler -&amp;gt; ApiHandler -&amp;gt; ApiV2Handler -&amp;gt; ThingThatAlmostDoesHTTP -&amp;gt; ThingThatActuallyDoesHTTP&lt;/code&gt;
 and it juuust gets worse from there.&lt;/li&gt;
 &lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Those languages have no package ecosystem!
+&lt;ul&gt;
+&lt;li&gt;They actually do. It&amp;rsquo;s just not as massive as the &lt;code&gt;npm&lt;/code&gt; ecosystem. Also the &lt;code&gt;npm&lt;/code&gt; ecosystem has a &lt;a href=&#34;https://www.theregister.com/2016/03/23/npm_left_pad_chaos/&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;myriad&lt;/a&gt;
+ of &lt;a href=&#34;https://www.bleepingcomputer.com/news/security/dev-corrupts-npm-libs-colors-and-faker-breaking-thousands-of-apps/&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;issues&lt;/a&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
