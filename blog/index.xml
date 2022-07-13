@@ -148,7 +148,7 @@ END:
 But &lt;code&gt;golang&lt;/code&gt; is &lt;strong&gt;very intentionally&lt;/strong&gt; left off of the list.
 Because of how I write&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-golang&#34; data-lang=&#34;golang&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; err &lt;span style=&#34;color:#ff79c6&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;nil&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;someFootGunValueYouCouldUse&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#ff79c6&#34;&gt;nil&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;someFootGunValueYouCouldUse&amp;#34;&lt;/span&gt;, err
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;every other line, which means it violates the points, &lt;em&gt;well researched and well designed&lt;/em&gt;, and &lt;em&gt;safe by default&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;Java is incredibly verbose. C is unsafe. C++ is opt-in safety, meaning it depends upon your own dutifulness.&lt;/p&gt;
