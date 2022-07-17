@@ -22,9 +22,9 @@
 &lt;h1 id=&#34;the-applications&#34;&gt;The Applications&lt;/h1&gt;
 &lt;h2 id=&#34;echo-server&#34;&gt;Echo Server&lt;/h2&gt;
 &lt;p&gt;I implemented a simple Echo Server and Client in both Rust and Go.&lt;/p&gt;
-&lt;p&gt;Here is the &lt;a href=&#34;https://github.com/joebb97/sandbox/tree/master/rust/echo_net&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;Rust source code&lt;/a&gt;
+&lt;p&gt;Here is the &lt;a href=&#34;https://github.com/joebb97/rust_echo_net/tree/798ede6c0cb9f6de6aad2cc628207e4f86bd76f7&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;Rust source code&lt;/a&gt;
 &lt;/p&gt;
-&lt;p&gt;And here is the &lt;a href=&#34;https://github.com/joebb97/sandbox/tree/master/go/src/echo_net&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;Go source code&lt;/a&gt;
+&lt;p&gt;And here is the &lt;a href=&#34;https://github.com/joebb97/go_echo_net/tree/9711284b37e70a49ed33428c57ff5c6fc17f884f&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;Go source code&lt;/a&gt;
 &lt;/p&gt;
 &lt;p&gt;Both implementations support the same functionality which is sending either TCP or UDP messages from a client to a server and having the server &amp;ldquo;echo&amp;rdquo; back whatever the client sent.&lt;/p&gt;
 &lt;p&gt;An example run looks like this&lt;/p&gt;
