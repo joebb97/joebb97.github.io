@@ -20,7 +20,7 @@
       <description>&lt;h2 id=&#34;the-finished-project&#34;&gt;The Finished Project&lt;/h2&gt;
 &lt;p&gt;It lives &lt;a href=&#34;https://elm-sudoku.netlify.app&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;here on Netlify&lt;/a&gt;
 &lt;/p&gt;
-&lt;p&gt;The source code lives &lt;a href=&#34;https://github.com/joebb97/sandbox/tree/master/elm/sudoku&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;here on GitHub&lt;/a&gt;
+&lt;p&gt;The source code lives &lt;a href=&#34;https://github.com/joebb97/elm_sudoku/tree/master&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;here on GitHub&lt;/a&gt;
 &lt;/p&gt;
 &lt;h2 id=&#34;supported-functionality&#34;&gt;Supported Functionality&lt;/h2&gt;
 &lt;p&gt;This app can solve user specified &lt;a href=&#34;https://en.wikipedia.org/wiki/Sudoku&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;Sudoku&lt;/a&gt;
