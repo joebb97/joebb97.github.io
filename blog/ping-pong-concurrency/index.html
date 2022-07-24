@@ -17,7 +17,7 @@
 <link rel="apple-touch-icon-precomposed" href="https://www.josephbuiteweg.com/favicon.png">
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<link rel="stylesheet" href="https://www.josephbuiteweg.com/css/style.css?rnd=1658082426" />
+<link rel="stylesheet" href="https://www.josephbuiteweg.com/css/style.css?rnd=1658632028" />
 <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
 
 
@@ -111,7 +111,7 @@
 <p>A common introduction to concurrency is the simple task of spawning two threads, then printing &ldquo;ping&rdquo; and &ldquo;pong&rdquo; in order N (N = 5 in the following examples) times.</p>
 <p>This task is a light intoduction to synchronization primitives like mutexes and condition variables, or in more modern-concurrency models, channels / thread-safe queues.</p>
 <p>I figured it&rsquo;d be interesting to see what this task looks like in different programming languages, so I decided to code it in my four favorite programming languages (python, rust, golang, c++, in that order) to get a sense of their concurrency libraries.</p>
-<p>My methodology was to only use native concurrency primitives supported by the languages. Additionally, if a language supported message-passing concurrency via channels as well as traditional Hoare monitors, I wrote an implementation with both models.</p>
+<p>My methodology was to only use native concurrency primitives supported by the languages. Additionally, if a language supported message-passing concurrency via channels as well as traditional Mesa monitors, I wrote an implementation with both models.</p>
 <p>Let&rsquo;s now take a look at the examples. The source code is available in my <a href="https://github.com/joebb97/sandbox" rel="noopener" target="_blank">sandbox monorepo</a>
 (just run <code>$ find . -name ping_pong -type d</code> to locate the specific directories).</p>
 <h2 id="golang">Golang</h2>

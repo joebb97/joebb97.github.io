@@ -241,7 +241,7 @@
 &lt;p&gt;A common introduction to concurrency is the simple task of spawning two threads, then printing &amp;ldquo;ping&amp;rdquo; and &amp;ldquo;pong&amp;rdquo; in order N (N = 5 in the following examples) times.&lt;/p&gt;
 &lt;p&gt;This task is a light intoduction to synchronization primitives like mutexes and condition variables, or in more modern-concurrency models, channels / thread-safe queues.&lt;/p&gt;
 &lt;p&gt;I figured it&amp;rsquo;d be interesting to see what this task looks like in different programming languages, so I decided to code it in my four favorite programming languages (python, rust, golang, c++, in that order) to get a sense of their concurrency libraries.&lt;/p&gt;
-&lt;p&gt;My methodology was to only use native concurrency primitives supported by the languages. Additionally, if a language supported message-passing concurrency via channels as well as traditional Hoare monitors, I wrote an implementation with both models.&lt;/p&gt;
+&lt;p&gt;My methodology was to only use native concurrency primitives supported by the languages. Additionally, if a language supported message-passing concurrency via channels as well as traditional Mesa monitors, I wrote an implementation with both models.&lt;/p&gt;
 &lt;p&gt;Let&amp;rsquo;s now take a look at the examples. The source code is available in my &lt;a href=&#34;https://github.com/joebb97/sandbox&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;sandbox monorepo&lt;/a&gt;
 (just run &lt;code&gt;$ find . -name ping_pong -type d&lt;/code&gt; to locate the specific directories).&lt;/p&gt;
 &lt;h2 id=&#34;golang&#34;&gt;Golang&lt;/h2&gt;
