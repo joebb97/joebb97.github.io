@@ -2316,6 +2316,143 @@ and a strong network of people supporting me along my journey in life. Knowing w
     </item>
     
     <item>
+      <title>Learning by doing: Some Stuff I did in School</title>
+      <link>https://www.josephbuiteweg.com/projects/other-school-projects/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.josephbuiteweg.com/projects/other-school-projects/</guid>
+      <description>&lt;p&gt;I did a fair amount of hands-on learning via projects and labs in school. Here&amp;rsquo;s some summaries of the applied work involved in EECS (electrical engineering + computer science) courses I took.&lt;/p&gt;
+&lt;p&gt;Sadly I can&amp;rsquo;t share source code or implementation details in the spirit of keeping current University of Michigan students honest.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m hoping this catalog can help curious eyes get an idea of what goes into an EECS education.&lt;/p&gt;
+&lt;p&gt;The topics and work mentioned as part of each course are by no-means exhaustive but rather just a summary.&lt;/p&gt;
+&lt;h3 id=&#34;undergrad&#34;&gt;Undergrad&lt;/h3&gt;
+&lt;h6 id=&#34;eecs-270-intro-to-digital-logic-design&#34;&gt;EECS 270: Intro to Digital Logic Design&lt;/h6&gt;
+&lt;ul&gt;
+&lt;li&gt;All labs/projects completed in Verilog flashed onto an FPGA SoC with Switches, Push Buttons, and Hex Displays&lt;/li&gt;
+&lt;li&gt;Synchronous and asynchronous designs, progression from logic gate level design up to Register Transfer Level&lt;/li&gt;
+&lt;li&gt;Signed sum and difference calculator&lt;/li&gt;
+&lt;li&gt;Various Finite State machines: Saturating counter, Traffic light controller&lt;/li&gt;
+&lt;li&gt;Signal delay analysis&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h6 id=&#34;eecs-281-data-structures-and-algorithms&#34;&gt;EECS 281: Data Structures and Algorithms&lt;/h6&gt;
+&lt;ul&gt;
+&lt;li&gt;All projects written in C++&lt;/li&gt;
+&lt;li&gt;Letterman: A program to find paths between words, where steps in the path involve some change to the word&amp;rsquo;s letters. Any combo of: swap letters, modify one letter, delete one letter
+&lt;ul&gt;
+&lt;li&gt;Application of Breadth First Search and Depth First Search through a dictionary of words&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;SillyQL: A toy in-memory SQL implementation which heavily utilized vectors, hash sets and-based BST sets&lt;/li&gt;
+&lt;li&gt;MineEscape: recursive 2D grid movement based on various implementations of a priority queue (sorted vector, binary heap, and pairing heap)&lt;/li&gt;
+&lt;li&gt;Various solutions to dressed up representations of the Traveling Salesman Problem, the Knapsack Problem, and finding Minimum Spanning Trees
+&lt;ul&gt;
+&lt;li&gt;Implementations leverage Prim&amp;rsquo;s algorithm for MST as well as branch and bound solutions to the TSP and Knapsack&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h6 id=&#34;eecs-370-intro-to-computer-architecture&#34;&gt;EECS 370: Intro to Computer Architecture&lt;/h6&gt;
+&lt;ul&gt;
+&lt;li&gt;All projects written in C (for no real reason mind you, lol)&lt;/li&gt;
+&lt;li&gt;An assembler and simulator/emulator for a toy RISC machine called LC2K (little computer 2000)&lt;/li&gt;
+&lt;li&gt;A software simulation of a pipelined implementation of LC2K.&lt;/li&gt;
+&lt;li&gt;An updated assembler and linker of L2CK assembly programs that utilized symbol and relocation tables&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h6 id=&#34;eecs-373-intro-to-embedded-systems&#34;&gt;EECS 373: Intro to Embedded Systems&lt;/h6&gt;
+&lt;ul&gt;
+&lt;li&gt;All labs and final project completed in combinations of ARM v7 thumb assembly, Verilog, and C&lt;/li&gt;
+&lt;li&gt;Labs involving Memory Mapped IO, controlling a Servo Motor from an FPGA fabric, serial protocols (SPI, I2C, UART), various peripherals (i.e Accelerometers), interrupts and polling&lt;/li&gt;
+&lt;li&gt;See parent page for our final project, Auto Otamatone&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h6 id=&#34;eecs-473-advanced-embedded-systems&#34;&gt;EECS 473: Advanced Embedded Systems&lt;/h6&gt;
+&lt;ul&gt;
+&lt;li&gt;Project and Labs completed in C and C++&lt;/li&gt;
+&lt;li&gt;See parent page for our final project, Smart Rooms&lt;/li&gt;
+&lt;li&gt;Labs involved:
+&lt;ul&gt;
+&lt;li&gt;Writing FreeRTOS tasks for Arduino and Raspberry Pi to investigating rate monotonic scheduling&lt;/li&gt;
+&lt;li&gt;A remote controlled car with a LCD screen driver using Zigbee protocol, Arduino, and DC motors&lt;/li&gt;
+&lt;li&gt;Linux device drivers and FreeRTOS tasks on the Raspberry Pi to control DC motors&lt;/li&gt;
+&lt;li&gt;A Computer Vision ping-pong ball chasing car (basically the wheels would turn if it saw the ping-pong ball, nothing fancy like SLAM)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h6 id=&#34;eecs-485-web-systems&#34;&gt;EECS 485: Web Systems&lt;/h6&gt;
+&lt;ul&gt;
+&lt;li&gt;Projects written Python and Javascript&lt;/li&gt;
+&lt;li&gt;Static site-generator utilizing JSON files and Jinja2 Templates&lt;/li&gt;
+&lt;li&gt;Fake instagram app using server-side dynamic pages (Flask, SQL, and Jinja2)&lt;/li&gt;
+&lt;li&gt;Same instagram app using client-side dynamic pages (Flask, SQL, and React)&lt;/li&gt;
+&lt;li&gt;Map-Reduce main work coordinator and worker nodes (implemented as separate Python processes, not separate machines&lt;/li&gt;
+&lt;li&gt;Hadoop pipeline to construct inverted index for primitive search engine (no crawler, documents came from large blob of wikipedia articles). Search Engine frontend in React, backend in Flask + SQL. Pagerank and tf-idf used for returning results&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h6 id=&#34;eecs-482-operating-systems&#34;&gt;EECS 482: Operating Systems&lt;/h6&gt;
+&lt;ul&gt;
+&lt;li&gt;Projects written in C++&lt;/li&gt;
+&lt;li&gt;Concurrent thread program simulating accesses to different sectors of a disk&lt;/li&gt;
+&lt;li&gt;Userspace thread library with support for &amp;ldquo;multiple CPUs&amp;rdquo; (these were just implemented by the instructors as pthreads calling the clients of the library we wrote)&lt;/li&gt;
+&lt;li&gt;A Virtual Memory Pager&lt;/li&gt;
+&lt;li&gt;A Shared Network File System (&amp;ldquo;shanty google drive&amp;rdquo;) based on BSD TCP Sockets, inodes and directory + file locks.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h6 id=&#34;eecs-489-computer-networks&#34;&gt;EECS 489: Computer Networks&lt;/h6&gt;
+&lt;ul&gt;
+&lt;li&gt;Projects written in C and C++ with BSD sockets as well as some Python scripts for automated testing with Mininet&lt;/li&gt;
+&lt;li&gt;Our own implementation of &lt;code&gt;iperf&lt;/code&gt;, which measures throughput of a TCP connection between network nodes.&lt;/li&gt;
+&lt;li&gt;A CDN-like Forward HTTP Proxy that selects appropriate bitrate chunks of a video file requested by various clients&lt;/li&gt;
+&lt;li&gt;A reliable file-transfer client and server using UDP to implement two sliding-window protocols, Cumulative Acknowledgement and Selective Acknowledgement&lt;/li&gt;
+&lt;li&gt;The logic of a basic, static router with a static routing table. Supported ARP, IP Packets and ICMP&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h6 id=&#34;eecs-491-distributed-systems&#34;&gt;EECS 491: Distributed Systems&lt;/h6&gt;
+&lt;ul&gt;
+&lt;li&gt;Projects written in Golang&lt;/li&gt;
+&lt;li&gt;A Map-Reduce main coordinator (using goroutines instead of network nodes)&lt;/li&gt;
+&lt;li&gt;A Fault Tolerant Key-Value Store (a la NoSQL database) using Primary Backup replication&lt;/li&gt;
+&lt;li&gt;A Key-Value store backed by an implementation of Multi-Paxos&lt;/li&gt;
+&lt;li&gt;A non-Fault Tolerant Distributed Hash Table using Consistent Hashing&lt;/li&gt;
+&lt;li&gt;A Strictly Serialized Key-Value Store using Multi-Paxos and Sharding&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;grad&#34;&gt;Grad&lt;/h3&gt;
+&lt;h6 id=&#34;eecs-582-advanced-operating-systems&#34;&gt;EECS 582: Advanced Operating Systems&lt;/h6&gt;
+&lt;ul&gt;
+&lt;li&gt;Read and discussed assigned system design research papers&lt;/li&gt;
+&lt;li&gt;I presented Google&amp;rsquo;s &lt;a href=&#34;https://youtu.be/k7hXSACSS6M&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;Spanner&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;Made improvements to the &lt;a href=&#34;https://github.com/angr&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;angr symbolic execution engine&lt;/a&gt;
+ by porting a faster memory model &lt;a href=&#34;https://github.com/season-lab/memsight&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;memsight&lt;/a&gt;
+ and its dependencies to Python 3, allowing compatibility with the latest versions of angr.
+&lt;ul&gt;
+&lt;li&gt;Here&amp;rsquo;s the &lt;a href=&#34;https://drive.google.com/file/d/1QPO8mytpKYQLwhYYpV3QQgqswOGNI-N8/view?usp=sharing&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;paper we wrote&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;Here&amp;rsquo;s a &lt;a href=&#34;https://drive.google.com/file/d/1e4nfUz-Yt6OpAKQh-TBQUEMvruLs1imW/view?usp=sharing&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;presentation&lt;/a&gt;
+ my teammates and I made for our project&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h6 id=&#34;eecs-586-algorithms&#34;&gt;EECS 586: Algorithms&lt;/h6&gt;
+&lt;ul&gt;
+&lt;li&gt;Homework sets involving proofs of Algorithms concepts&lt;/li&gt;
+&lt;li&gt;I did learn about P and NP in this class which was the most enjoyable part&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h6 id=&#34;eecs-588-advanced-computer-security&#34;&gt;EECS 588: Advanced Computer Security&lt;/h6&gt;
+&lt;ul&gt;
+&lt;li&gt;Read and discussed assigned papers in sidechannel research&lt;/li&gt;
+&lt;li&gt;I presented the &lt;a href=&#34;https://drive.google.com/file/d/1JtojNQMeBst_WjY6bOv2ZyxAjr3RGuMD/view?usp=sharing&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;ARMageddon Cache Attack Paper&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;Implemented the &lt;a href=&#34;https://www.usenix.org/system/files/conference/usenixsecurity15/sec15-paper-gruss.pdf&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;Cache Template Attacks&lt;/a&gt;
+ using the Flush+Flush and Flush+Reload sidechannel primitives
+&lt;ul&gt;
+&lt;li&gt;Here&amp;rsquo;s our &lt;a href=&#34;https://drive.google.com/file/d/1UlQ3ZcLV9ojJhBk7LCD0l9Tr962oMMyW/view?usp=sharing&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;project writeup&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h6 id=&#34;eecs-592-artificial-intelligence&#34;&gt;EECS 592: Artificial Intelligence&lt;/h6&gt;
+&lt;ul&gt;
+&lt;li&gt;Homework sets implemented in Python and exams related to AI concepts like Search, Game Theory, Bayesian Networks, Decision Trees, among other topics&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
       <title>My First Review</title>
       <link>https://www.josephbuiteweg.com/extra/key-review/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

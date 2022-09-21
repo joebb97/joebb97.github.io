@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    
+        
+<meta charset="utf-8">
+<meta name="HandheldFriendly" content="True">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer-when-downgrade">
+
+<title>Learning by doing: Some Stuff I did in School</title>
+<meta name="description" content="Joey&#39;s Personal Website/Blog">
+
+<link rel="alternate" type="application/rss+xml" title="RSS" href="https://www.josephbuiteweg.com/rss/">
+
+<link rel="icon" type="image/x-icon" href="https://www.josephbuiteweg.com/favicon.ico">
+<link rel="apple-touch-icon-precomposed" href="https://www.josephbuiteweg.com/favicon.png">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://www.josephbuiteweg.com/css/style.css?rnd=1663755255" />
+<link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
+
+
+
+
+
+
+
+    
+</head>
+<body>
+    <div class="container">
+        <header class="site-header">
+            
+                <nav class="navbar navbar-expand">
+    <a class="navbar-brand" href="https://www.josephbuiteweg.com/">Joey Buiteweg</a>
+    <div class="navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+            
+            
+            <li class="nav-item"><a class="nav-link" href="/blog/" title="">Blog</a></li>
+            
+            <li class="nav-item"><a class="nav-link" href="/projects/" title="">Projects</a></li>
+            
+            <li class="nav-item"><a class="nav-link" href="/music/" title="">Music</a></li>
+            
+            <li class="nav-item"><a class="nav-link" href="/contact/" title="">Contact</a></li>
+            
+        </ul>
+    </div>
+</nav>
+
+            
+        </header>
+        <main>
+            
+
+    <article class="post">
+        <header class="mt-4 text-center" >
+            <h1 class="post-title">Learning by doing: Some Stuff I did in School</h1>
+            <div class="article-info">
+    
+    by Joey Buiteweg
+    
+    
+    
+    <div class="article-taxonomies">
+        
+            
+    </div>
+</div>
+
+            <hr>
+        </header>
+        
+
+        <div class="content">
+            <p>I did a fair amount of hands-on learning via projects and labs in school. Here&rsquo;s some summaries of the applied work involved in EECS (electrical engineering + computer science) courses I took.</p>
+<p>Sadly I can&rsquo;t share source code or implementation details in the spirit of keeping current University of Michigan students honest.</p>
+<p>I&rsquo;m hoping this catalog can help curious eyes get an idea of what goes into an EECS education.</p>
+<p>The topics and work mentioned as part of each course are by no-means exhaustive but rather just a summary.</p>
+<h3 id="undergrad">Undergrad</h3>
+<h6 id="eecs-270-intro-to-digital-logic-design">EECS 270: Intro to Digital Logic Design</h6>
+<ul>
+<li>All labs/projects completed in Verilog flashed onto an FPGA SoC with Switches, Push Buttons, and Hex Displays</li>
+<li>Synchronous and asynchronous designs, progression from logic gate level design up to Register Transfer Level</li>
+<li>Signed sum and difference calculator</li>
+<li>Various Finite State machines: Saturating counter, Traffic light controller</li>
+<li>Signal delay analysis</li>
+</ul>
+<h6 id="eecs-281-data-structures-and-algorithms">EECS 281: Data Structures and Algorithms</h6>
+<ul>
+<li>All projects written in C++</li>
+<li>Letterman: A program to find paths between words, where steps in the path involve some change to the word&rsquo;s letters. Any combo of: swap letters, modify one letter, delete one letter
+<ul>
+<li>Application of Breadth First Search and Depth First Search through a dictionary of words</li>
+</ul>
+</li>
+<li>SillyQL: A toy in-memory SQL implementation which heavily utilized vectors, hash sets and-based BST sets</li>
+<li>MineEscape: recursive 2D grid movement based on various implementations of a priority queue (sorted vector, binary heap, and pairing heap)</li>
+<li>Various solutions to dressed up representations of the Traveling Salesman Problem, the Knapsack Problem, and finding Minimum Spanning Trees
+<ul>
+<li>Implementations leverage Prim&rsquo;s algorithm for MST as well as branch and bound solutions to the TSP and Knapsack</li>
+</ul>
+</li>
+</ul>
+<h6 id="eecs-370-intro-to-computer-architecture">EECS 370: Intro to Computer Architecture</h6>
+<ul>
+<li>All projects written in C (for no real reason mind you, lol)</li>
+<li>An assembler and simulator/emulator for a toy RISC machine called LC2K (little computer 2000)</li>
+<li>A software simulation of a pipelined implementation of LC2K.</li>
+<li>An updated assembler and linker of L2CK assembly programs that utilized symbol and relocation tables</li>
+</ul>
+<h6 id="eecs-373-intro-to-embedded-systems">EECS 373: Intro to Embedded Systems</h6>
+<ul>
+<li>All labs and final project completed in combinations of ARM v7 thumb assembly, Verilog, and C</li>
+<li>Labs involving Memory Mapped IO, controlling a Servo Motor from an FPGA fabric, serial protocols (SPI, I2C, UART), various peripherals (i.e Accelerometers), interrupts and polling</li>
+<li>See parent page for our final project, Auto Otamatone</li>
+</ul>
+<h6 id="eecs-473-advanced-embedded-systems">EECS 473: Advanced Embedded Systems</h6>
+<ul>
+<li>Project and Labs completed in C and C++</li>
+<li>See parent page for our final project, Smart Rooms</li>
+<li>Labs involved:
+<ul>
+<li>Writing FreeRTOS tasks for Arduino and Raspberry Pi to investigating rate monotonic scheduling</li>
+<li>A remote controlled car with a LCD screen driver using Zigbee protocol, Arduino, and DC motors</li>
+<li>Linux device drivers and FreeRTOS tasks on the Raspberry Pi to control DC motors</li>
+<li>A Computer Vision ping-pong ball chasing car (basically the wheels would turn if it saw the ping-pong ball, nothing fancy like SLAM)</li>
+</ul>
+</li>
+</ul>
+<h6 id="eecs-485-web-systems">EECS 485: Web Systems</h6>
+<ul>
+<li>Projects written Python and Javascript</li>
+<li>Static site-generator utilizing JSON files and Jinja2 Templates</li>
+<li>Fake instagram app using server-side dynamic pages (Flask, SQL, and Jinja2)</li>
+<li>Same instagram app using client-side dynamic pages (Flask, SQL, and React)</li>
+<li>Map-Reduce main work coordinator and worker nodes (implemented as separate Python processes, not separate machines</li>
+<li>Hadoop pipeline to construct inverted index for primitive search engine (no crawler, documents came from large blob of wikipedia articles). Search Engine frontend in React, backend in Flask + SQL. Pagerank and tf-idf used for returning results</li>
+</ul>
+<h6 id="eecs-482-operating-systems">EECS 482: Operating Systems</h6>
+<ul>
+<li>Projects written in C++</li>
+<li>Concurrent thread program simulating accesses to different sectors of a disk</li>
+<li>Userspace thread library with support for &ldquo;multiple CPUs&rdquo; (these were just implemented by the instructors as pthreads calling the clients of the library we wrote)</li>
+<li>A Virtual Memory Pager</li>
+<li>A Shared Network File System (&ldquo;shanty google drive&rdquo;) based on BSD TCP Sockets, inodes and directory + file locks.</li>
+</ul>
+<h6 id="eecs-489-computer-networks">EECS 489: Computer Networks</h6>
+<ul>
+<li>Projects written in C and C++ with BSD sockets as well as some Python scripts for automated testing with Mininet</li>
+<li>Our own implementation of <code>iperf</code>, which measures throughput of a TCP connection between network nodes.</li>
+<li>A CDN-like Forward HTTP Proxy that selects appropriate bitrate chunks of a video file requested by various clients</li>
+<li>A reliable file-transfer client and server using UDP to implement two sliding-window protocols, Cumulative Acknowledgement and Selective Acknowledgement</li>
+<li>The logic of a basic, static router with a static routing table. Supported ARP, IP Packets and ICMP</li>
+</ul>
+<h6 id="eecs-491-distributed-systems">EECS 491: Distributed Systems</h6>
+<ul>
+<li>Projects written in Golang</li>
+<li>A Map-Reduce main coordinator (using goroutines instead of network nodes)</li>
+<li>A Fault Tolerant Key-Value Store (a la NoSQL database) using Primary Backup replication</li>
+<li>A Key-Value store backed by an implementation of Multi-Paxos</li>
+<li>A non-Fault Tolerant Distributed Hash Table using Consistent Hashing</li>
+<li>A Strictly Serialized Key-Value Store using Multi-Paxos and Sharding</li>
+</ul>
+<h3 id="grad">Grad</h3>
+<h6 id="eecs-582-advanced-operating-systems">EECS 582: Advanced Operating Systems</h6>
+<ul>
+<li>Read and discussed assigned system design research papers</li>
+<li>I presented Google&rsquo;s <a href="https://youtu.be/k7hXSACSS6M" rel="noopener" target="_blank">Spanner</a>
+</li>
+<li>Made improvements to the <a href="https://github.com/angr" rel="noopener" target="_blank">angr symbolic execution engine</a>
+ by porting a faster memory model <a href="https://github.com/season-lab/memsight" rel="noopener" target="_blank">memsight</a>
+ and its dependencies to Python 3, allowing compatibility with the latest versions of angr.
+<ul>
+<li>Here&rsquo;s the <a href="https://drive.google.com/file/d/1QPO8mytpKYQLwhYYpV3QQgqswOGNI-N8/view?usp=sharing" rel="noopener" target="_blank">paper we wrote</a>
+</li>
+<li>Here&rsquo;s a <a href="https://drive.google.com/file/d/1e4nfUz-Yt6OpAKQh-TBQUEMvruLs1imW/view?usp=sharing" rel="noopener" target="_blank">presentation</a>
+ my teammates and I made for our project</li>
+</ul>
+</li>
+</ul>
+<h6 id="eecs-586-algorithms">EECS 586: Algorithms</h6>
+<ul>
+<li>Homework sets involving proofs of Algorithms concepts</li>
+<li>I did learn about P and NP in this class which was the most enjoyable part</li>
+</ul>
+<h6 id="eecs-588-advanced-computer-security">EECS 588: Advanced Computer Security</h6>
+<ul>
+<li>Read and discussed assigned papers in sidechannel research</li>
+<li>I presented the <a href="https://drive.google.com/file/d/1JtojNQMeBst_WjY6bOv2ZyxAjr3RGuMD/view?usp=sharing" rel="noopener" target="_blank">ARMageddon Cache Attack Paper</a>
+</li>
+<li>Implemented the <a href="https://www.usenix.org/system/files/conference/usenixsecurity15/sec15-paper-gruss.pdf" rel="noopener" target="_blank">Cache Template Attacks</a>
+ using the Flush+Flush and Flush+Reload sidechannel primitives
+<ul>
+<li>Here&rsquo;s our <a href="https://drive.google.com/file/d/1UlQ3ZcLV9ojJhBk7LCD0l9Tr962oMMyW/view?usp=sharing" rel="noopener" target="_blank">project writeup</a>
+</li>
+</ul>
+</li>
+</ul>
+<h6 id="eecs-592-artificial-intelligence">EECS 592: Artificial Intelligence</h6>
+<ul>
+<li>Homework sets implemented in Python and exams related to AI concepts like Search, Game Theory, Bayesian Networks, Decision Trees, among other topics</li>
+</ul>
+
+        </div>
+    </article>
+    
+
+
+        </main>
+        <footer>
+            
+                <hr></hr>
+<div class="container mb-4">
+    <div class="row">
+        <div class="col pl-0">
+            © Joey Buiteweg, 2022
+            <br>
+            <span>
+             <a target="_blank" rel="noopener" href="https://gohugo.io/">Hugo</a>
+            </span>
+        </div>
+        <div class="col text-right pr-0">
+                <a href="https://www.josephbuiteweg.com/contact/">Contact</a>
+                <br>
+                <a href="https://www.josephbuiteweg.com/extra/misc/">Misc</a>
+        </div>
+    </div>
+</div>
+
+            
+        </footer>
+    </div>
+</body>
+</html>
