@@ -2,10 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://www.josephbuiteweg.com/categories/</loc>
-    <lastmod>2022-07-05T00:00:00+00:00</lastmod>
+    <loc>https://www.josephbuiteweg.com/blog/encouragement/</loc>
+    <lastmod>2022-10-02T17:13:19-04:00</lastmod>
   </url><url>
     <loc>https://www.josephbuiteweg.com/</loc>
+    <lastmod>2022-10-02T17:13:19-04:00</lastmod>
+  </url><url>
+    <loc>https://www.josephbuiteweg.com/categories/</loc>
     <lastmod>2022-07-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.josephbuiteweg.com/blog/pl-rant/</loc>
